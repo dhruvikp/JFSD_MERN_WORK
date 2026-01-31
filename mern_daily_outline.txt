@@ -123,4 +123,5 @@ git remote -v
 git clone <repo> --> To clone any repository in local for any existing repository
 
 
-git branch -b <branch_name>  --> To create new branch
+git checkout -b <branch_name>  --> To create new branch
+git checkout <branch_name> --> to switch to another branch
