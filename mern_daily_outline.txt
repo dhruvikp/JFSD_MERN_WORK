@@ -117,8 +117,7 @@ github
 	- share code with team
 	- work together (collaborate)
 
-git remote add origin https://github.com/dhruvikp/mern_work1.git
-git remote add origin https://github.com/dhruvikp/JFSD_MERN_WORK.git
+
 git remote -v
 
 git clone <repo> --> To clone any repository in local for any existing repository
