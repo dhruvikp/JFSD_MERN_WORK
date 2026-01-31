@@ -1,0 +1,127 @@
+Instructions:
+1. Join on time
+	Late joining disrupts the flow and your own understanding
+
+2. Stay focused during session
+	- Keep your mic mute unless speaking
+	- Avoid parallel work or distractions
+
+3. Ask Questions at right momemnt
+	- Note down your doubts while the topic is being explained
+	- Ask questions at logical end of a topic, not in the middle
+
+4. Daily Practice is mandatory
+	- Practice what is taught every day
+	- Even 30-40 minutes daily is better than long, irregular study
+
+5. Complete Assigned exercises
+	- Exercises will be given after each session
+	- Treat them as non-optional - they are part of the learning process
+
+6. Be consistent and committed
+	- Learning compounds with consistency
+	- Missing sessions or practice will directly affects your progress
+
+This is not just a class - it is a transformation journey.
+
+
+
+
+-- AWS, DOcker, K8s
+
+
+
+
+===================================================================================================================
+31-Jan-2026
+===================================================================================================================
+
+GIT
+
+VCS - Versioning control system
+
+	Tool that helps software developer team to manager changes to the source code over time.
+
+		- Every modification made to the code
+		- developers can go back to earlier versions of the code and compare changes
+
+Two types of VCS
+	1. Centralized VCS	
+		Single server where all versioned files as stored.
+
+		Problem:
+			- if central server fails --> all history made will be lost
+			- Collaboration is limited when disconnected from the server
+
+	Tool : SVN
+
+
+
+	2. Decentralized VCS
+
+		Every developer has local copy of entire repository, including history.
+		Changes can be made locally and later pushed to the central repository when ready.
+
+		Pros:
+			- Every dev has full copy of project's history
+			- Work can be continued offline
+			- More robust against server failures.
+
+		cons:
+			- More disk space
+
+	Tool: GIT
+
+
+	Two types of storage:
+
+	1. Snapshot based storage (Git)
+
+		takes snapshot of entire project directory at time of each commit
+
+
+	2. Delta based storage (C- VCS SVN)
+
+		initial change --> delta1 --> delta2
+
+		space efficient --> very slow down performance
+
+
+Git File System
+
+	Working directory 		--> 		Staging area 			--> 		Repository (Local Git DB)
+	 (files)							ready to commit 					final submitted changes
+
+
+Commands
+
+git --version
+git init
+git status
+git add <fileName>
+git commit -m "<COMMIT_MESSAGE>"
+git log			 Display all commits
+git log --oneline
+git config 
+	used to set and read git settings like username, email, aliases etc
+git config --global user.name "Dhruvik Parikh"
+git config --global user.email "dhruvik@simplilearn.com"
+
+
+
+
+github
+	cloud platform to store git repositories and collaborate
+
+	- backup code online
+	- share code with team
+	- work together (collaborate)
+
+git remote add origin https://github.com/dhruvikp/mern_work1.git
+git remote add origin https://github.com/dhruvikp/JFSD_MERN_WORK.git
+git remote -v
+
+git clone <repo> --> To clone any repository in local for any existing repository
+
+
+git branch -b <branch_name>  --> To create new branch
