@@ -29,12 +29,83 @@ This is not just a class - it is a transformation journey.
 
 -- AWS, DOcker, K8s
 
+https://github.com/dhruvikp/JFSD_MERN_WORK
 
 ===================================================================================================================
 01-Feb-2026
 ===================================================================================================================
 
 
+	--> Install Visual Studio Code tool
+	--> Install extension - Liveserver
+
+
+HTML
+What is HTML?
+	HTML (Hypertext markup language) is the standard language used to create web pages.
+	It tells browser what content to show and how it is structured, (not how it looks (CSS))
+
+	HTML works using tags.
+
+
+	Concept:
+	Every HTML page follows a basic structure:
+		- <!DOCTYPE html> --> tells browser this is HTML page
+		- <html> -- root element
+		- <head>  - meta info (not visible)
+		- <body>  - Visible content
+
+
+Header tags
+	<h1> -- Largest
+	<h2> ... <h6> ---> Smaller sub-headings
+
+HTML images are used to display pictures/graphics on a web page.
+
+HTML Table:
+<table> 	-- Defines table
+<tr>		-- Table row
+<td>		-- Table data
+<th>		-- Table header
+
+rowspan -- merges multiple rows into one cell.
+colspan - merges multiple columns into one cell.
+
+HTML Forms:
+ An HTML Form is used to collect user input and send it to a server for processing.
+
+Examples:
+	- Login form
+	- Registration form
+	- Feedback form
+	- Search box
+	- payment form
+
+Forms uses <form> tag and different input elements
+<form>
+	-- different form elements
+</form>
+
+FORM Attributes
+action -- URL where form data is send
+method - HTTP method : GET or POST
+
+
+	GET - Get information from server
+	POST - Send information to server
+
+Exercise:
+Design Student Information Portal using pure HTML
+	- Display student informaiton
+	- Show student records in tabular format
+	- Collect student information thorugh a form
+
+ 1. Student profile image
+ 2. Student details table
+ 		rollno, nae, course, year, email ....
+
+ 3. Course Registration form
+ 	- Student name, email, password, gender, skills, course selection, dob, submit, reset
 
 
 
@@ -114,7 +185,9 @@ git config --global user.name "Dhruvik Parikh"
 git config --global user.email "dhruvik@simplilearn.com"
 
 
-
+git remote add origin <>
+git push origin master
+git pull origin master
 
 github
 	cloud platform to store git repositories and collaborate
