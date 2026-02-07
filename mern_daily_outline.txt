@@ -31,6 +31,14 @@ This is not just a class - it is a transformation journey.
 
 https://github.com/dhruvikp/JFSD_MERN_WORK
 
+
+
+===================================================================================================================
+07-Feb-2026
+===================================================================================================================
+
+
+
 ===================================================================================================================
 01-Feb-2026
 ===================================================================================================================
@@ -106,6 +114,282 @@ Design Student Information Portal using pure HTML
 
  3. Course Registration form
  	- Student name, email, password, gender, skills, course selection, dob, submit, reset
+
+
+===================================================================================================================
+08-Feb-2026
+===================================================================================================================
+
+ 	how to use align-itmes? 
+ 	What about align margin padding animation box sizing etc
+
+ 	pseudoelement and pseudo class --> 
+
+ 	bootstrap - 
+
+ 	flex, box model -->
+
+
+===================================================================================================================
+07-Feb-2026
+===================================================================================================================
+ID attribute in HTML
+
+	Uniquely identifies one element
+
+	<h1 id="pageTitle"> </h1>
+	ID is for identity
+
+Class attribute in HTML
+	Groups multiple elements
+	Reusable styling
+
+
+	<p class="card"> </p>
+	<p class="card"> </p>
+
+	.card {
+		color: green;
+	}
+
+
+Header element
+<header> - Used for page header (section header)
+
+	Logo, Website Title, Navigation
+
+	The <header> tag explicitly tells search engine (like google) that the content inside is introductory. When crowsers see a <header> tag, they quickly identify site name, logo, and primary navigation, which helps them to understand site's hierarchy and purpose for more efficiency.
+
+
+	Better redability
+	Accesibility
+
+<footer> 
+	A sementic element used for:
+		- copyright info
+		- Contact details
+		- Legal links
+
+
+nav, section, article, time and abbr
+
+Problem:
+	- No meaning
+	- Poor SEO
+	- Poor accessibility
+
+Semantic HTML:
+- Explains what the content is
+- Helps search engine & screen readers
+- Makes code redable & mainable.
+
+<nav>
+	Represents a section containing navigation links.
+
+	- Menus
+	- Navigation bars
+
+<section>
+	Represents a thematic group of content
+
+	Think of it as a chaper in a book.
+
+	- Group related content
+	- Each section usually has a heading
+
+	Key Rule:
+		- A <section> should have a heading (h1-h6)
+
+
+<article > - Independent content unit
+	
+	Represents self-contained content that can stand alone.
+
+	Examples:
+		- blog post
+		- News article
+		- Product card
+		- Comment
+
+
+<time> - Machine-Readable dates and time
+
+Represents date or time in a machine-readable format.
+
+Helps:
+	- SEO
+	- Search engines
+
+WHy use <time< instead of plain text?
+	Browsers and search engine understand - published on this date.
+
+
+<abbr> - Abbrevation and Acronym
+	Defines an abbrevation with its full meaning.
+
+
+<main> - semantic element defines, primary, and unique content of an HTML element.
+It serves as a central hub of your webpage, core information that users are visiting page.
+
+Key rules:
+	- Only One per page.
+	- Unique content only
+
+	SHould not add <nav> headers, <article> inside main	
+
+HTML5
+	- Fifth and latest major version of HTML
+
+	Multimedia - Older versions, rely on external plugins
+				- HTML5 - <video> <audio>
+
+	Structurs	- Relied heavily on <div>
+				- tags with clear meaning with all semantic elements
+
+	Doctype		- complex and lengthy doctype decrations
+				- 
+
+				<svg>
+
+
+CSS?
+	Types of CSS?
+	CSS Selectors
+
+	CSS color property
+	Text styling, formatting etc.
+
+
+CSS - Cascading style sheets
+
+CSS is used to control how HTML elements look on the webpage.
+HTML - What element is
+CSS - How the content looks
+
+What CSS can do?
+	- change colors and fonts
+	- Control spacing (margine, padding)
+	- Create layouts (colomns, sections)
+	- Add hover effects
+	- Makes more responsive for mobile and desktop.
+
+
+Types of CSS:
+Inline
+	- Quick testing
+	- One-time styling.
+
+	- Not use for real projects
+Internal:
+	- Written inside a <style> tag under head tag.
+
+	- use for small projects
+	- Single page demos
+	- Learning and practice only
+
+External CSS
+	- Write seperate CSS file with .css extension and linked that file to your html.
+
+	- Clean HTML
+	- Reusable styles
+	- Easy to maintain
+	- Faster loading	
+
+Inline > Internal > External
+
+
+CSS selector:
+	A selector is used to select HTML elements so we can apply styles to them
+
+	selector {
+		property: value;
+	}
+
+Basic Selector
+	a. Universal selector
+		Selects ALL elements on the page.
+
+		* {
+
+		}
+
+		- Reset default browser styles
+		- Apply some common base styling.
+
+	b. Type/Element selector
+
+		Selects all elemnts of specific HTML tag.
+		p {
+
+		}
+
+
+	c. Class selector
+		Selects multiple elements with the same class name.
+
+		.className {
+
+		}
+
+		padding - space inside the frame 
+
+		margine - space between frames on the wall.
+
+		- Reusable
+		- Most commonly used selector.
+
+
+	d. ID selector
+
+	Selects one unique element.
+	#idName {
+		propery: value;
+	}
+
+	ID must be unique
+	DO not reuse IDs
+
+	e. Attribute selector
+
+		selects elements based on the presence of value of an attribute.
+
+		[attribute] {
+
+		}
+
+		[attribute="value"] {
+
+		}
+
+		used in form styling
+		targetting links
+
+	
+Grouping selector
+	a. Descendant selector
+
+	Selects all matching elements inside another element, at any depth level.
+
+	ancestor descendant {
+		propery: value;
+	}
+
+
+
+	b. Child selector
+
+		Selects only direct children, not deeper nested elements.
+
+		parent > child {
+			property: value;
+		}
+
+
+<p> This is a sentence where i only want the <span class="last-word">last</span> </p>
+.last-word {
+	text-decoration: underline;
+	text-decoration-color: blue;
+}
 
 
 
