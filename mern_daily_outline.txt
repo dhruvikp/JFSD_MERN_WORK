@@ -120,14 +120,310 @@ Design Student Information Portal using pure HTML
 08-Feb-2026
 ===================================================================================================================
 
- 	how to use align-itmes? 
- 	What about align margin padding animation box sizing etc
+ Extra topics on demand:	
+ 		CSS animation
+	 	pseudoelement and pseudo class --> 
+ 		flex, box model
+ 			how to use align-itmes? 
 
- 	pseudoelement and pseudo class --> 
+CSS Text styling & Formatting
+	1. color - Controls the color of text inside an element
+		p {
+			color: blue;
+		}
 
- 	bootstrap - 
+		color values:
+			Named colors - 
+			HEX (#ff0000)
+			RGB (rgb(255,0,0))
 
- 	flex, box model -->
+	2. Text Identation (text-ident)
+		Controls space before the line of text.
+
+		p {
+			text-ident:40px
+		}
+
+		- Paragraph format
+
+	3. Text alignment (text-align)
+		Controls horizontal alignment of text.
+
+		Values:
+			left
+			right
+			center
+
+		h1 {
+			text-align: center;
+		}
+
+
+	4. Text decoration (text-decoration)
+		Adds or remove lines on text.
+
+		Values:
+			- none
+			- underline
+			- overline
+			- line-through
+
+
+	5. Letter spacing (letter-spacing)
+		Controls space between characters.
+
+		h2 {
+			letter-spacing: 2px;
+		}
+
+		d h r u v i k 
+
+
+CSS Topography
+
+	Topography - art of styling and arranging text to make content readable , clear and visually appealing.
+
+
+	1. font-family
+		Defines which font is used for text.
+
+
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+	2. font-size
+		px - fixed
+		em - relative to parent
+		rem - relative to root (html)
+
+	3. font-weight
+		Controls thickness of text.
+
+		values:
+			normal
+			bold
+			100-900
+
+	4. font-style
+		style text of normal or italic.
+
+
+	5. line-height 
+		controls spaces between lines of text.
+
+		ddd	
+
+		p {
+			line-height: 1.5;
+		}
+
+	6. letter-spacing
+		controls space between characters
+
+
+	7. word-spacing
+		controls space between words.
+		Dhruvik parikh
+
+	8. text-transform
+		changes case of text.
+
+		uppercase
+		lowercase
+		capitalize
+
+
+CSS Border:
+ 	Line drawn around an HTML element, separating it from other elements.
+
+ 	A border is made up of three parts:
+ 		1. Border width
+ 		2. Border style
+ 		3. Border color
+
+ 	selector {
+ 		border: width style color
+ 	}
+
+ 	div {
+ 		border: 2px solid black;
+ 	}
+
+ 	Border style:
+ 		- solid 	- continuous straight line
+ 		- dotted	- small dots
+ 		- dashed	- short dashes
+
+
+CSS Background image
+
+	body {
+		backound-image: url("");
+
+	}
+
+CSS positioning
+--------------
+	
+	CSS positioning controls how an element is placed on the page. 
+	and behaves when the page is scrolled or resozed.
+
+Position - decies where an element lives on the page.
+
+positioning works with two things together:
+	1. position:
+	2. offset properties
+		(works only when position is NOT static)
+
+
+position: static
+	- Default position for all elements
+	- top, left, etc do not work.
+
+
+.box {
+	position: static;
+	top: 50px ; // ignored
+}
+
+Key points
+	- No special positioning.
+	- can not move element
+	- Default behavior.
+
+
+posion: relative
+	- Element stya in the normal flow
+	- Can be moved relative to its original position.
+
+
+position: absolute
+
+	- Removed from normal document flow
+	- position relative to nearest positioned ancestor.
+	- if no positioned parent --> relative to <body>
+
+Absolute always looks for a positioned parent.
+
+uscase:	
+	- tooltip
+
+position: fixed
+	- Positioned relative to viewport (visible area of the webpage on your screen)
+	- Sticky header
+
+
+
+Psuedo element
+	used to style a specific part of an element 
+
+	::before		: Insert content before element
+	::after 		: Insert content after element
+	::first-letter	: Style first letter
+	::first-line	: Style first line
+	::selection	    : Style selected text
+
+
+	select::pseudo-class {
+	
+	}
+
+
+Pseudo class
+	Styles based on state of an element, 
+
+	selector:pseudo-class {
+
+	}
+
+:hover
+:active - Applies style while the element is being clicked.
+:focus - Applies style when an element (input, textarea, button) receives focus.
+:link - Style unvisited links <a> tag only
+:visited - Styles visited links
+
+
+Note:
+	Always define link-related pseudo-classes in this order:
+	:link --> :visited --> :hover --> :active
+
+
+Structural pseudo classes
+	list
+
+	li:first-child {
+
+	}	
+
+	li:last-child {
+
+	}
+
+	li:nth-child(odd) {
+
+	}
+
+
+
+
+
+Exercise:
+
+	Build product listing page for small e-commerce website
+
+		- Display page title at the top
+		- Show multiple product cards.
+		- Each product card must include
+			- product name
+			- short description
+			- Price
+			- availablibility status
+
+
+Self study :
+	- box,  flex and grid container
+
+	Box model:
+		treated as rectangular box
+
+	Flexbox model:
+		Layout model --> arrange items in one direction (row/column)
+
+		flexbox makes centering easy
+
+		display: flex;
+
+		<div class="parent">
+			<p class="child">
+			<p>
+			<p>
+		
+
+		</div>
+
+		flex container --> parent
+		flex items --> children
+
+		Main axis - default -- row
+
+
+		.parent {
+			display: flex;
+			align-items: center
+
+		}
+
+
+		CSS Grid (Two Dimentional layout)
+
+		-- rows
+		-- columns
+
+		display: grid;
+
+		grid-template-columns: 1fr 1fr 1fr
+		gap:10px;
 
 
 ===================================================================================================================
