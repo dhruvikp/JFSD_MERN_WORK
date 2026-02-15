@@ -31,89 +31,286 @@ This is not just a class - it is a transformation journey.
 
 https://github.com/dhruvikp/JFSD_MERN_WORK
 
-
-
 ===================================================================================================================
-07-Feb-2026
+14-Feb-2026
 ===================================================================================================================
+Agenda:
+	What is JS? Adv of JS?
+	JS Variable, var, let, const
+	JS Primitive types, Dynamic types
+	JS Object, Arrays(Push,pop, Unshift, shift), Functions, DOM and HTML JS interaction
+
+
+What is JavaScript?
+	JavaScript is a programming language used to make web pages interactive and dynamic.
+
+Without jvascript, a website is mostly static (just text and images)
+
+	- Respond to user actions (clicks, typing)
+	- Change content without reloading page.
+	- Validations and logic
+
+
+HTML - Structure
+CSS - Style
+JS - Behavior
+
+Benefits:
+	- Runs in the browser (Fast)
+	- Makes website Interactive
+		Clicks, sliders, popups, live updates without reload
+
+	- Easy to learn
+	- Portable - write once, run it anywhere (browser)
+	- Huge Ecosystem
+		- React, Angular, Vue
+	- versatile language
+		You can build, websites, webapps, mobile apps, desktop apps.
+
+
+Installation:
+	- Install plugin - Code runner from VS Code
+	- install nodejs
+
+
+JavaScript Primitive DataTypes
+
+	Primitive Types are basic data tpes in JS, that store single, simple values.
+	Why?
+		- Represent fundamental values (number, text, true/false etc)
+		- Fast and memory efficient
+		- Immutable (cannot be changed directly)
+
+	JS has 7 primitive types
+	1. Number
+		Represents both integers and decimal
+	
+	age, salary, product price, quantity
+
+
+	2. string
+	Represents Text data.
+
+	Name, message, labels
+
+	3. Boolean
+		Represents value true/false.
+
+		Login status,validations, conditions
+
+	4. Undefined
+		A variable that is declared but not assigned
+
+	- Represents missing data, optional values
+
+
+	5. Null
+		Represents Intentional absence of value
+
+	- Clear values
+	- no selected item
+
+	6. Bigint
+		Used for very large numbers beyond safe integer limit
+
+	Represents 
+	-	Financial system
+	-  	Large IDs
+
+	7. Symbol
+
+		Represents unique identifiers
+
+	let id = Symbol("id");
+
+	Real-world usecase:
+		- Unique object keys
 
 
 
-===================================================================================================================
-01-Feb-2026
-===================================================================================================================
+Question1: let id=symbol("id") --> both name should be same right?(in this case id?)
 
 
-	--> Install Visual Studio Code tool
-	--> Install extension - Liveserver
+HTML DOM ? (Document Object Model)
+	Tree like object representation of an HTML page created by browser.
+
+It allows javaScript to:
+	- Read HTML
+	- Change HTML content
+	- Add or remove elements
+	- Handle events
+
+	Browser converts HTML --> DOM Tree
+
+	Important points:
+		- DOM is not HTML
+		- DOM is a Object Model.
 
 
-HTML
-What is HTML?
-	HTML (Hypertext markup language) is the standard language used to create web pages.
-	It tells browser what content to show and how it is structured, (not how it looks (CSS))
+DOM Nodes:
+	A node is any item in the DOM tree.
 
-	HTML works using tags.
-
-
-	Concept:
-	Every HTML page follows a basic structure:
-		- <!DOCTYPE html> --> tells browser this is HTML page
-		- <html> -- root element
-		- <head>  - meta info (not visible)
-		- <body>  - Visible content
+	Types of DOM Nodes:
+		1. Element Node - <p>, <div>
+		2. Text Node - Text inside an element
+		3. Attribute Node - id, class
+		4. Comment Node - <!-- comment -->
 
 
-Header tags
-	<h1> -- Largest
-	<h2> ... <h6> ---> Smaller sub-headings
-
-HTML images are used to display pictures/graphics on a web page.
-
-HTML Table:
-<table> 	-- Defines table
-<tr>		-- Table row
-<td>		-- Table data
-<th>		-- Table header
-
-rowspan -- merges multiple rows into one cell.
-colspan - merges multiple columns into one cell.
-
-HTML Forms:
- An HTML Form is used to collect user input and send it to a server for processing.
-
-Examples:
-	- Login form
-	- Registration form
-	- Feedback form
-	- Search box
-	- payment form
-
-Forms uses <form> tag and different input elements
-<form>
-	-- different form elements
-</form>
-
-FORM Attributes
-action -- URL where form data is send
-method - HTTP method : GET or POST
+	DOM Element:
+		DOM elements are specific type of node that represent HTML tags.
 
 
-	GET - Get information from server
-	POST - Send information to server
+		<p class="test"> Hello </p>
 
-Exercise:
-Design Student Information Portal using pure HTML
-	- Display student informaiton
-	- Show student records in tabular format
-	- Collect student information thorugh a form
+		<div id="box"></div>
 
- 1. Student profile image
- 2. Student details table
- 		rollno, nae, course, year, email ....
+		<div> -- DOM element
+		id-"box" --> attribute node
 
- 3. Course Registration form
- 	- Student name, email, password, gender, skills, course selection, dob, submit, reset
+	
+	DOM Methods:
+		DOM Methods are functions provided by the browser to access and manipulate HTML elements
+
+
+	1. getElementById
+		document.getElementById("title");
+
+
+	2. querySelector
+	elem =	document.querySelector("#box")
+
+	3. document.querySelectorAll("p");
+
+
+	elem.innnerHTML="<b>Hello</b>"
+	elem.style.color="red";
+
+	element = document.createElement("div");
+
+	element.appendChild(child);
+	element.remove();
+
+
+JavaSCript - Dynamic Type language
+
+	let a = 4;
+
+	Makes code very faster
+	easy to understand
+	flexible to write code
+
+
+	Type is detected automatically at runtime, not compiletime
+
+
+JavaScript Function:
+	
+	A Function is a block of reusable code that performs specific task.
+
+	- Avoid code repetition
+	- Organize code
+	- Improve redability
+
+
+JavaScript Object
+
+JavaScript Array
+	Array is a data structure used to store multiple values in a single variable, in an ordered way.
+
+	Why?
+		- It stores list of data
+		- Access value by its position
+		- Loop and process multiple values easily
+
+	To add elemnents:
+		- push -- Add element at end
+		- Unshift -- Add element at start
+
+JS Operators 
+-------------
+
+Operators are symbols used to perform operations on values and variables.
+
+They allow JavaScript to:
+	- Calculate values
+	- Compare data
+	- Make decidions
+	- Assign values
+
+	etc
+
+
+1. Arithmatic Operators:
+
+	+, -, *, /, %, **
+
+	a**b = 
+
+2. Assignment Operators:
+	
+	Assign values to variable.
+
+	=, +=, -=
+	x=10
+	x += 5; // x= x+5;
+	x -=5; // x=x-5;
+
+
+3. Comparision Operators:
+	Compare two values and return true or false.
+
+	==	--> Equal(value)
+	=== --> Equal(value + type)
+	!=	
+	!==	
+	>,<, >=, <=
+
+4. Logical Operators:
+	
+	Combine or invert conditions
+
+	&& - AND
+	||
+	! 
+
+5. Unary Operators
+	++	- Increment by 1
+	--  -- Decrement by 1
+	type of	- Type check
+
+
+6. Ternary Operator
+	Short hand if-else
+
+	condition ? value1 : value2;
+
+7. String operators:
+
+
+
+
+Simple calculator:
+
+Calculator object
+	add
+	sub
+	mul
+	div
+
+
+
+calc.add()
+
+	
+
+
+
+
+
+	
+
+	
 
 
 ===================================================================================================================

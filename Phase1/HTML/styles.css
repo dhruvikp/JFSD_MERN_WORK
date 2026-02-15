@@ -26,3 +26,25 @@ input[type="text"] {
     color: green;
     font-size: 16px;
 }
+
+.page-container {
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center;     /* Vertical centering */
+  height: 100vh;           /* Full viewport height */
+  background-color: #f0f0f0;
+}
+
+.card {
+  /* Content size */
+  width: 250px;
+  
+  /* Layers of the Box Model */
+  padding: 20px;           /* Space inside the card */
+  border: 5px solid #333;  /* The visible frame */
+  margin: 10px;            /* Space outside the border */
+  
+  background-color: white;
+  text-align: center;
+  box-sizing: border-box;  /* Includes padding/border in the 250px width */
+}
