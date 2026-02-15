@@ -31,6 +31,266 @@ This is not just a class - it is a transformation journey.
 
 https://github.com/dhruvikp/JFSD_MERN_WORK
 
+
+===================================================================================================================
+16-Feb-2026
+===================================================================================================================
+
+
+
+===================================================================================================================
+15-Feb-2026
+===================================================================================================================
+Agenda:
+	- Control flow statements 
+		if else, switch case, for while, do while, for..in, for..of, break, continue
+
+	- Object cloning, Object factory method, Object constructor fn
+	- Math object
+	- String object
+	- template laterals
+	- Arrow function
+	- Arrays (Splice, sort, filters, reduce, map etc)
+
+
+JS Controlflow statements:
+------------------------
+	Control flow statements decides which code runs, when it runs , and how many times it runs.
+
+	Control flow == Decision making + looping.
+
+
+1. if, else
+
+	Executes code only if a condition is true.
+
+
+2. Switch
+	Used when one value is compared against multiple cases.
+
+3. Looping statements:
+	
+	3.1 : for loop
+
+	when number of iteration is known.
+
+	3.2 : while loop
+		when condition is checked before execution
+
+
+	3.3: do..while loop
+		Code runs at least once.
+
+4. Loop control statements
+	break, continue
+
+5. Ternary operator (Control flow shortcut)
+
+
+for..in
+	Loops over the keys (property names) of an object.
+
+ Iterate over object properties
+
+
+ for..of
+ 	Loops over values of iterable objects
+
+ 	clean way to iterator over arrays, strings
+ 	you get direct access to values
+
+
+
+Object cloning - JS
+---------------------
+Object cloning means creating new object that has the same properties and values as an existing object.
+
+
+Why?
+ - Objects are reference types
+ - If you copy an object , both variants point to the same memory
+
+ user: {}
+ empl = user;
+
+
+ Two types of object cloning
+
+ 1. Shallow Cloning
+
+ 	Shallow cloning copies only top-level properties.
+ 	Nested objects are still shared by reference.
+
+ 	Fast
+ 	simple
+ 	works when object has no nested objects.
+
+ 	Imp: Spread syntax (...)
+
+
+ 	Method 2: Object.assign()
+
+
+
+ 2. Deep Cloning
+
+ 	Deep cloning copies all level of the object, including nested object.
+
+ 	Method 1: JSON.parse(JSON.stringify())
+
+ 		Limitations:
+ 			- Loses functions
+ 			- Undefined is ignored
+ 			- Date becomes string
+
+ 	Method 2: structuredClone() (Modern & Best)
+
+
+Object creation:
+Why Object creation patterns matter?
+	- Object represents real-word entities (User, Product, Person).
+
+	When creating many similar objects, how ou create then affects:
+		- code reuse
+		- Maintainability
+		- Memory usage
+		- Scalability
+
+	Manual object creation causes duplication and poor scalability.
+
+Method1: Factory function:
+		A normal function that returns a new object.
+
+		code reuse
+		cleaner
+		more sclable than literals
+
+	 Factory functions resuse structure but waste memory on methods.
+
+	 	Problem:
+	 		- Manual assignments
+	 		- Ugly for many method
+	 		- Error prone
+
+Method 2: Prototype based factory 
+	
+	A better factory that uses prototypes.
+
+	const personsMethods1 = {
+    getFullName() {
+        return this.firstName + " "+this.lastName;
+    }
+};
+
+
+ function createPerson2 (firstName, lastName) {
+        let person = Object.create(personsMethods);
+        person.firstName = firstName;
+        person.lastName = lastName;
+
+        return person;
+}
+
+	Why this better:
+		- Methods live in one place
+		- Objects share methods via prototype
+		- Memory efficient
+
+Method 3: Constructore Function (Industry standard)
+		A special function with new keyword to create objects.
+
+
+function Person(firstName, lastName){
+    this.firstName = firstName;
+    this.lastName = lastName;
+}
+
+let p11 = new Person("A","B");
+
+Internally:
+	- create a new empty object
+	- Sets prototype to Person.prototype
+	- Binds this to new object
+	- Returns object automatically
+
+
+NOte: Constructor functions must start with a capital letter.
+
+Math obj:
+	Built in JS object that provides mathematical constants and functions.
+
+	Why?
+		- Perform calculations
+		- Handle rouding
+		- Generate random numbers
+		- Avoid writing complex math logic manually.
+
+	Math.round() - Rounds to nearest integer
+	Math.floor() - Rounds down.
+	Math.ceil()
+	Math.trunc() - Removes decimal part
+
+
+	-1.2
+	-1.2
+
+String obj
+	String - text data
+
+	'
+Template Literals
+ Modern way to create and work with string in javascript.
+ They use backticks instead of quotes.
+
+ WHy?
+ 	- Easier string concatenation
+ 	- Embed variables directly
+ 	- Supports Multi-line strings
+ 	- cleaner and more readable code
+
+
+
+----------------------
+JS Arrow function
+
+	An Arrow function is a shorter syntax for writing functions in JS
+
+	() => {}
+	Less code
+	cleaner syntax
+
+
+-----------------------
+map() - Transform Array
+
+	creates a new array by transforming each element.
+
+	- convert data
+	- format values
+	- apply some logic to all items
+
+filter() - Select elements
+	
+
+reduce() - Accumulate to single value
+	
+	Sum
+	Count
+	Group
+
+
+	array.reduce(  (accumulator, current) => {}, initialValue    )	
+
+
+	sort
+	splice - modifies original array by adding or removing elements
+
+	array.splice(startIndex, deleteCount, item1, item2);
+
+	
+
+
+
 ===================================================================================================================
 14-Feb-2026
 ===================================================================================================================
