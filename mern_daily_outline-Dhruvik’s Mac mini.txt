@@ -1,0 +1,1243 @@
+Instructions:
+1. Join on time
+	Late joining disrupts the flow and your own understanding
+
+2. Stay focused during session
+	- Keep your mic mute unless speaking
+	- Avoid parallel work or distractions
+
+3. Ask Questions at right momemnt
+	- Note down your doubts while the topic is being explained
+	- Ask questions at logical end of a topic, not in the middle
+
+4. Daily Practice is mandatory
+	- Practice what is taught every day
+	- Even 30-40 minutes daily is better than long, irregular study
+
+5. Complete Assigned exercises
+	- Exercises will be given after each session
+	- Treat them as non-optional - they are part of the learning process
+
+6. Be consistent and committed
+	- Learning compounds with consistency
+	- Missing sessions or practice will directly affects your progress
+
+This is not just a class - it is a transformation journey.
+
+
+
+
+-- AWS, DOcker, K8s
+
+https://github.com/dhruvikp/JFSD_MERN_WORK
+
+
+===================================================================================================================
+16-Feb-2026
+===================================================================================================================
+
+
+
+===================================================================================================================
+15-Feb-2026
+===================================================================================================================
+Agenda:
+	- Control flow statements 
+		if else, switch case, for while, do while, for..in, for..of, break, continue
+
+	- Object cloning, Object factory method, Object constructor fn
+	- Math object
+	- String object
+	- template laterals
+	- Arrow function
+	- Arrays (Splice, sort, filters, reduce, map etc)
+
+
+JS Controlflow statements:
+------------------------
+	Control flow statements decides which code runs, when it runs , and how many times it runs.
+
+	Control flow == Decision making + looping.
+
+
+1. if, else
+
+	Executes code only if a condition is true.
+
+
+2. Switch
+	Used when one value is compared against multiple cases.
+
+3. Looping statements:
+	
+	3.1 : for loop
+
+	when number of iteration is known.
+
+	3.2 : while loop
+		when condition is checked before execution
+
+
+	3.3: do..while loop
+		Code runs at least once.
+
+4. Loop control statements
+	break, continue
+
+5. Ternary operator (Control flow shortcut)
+
+
+for..in
+	Loops over the keys (property names) of an object.
+
+ Iterate over object properties
+
+
+ for..of
+ 	Loops over values of iterable objects
+
+ 	clean way to iterator over arrays, strings
+ 	you get direct access to values
+
+
+
+Object cloning - JS
+---------------------
+Object cloning means creating new object that has the same properties and values as an existing object.
+
+
+Why?
+ - Objects are reference types
+ - If you copy an object , both variants point to the same memory
+
+ user: {}
+ empl = user;
+
+
+ Two types of object cloning
+
+ 1. Shallow Cloning
+
+ 	Shallow cloning copies only top-level properties.
+ 	Nested objects are still shared by reference.
+
+ 	Fast
+ 	simple
+ 	works when object has no nested objects.
+
+ 	Imp: Spread syntax (...)
+
+
+ 	Method 2: Object.assign()
+
+
+
+ 2. Deep Cloning
+
+ 	Deep cloning copies all level of the object, including nested object.
+
+ 	Method 1: JSON.parse(JSON.stringify())
+
+ 		Limitations:
+ 			- Loses functions
+ 			- Undefined is ignored
+ 			- Date becomes string
+
+ 	Method 2: structuredClone() (Modern & Best)
+
+
+Object creation:
+Why Object creation patterns matter?
+	- Object represents real-word entities (User, Product, Person).
+
+	When creating many similar objects, how ou create then affects:
+		- code reuse
+		- Maintainability
+		- Memory usage
+		- Scalability
+
+	Manual object creation causes duplication and poor scalability.
+
+Method1: Factory function:
+		A normal function that returns a new object.
+
+		code reuse
+		cleaner
+		more sclable than literals
+
+	 Factory functions resuse structure but waste memory on methods.
+
+	 	Problem:
+	 		- Manual assignments
+	 		- Ugly for many method
+	 		- Error prone
+
+Method 2: Prototype based factory 
+	
+	A better factory that uses prototypes.
+
+	const personsMethods1 = {
+    getFullName() {
+        return this.firstName + " "+this.lastName;
+    }
+};
+
+
+ function createPerson2 (firstName, lastName) {
+        let person = Object.create(personsMethods);
+        person.firstName = firstName;
+        person.lastName = lastName;
+
+        return person;
+}
+
+	Why this better:
+		- Methods live in one place
+		- Objects share methods via prototype
+		- Memory efficient
+
+Method 3: Constructore Function (Industry standard)
+		A special function with new keyword to create objects.
+
+
+function Person(firstName, lastName){
+    this.firstName = firstName;
+    this.lastName = lastName;
+}
+
+let p11 = new Person("A","B");
+
+Internally:
+	- create a new empty object
+	- Sets prototype to Person.prototype
+	- Binds this to new object
+	- Returns object automatically
+
+
+NOte: Constructor functions must start with a capital letter.
+
+Math obj:
+	Built in JS object that provides mathematical constants and functions.
+
+	Why?
+		- Perform calculations
+		- Handle rouding
+		- Generate random numbers
+		- Avoid writing complex math logic manually.
+
+	Math.round() - Rounds to nearest integer
+	Math.floor() - Rounds down.
+	Math.ceil()
+	Math.trunc() - Removes decimal part
+
+
+	-1.2
+	-1.2
+
+String obj
+	String - text data
+
+	'
+Template Literals
+ Modern way to create and work with string in javascript.
+ They use backticks instead of quotes.
+
+ WHy?
+ 	- Easier string concatenation
+ 	- Embed variables directly
+ 	- Supports Multi-line strings
+ 	- cleaner and more readable code
+
+
+
+----------------------
+JS Arrow function
+
+	An Arrow function is a shorter syntax for writing functions in JS
+
+	() => {}
+	Less code
+	cleaner syntax
+
+
+-----------------------
+map() - Transform Array
+
+	creates a new array by transforming each element.
+
+	- convert data
+	- format values
+	- apply some logic to all items
+
+filter() - Select elements
+	
+
+reduce() - Accumulate to single value
+	
+	Sum
+	Count
+	Group
+
+
+	array.reduce(  (accumulator, current) => {}, initialValue    )	
+
+
+	sort
+	splice - modifies original array by adding or removing elements
+
+	array.splice(startIndex, deleteCount, item1, item2);
+
+
+let arr
+
+
+===================================================================================================================
+14-Feb-2026
+===================================================================================================================
+Agenda:
+	What is JS? Adv of JS?
+	JS Variable, var, let, const
+	JS Primitive types, Dynamic types
+	JS Object, Arrays(Push,pop, Unshift, shift), Functions, DOM and HTML JS interaction
+
+
+What is JavaScript?
+	JavaScript is a programming language used to make web pages interactive and dynamic.
+
+Without jvascript, a website is mostly static (just text and images)
+
+	- Respond to user actions (clicks, typing)
+	- Change content without reloading page.
+	- Validations and logic
+
+
+HTML - Structure
+CSS - Style
+JS - Behavior
+
+Benefits:
+	- Runs in the browser (Fast)
+	- Makes website Interactive
+		Clicks, sliders, popups, live updates without reload
+
+	- Easy to learn
+	- Portable - write once, run it anywhere (browser)
+	- Huge Ecosystem
+		- React, Angular, Vue
+	- versatile language
+		You can build, websites, webapps, mobile apps, desktop apps.
+
+
+Installation:
+	- Install plugin - Code runner from VS Code
+	- install nodejs
+
+
+JavaScript Primitive DataTypes
+
+	Primitive Types are basic data tpes in JS, that store single, simple values.
+	Why?
+		- Represent fundamental values (number, text, true/false etc)
+		- Fast and memory efficient
+		- Immutable (cannot be changed directly)
+
+	JS has 7 primitive types
+	1. Number
+		Represents both integers and decimal
+	
+	age, salary, product price, quantity
+
+
+	2. string
+	Represents Text data.
+
+	Name, message, labels
+
+	3. Boolean
+		Represents value true/false.
+
+		Login status,validations, conditions
+
+	4. Undefined
+		A variable that is declared but not assigned
+
+	- Represents missing data, optional values
+
+
+	5. Null
+		Represents Intentional absence of value
+
+	- Clear values
+	- no selected item
+
+	6. Bigint
+		Used for very large numbers beyond safe integer limit
+
+	Represents 
+	-	Financial system
+	-  	Large IDs
+
+	7. Symbol
+
+		Represents unique identifiers
+
+	let id = Symbol("id");
+
+	Real-world usecase:
+		- Unique object keys
+
+
+
+Question1: let id=symbol("id") --> both name should be same right?(in this case id?)
+
+
+HTML DOM ? (Document Object Model)
+	Tree like object representation of an HTML page created by browser.
+
+It allows javaScript to:
+	- Read HTML
+	- Change HTML content
+	- Add or remove elements
+	- Handle events
+
+	Browser converts HTML --> DOM Tree
+
+	Important points:
+		- DOM is not HTML
+		- DOM is a Object Model.
+
+
+DOM Nodes:
+	A node is any item in the DOM tree.
+
+	Types of DOM Nodes:
+		1. Element Node - <p>, <div>
+		2. Text Node - Text inside an element
+		3. Attribute Node - id, class
+		4. Comment Node - <!-- comment -->
+
+
+	DOM Element:
+		DOM elements are specific type of node that represent HTML tags.
+
+
+		<p class="test"> Hello </p>
+
+		<div id="box"></div>
+
+		<div> -- DOM element
+		id-"box" --> attribute node
+
+	
+	DOM Methods:
+		DOM Methods are functions provided by the browser to access and manipulate HTML elements
+
+
+	1. getElementById
+		document.getElementById("title");
+
+
+	2. querySelector
+	elem =	document.querySelector("#box")
+
+	3. document.querySelectorAll("p");
+
+
+	elem.innnerHTML="<b>Hello</b>"
+	elem.style.color="red";
+
+	element = document.createElement("div");
+
+	element.appendChild(child);
+	element.remove();
+
+
+JavaSCript - Dynamic Type language
+
+	let a = 4;
+
+	Makes code very faster
+	easy to understand
+	flexible to write code
+
+
+	Type is detected automatically at runtime, not compiletime
+
+
+JavaScript Function:
+	
+	A Function is a block of reusable code that performs specific task.
+
+	- Avoid code repetition
+	- Organize code
+	- Improve redability
+
+
+JavaScript Object
+
+JavaScript Array
+	Array is a data structure used to store multiple values in a single variable, in an ordered way.
+
+	Why?
+		- It stores list of data
+		- Access value by its position
+		- Loop and process multiple values easily
+
+	To add elemnents:
+		- push -- Add element at end
+		- Unshift -- Add element at start
+
+JS Operators 
+-------------
+
+Operators are symbols used to perform operations on values and variables.
+
+They allow JavaScript to:
+	- Calculate values
+	- Compare data
+	- Make decidions
+	- Assign values
+
+	etc
+
+
+1. Arithmatic Operators:
+
+	+, -, *, /, %, **
+
+	a**b = 
+
+2. Assignment Operators:
+	
+	Assign values to variable.
+
+	=, +=, -=
+	x=10
+	x += 5; // x= x+5;
+	x -=5; // x=x-5;
+
+
+3. Comparision Operators:
+	Compare two values and return true or false.
+
+	==	--> Equal(value)
+	=== --> Equal(value + type)
+	!=	
+	!==	
+	>,<, >=, <=
+
+4. Logical Operators:
+	
+	Combine or invert conditions
+
+	&& - AND
+	||
+	! 
+
+5. Unary Operators
+	++	- Increment by 1
+	--  -- Decrement by 1
+	type of	- Type check
+
+
+6. Ternary Operator
+	Short hand if-else
+
+	condition ? value1 : value2;
+
+7. String operators:
+
+
+
+
+Simple calculator:
+
+Calculator object
+	add
+	sub
+	mul
+	div
+
+
+
+calc.add()
+
+	
+
+
+
+
+
+	
+
+	
+
+
+===================================================================================================================
+08-Feb-2026
+===================================================================================================================
+
+ Extra topics on demand:	
+ 		CSS animation
+	 	pseudoelement and pseudo class --> 
+ 		flex, box model
+ 			how to use align-itmes? 
+
+CSS Text styling & Formatting
+	1. color - Controls the color of text inside an element
+		p {
+			color: blue;
+		}
+
+		color values:
+			Named colors - 
+			HEX (#ff0000)
+			RGB (rgb(255,0,0))
+
+	2. Text Identation (text-ident)
+		Controls space before the line of text.
+
+		p {
+			text-ident:40px
+		}
+
+		- Paragraph format
+
+	3. Text alignment (text-align)
+		Controls horizontal alignment of text.
+
+		Values:
+			left
+			right
+			center
+
+		h1 {
+			text-align: center;
+		}
+
+
+	4. Text decoration (text-decoration)
+		Adds or remove lines on text.
+
+		Values:
+			- none
+			- underline
+			- overline
+			- line-through
+
+
+	5. Letter spacing (letter-spacing)
+		Controls space between characters.
+
+		h2 {
+			letter-spacing: 2px;
+		}
+
+		d h r u v i k 
+
+
+CSS Topography
+
+	Topography - art of styling and arranging text to make content readable , clear and visually appealing.
+
+
+	1. font-family
+		Defines which font is used for text.
+
+
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+	2. font-size
+		px - fixed
+		em - relative to parent
+		rem - relative to root (html)
+
+	3. font-weight
+		Controls thickness of text.
+
+		values:
+			normal
+			bold
+			100-900
+
+	4. font-style
+		style text of normal or italic.
+
+
+	5. line-height 
+		controls spaces between lines of text.
+
+		ddd	
+
+		p {
+			line-height: 1.5;
+		}
+
+	6. letter-spacing
+		controls space between characters
+
+
+	7. word-spacing
+		controls space between words.
+		Dhruvik parikh
+
+	8. text-transform
+		changes case of text.
+
+		uppercase
+		lowercase
+		capitalize
+
+
+CSS Border:
+ 	Line drawn around an HTML element, separating it from other elements.
+
+ 	A border is made up of three parts:
+ 		1. Border width
+ 		2. Border style
+ 		3. Border color
+
+ 	selector {
+ 		border: width style color
+ 	}
+
+ 	div {
+ 		border: 2px solid black;
+ 	}
+
+ 	Border style:
+ 		- solid 	- continuous straight line
+ 		- dotted	- small dots
+ 		- dashed	- short dashes
+
+
+CSS Background image
+
+	body {
+		backound-image: url("");
+
+	}
+
+CSS positioning
+--------------
+	
+	CSS positioning controls how an element is placed on the page. 
+	and behaves when the page is scrolled or resozed.
+
+Position - decies where an element lives on the page.
+
+positioning works with two things together:
+	1. position:
+	2. offset properties
+		(works only when position is NOT static)
+
+
+position: static
+	- Default position for all elements
+	- top, left, etc do not work.
+
+
+.box {
+	position: static;
+	top: 50px ; // ignored
+}
+
+Key points
+	- No special positioning.
+	- can not move element
+	- Default behavior.
+
+
+posion: relative
+	- Element stya in the normal flow
+	- Can be moved relative to its original position.
+
+
+position: absolute
+
+	- Removed from normal document flow
+	- position relative to nearest positioned ancestor.
+	- if no positioned parent --> relative to <body>
+
+Absolute always looks for a positioned parent.
+
+uscase:	
+	- tooltip
+
+position: fixed
+	- Positioned relative to viewport (visible area of the webpage on your screen)
+	- Sticky header
+
+
+
+Psuedo element
+	used to style a specific part of an element 
+
+	::before		: Insert content before element
+	::after 		: Insert content after element
+	::first-letter	: Style first letter
+	::first-line	: Style first line
+	::selection	    : Style selected text
+
+
+	select::pseudo-class {
+	
+	}
+
+
+Pseudo class
+	Styles based on state of an element, 
+
+	selector:pseudo-class {
+
+	}
+
+:hover
+:active - Applies style while the element is being clicked.
+:focus - Applies style when an element (input, textarea, button) receives focus.
+:link - Style unvisited links <a> tag only
+:visited - Styles visited links
+
+
+Note:
+	Always define link-related pseudo-classes in this order:
+	:link --> :visited --> :hover --> :active
+
+
+Structural pseudo classes
+	list
+
+	li:first-child {
+
+	}	
+
+	li:last-child {
+
+	}
+
+	li:nth-child(odd) {
+
+	}
+
+
+
+
+
+Exercise:
+
+	Build product listing page for small e-commerce website
+
+		- Display page title at the top
+		- Show multiple product cards.
+		- Each product card must include
+			- product name
+			- short description
+			- Price
+			- availablibility status
+
+
+Self study :
+	- box,  flex and grid container
+
+	Box model:
+		treated as rectangular box
+
+	Flexbox model:
+		Layout model --> arrange items in one direction (row/column)
+
+		flexbox makes centering easy
+
+		display: flex;
+
+		<div class="parent">
+			<p class="child">
+			<p>
+			<p>
+		
+
+		</div>
+
+		flex container --> parent
+		flex items --> children
+
+		Main axis - default -- row
+
+
+		.parent {
+			display: flex;
+			align-items: center
+
+		}
+
+
+		CSS Grid (Two Dimentional layout)
+
+		-- rows
+		-- columns
+
+		display: grid;
+
+		grid-template-columns: 1fr 1fr 1fr
+		gap:10px;
+
+
+===================================================================================================================
+07-Feb-2026
+===================================================================================================================
+ID attribute in HTML
+
+	Uniquely identifies one element
+
+	<h1 id="pageTitle"> </h1>
+	ID is for identity
+
+Class attribute in HTML
+	Groups multiple elements
+	Reusable styling
+
+
+	<p class="card"> </p>
+	<p class="card"> </p>
+
+	.card {
+		color: green;
+	}
+
+
+Header element
+<header> - Used for page header (section header)
+
+	Logo, Website Title, Navigation
+
+	The <header> tag explicitly tells search engine (like google) that the content inside is introductory. When crowsers see a <header> tag, they quickly identify site name, logo, and primary navigation, which helps them to understand site's hierarchy and purpose for more efficiency.
+
+
+	Better redability
+	Accesibility
+
+<footer> 
+	A sementic element used for:
+		- copyright info
+		- Contact details
+		- Legal links
+
+
+nav, section, article, time and abbr
+
+Problem:
+	- No meaning
+	- Poor SEO
+	- Poor accessibility
+
+Semantic HTML:
+- Explains what the content is
+- Helps search engine & screen readers
+- Makes code redable & mainable.
+
+<nav>
+	Represents a section containing navigation links.
+
+	- Menus
+	- Navigation bars
+
+<section>
+	Represents a thematic group of content
+
+	Think of it as a chaper in a book.
+
+	- Group related content
+	- Each section usually has a heading
+
+	Key Rule:
+		- A <section> should have a heading (h1-h6)
+
+
+<article > - Independent content unit
+	
+	Represents self-contained content that can stand alone.
+
+	Examples:
+		- blog post
+		- News article
+		- Product card
+		- Comment
+
+
+<time> - Machine-Readable dates and time
+
+Represents date or time in a machine-readable format.
+
+Helps:
+	- SEO
+	- Search engines
+
+WHy use <time< instead of plain text?
+	Browsers and search engine understand - published on this date.
+
+
+<abbr> - Abbrevation and Acronym
+	Defines an abbrevation with its full meaning.
+
+
+<main> - semantic element defines, primary, and unique content of an HTML element.
+It serves as a central hub of your webpage, core information that users are visiting page.
+
+Key rules:
+	- Only One per page.
+	- Unique content only
+
+	SHould not add <nav> headers, <article> inside main	
+
+HTML5
+	- Fifth and latest major version of HTML
+
+	Multimedia - Older versions, rely on external plugins
+				- HTML5 - <video> <audio>
+
+	Structurs	- Relied heavily on <div>
+				- tags with clear meaning with all semantic elements
+
+	Doctype		- complex and lengthy doctype decrations
+				- 
+
+				<svg>
+
+
+CSS?
+	Types of CSS?
+	CSS Selectors
+
+	CSS color property
+	Text styling, formatting etc.
+
+
+CSS - Cascading style sheets
+
+CSS is used to control how HTML elements look on the webpage.
+HTML - What element is
+CSS - How the content looks
+
+What CSS can do?
+	- change colors and fonts
+	- Control spacing (margine, padding)
+	- Create layouts (colomns, sections)
+	- Add hover effects
+	- Makes more responsive for mobile and desktop.
+
+
+Types of CSS:
+Inline
+	- Quick testing
+	- One-time styling.
+
+	- Not use for real projects
+Internal:
+	- Written inside a <style> tag under head tag.
+
+	- use for small projects
+	- Single page demos
+	- Learning and practice only
+
+External CSS
+	- Write seperate CSS file with .css extension and linked that file to your html.
+
+	- Clean HTML
+	- Reusable styles
+	- Easy to maintain
+	- Faster loading	
+
+Inline > Internal > External
+
+
+CSS selector:
+	A selector is used to select HTML elements so we can apply styles to them
+
+	selector {
+		property: value;
+	}
+
+Basic Selector
+	a. Universal selector
+		Selects ALL elements on the page.
+
+		* {
+
+		}
+
+		- Reset default browser styles
+		- Apply some common base styling.
+
+	b. Type/Element selector
+
+		Selects all elemnts of specific HTML tag.
+		p {
+
+		}
+
+
+	c. Class selector
+		Selects multiple elements with the same class name.
+
+		.className {
+
+		}
+
+		padding - space inside the frame 
+
+		margine - space between frames on the wall.
+
+		- Reusable
+		- Most commonly used selector.
+
+
+	d. ID selector
+
+	Selects one unique element.
+	#idName {
+		propery: value;
+	}
+
+	ID must be unique
+	DO not reuse IDs
+
+	e. Attribute selector
+
+		selects elements based on the presence of value of an attribute.
+
+		[attribute] {
+
+		}
+
+		[attribute="value"] {
+
+		}
+
+		used in form styling
+		targetting links
+
+	
+Grouping selector
+	a. Descendant selector
+
+	Selects all matching elements inside another element, at any depth level.
+
+	ancestor descendant {
+		propery: value;
+	}
+
+
+
+	b. Child selector
+
+		Selects only direct children, not deeper nested elements.
+
+		parent > child {
+			property: value;
+		}
+
+
+<p> This is a sentence where i only want the <span class="last-word">last</span> </p>
+.last-word {
+	text-decoration: underline;
+	text-decoration-color: blue;
+}
+
+
+
+===================================================================================================================
+31-Jan-2026
+===================================================================================================================
+
+GIT
+
+VCS - Versioning control system
+
+	Tool that helps software developer team to manager changes to the source code over time.
+
+		- Every modification made to the code
+		- developers can go back to earlier versions of the code and compare changes
+
+Two types of VCS
+	1. Centralized VCS	
+		Single server where all versioned files as stored.
+
+		Problem:
+			- if central server fails --> all history made will be lost
+			- Collaboration is limited when disconnected from the server
+
+	Tool : SVN
+
+
+
+	2. Decentralized VCS
+
+		Every developer has local copy of entire repository, including history.
+		Changes can be made locally and later pushed to the central repository when ready.
+
+		Pros:
+			- Every dev has full copy of project's history
+			- Work can be continued offline
+			- More robust against server failures.
+
+		cons:
+			- More disk space
+
+	Tool: GIT
+
+
+	Two types of storage:
+
+	1. Snapshot based storage (Git)
+
+		takes snapshot of entire project directory at time of each commit
+
+
+	2. Delta based storage (C- VCS SVN)
+
+		initial change --> delta1 --> delta2
+
+		space efficient --> very slow down performance
+
+
+Git File System
+
+	Working directory 		--> 		Staging area 			--> 		Repository (Local Git DB)
+	 (files)							ready to commit 					final submitted changes
+
+
+Commands
+
+git --version
+git init
+git status
+git add <fileName>
+git commit -m "<COMMIT_MESSAGE>"
+git log			 Display all commits
+git log --oneline
+git config 
+	used to set and read git settings like username, email, aliases etc
+git config --global user.name "Dhruvik Parikh"
+git config --global user.email "dhruvik@simplilearn.com"
+
+
+git remote add origin <>
+git push origin master
+git pull origin master
+
+github
+	cloud platform to store git repositories and collaborate
+
+	- backup code online
+	- share code with team
+	- work together (collaborate)
+
+
+git remote -v
+
+git clone <repo> --> To clone any repository in local for any existing repository
+
+
+git checkout -b <branch_name>  --> To create new branch
+git checkout <branch_name> --> to switch to another branch

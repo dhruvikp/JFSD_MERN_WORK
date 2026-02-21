@@ -1,0 +1,92 @@
+
+
+button {
+    border-radius: 8px;
+}
+
+.box {
+    width: 200px ;
+    height: 80px;
+    background-color: lightblue;
+}
+
+.relative {
+    position: relative;
+    top: 20px;
+    left: 30px;
+}
+
+
+
+.parent {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: lightgray;
+    border: 2px solid black;
+}
+
+.child {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: coral;
+    padding: 10px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: lightgreen;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+.note::before {
+    content: "Note: ";
+    font-weight: bold;
+    color: red;
+}
+
+.note::first-letter {
+    font-size: 200%;
+    color: blue;
+}
+
+
+button:hover {
+    background-color: lightcoral;
+    color: white;
+
+    padding: 12px 24px;
+    font: 16px;
+    border: none;
+    cursor: pointer;
+
+    
+}
+
+button:active {
+    background-color: darkred;
+    color: white;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid blue;
+}
+
+a:link {
+    color: blue;
+    text-decoration: none;
+}
+
+a:visited {
+    color: purple;
+}
+
+
+

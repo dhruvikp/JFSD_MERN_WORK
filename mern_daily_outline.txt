@@ -33,8 +33,211 @@ https://github.com/dhruvikp/JFSD_MERN_WORK
 
 
 ===================================================================================================================
-16-Feb-2026
+21-Feb-2026
 ===================================================================================================================
+Agenda:
+	String (Indexing, methods, properties, Interpolation)
+	Escape characters
+	String manipulation techniques 
+	String Iteration
+	Unicode
+	RegularExpression in javascript
+	String conversions
+	String formatting
+	Encoding decoding
+	Function and its prototype
+	Async programming (promise)
+
+
+String
+	Representation of text data in javascript
+
+	let name = "Dhruvik"
+
+	Internally, Strings are primitive values, but JavaScript temporarily wraps them with String object to provide its methods.
+
+	String indexing:
+		zero-based index
+
+	String - Immutable
+			 Once String is created, it cannot be changed.
+
+	Coercion (Automatic Type Conversion)
+		JavaScript automatically converts values to strings in some cases
+		"5"+ 2;
+
+	String performance issue:
+		- Heavy String modification can hurt performance
+
+String methods:
+
+String interpolation: - Embedding variables and expressions insiide strings using backticks
+
+String comparision:
+	==		- Compares values (type coercision)
+	===		- Compare values + type
+	localeCompare() - Compares strings based on language rules
+
+		0 --> strings are equals
+		-1 --> first string comes before
+		1 --> first string comes after
+
+Unicode:
+	Unicode is Universal character encoding standard that assigns unique number (code point) to every character in language.		
+
+	 A --> U+0041
+	 ₹ --> U+20B9
+
+	 😀 --> ..
+
+
+UTF-16 - JS strings are stored using UTF-16 encoding.
+	Meaning:
+		- some characters take 1 unit (2 bytes)
+		- some take 2 units (4 bytes)
+
+	codePointAt() - correctly reads unicode characters, including emojis
+
+
+	Surrogate Pair:
+		Characters beyond U+FFFF are stored as two UTF-16 code units:
+		-
+
+	Create unicode strings - fromCodePoint()
+
+Regular Expression 
+	Regex - pattern used to search, match, extract, or replace text
+
+Think of it like rules for text matching.
+
+- Validate input (email, phone, password)
+- search text
+- Extract data
+- Repalce or clean text
+- Parse logs, urls , files...
+
+Regex - pattern language for working with text
+
+Create regular expression?
+	let pattern = "/abc/";
+	let pattern = new RegExp("abc"); // used only when pattern is dynamic
+
+
+test() - check if match exist
+
+	let regex = /js/;
+	regex.test("I love js"); // true
+
+Regex Flags (Modifiers)
+	
+	g - Global (all matches)
+	i - Case-insensitive
+	m - multine
+	s - Dot matches newline
+
+Flag control how regex matches text.
+
+Common Regex Patterns
+	Literal Characters -  /hello/ --> matches exact word hello.
+
+	Character sets [] - [abc] // a or b or c
+						[0-9] // digits
+						[a-z] // lowercase characters
+
+	Negated Sets[^] [^0-9] //anything except digits
+
+	Predefined characters:
+		\d - Digits
+		\D - Non-Digits
+		\w - WOrd char
+		\W - Non-Word
+		\s - Whitespace
+		\S - Non-whitespace
+
+	Quantifiers(How many tiems?) - controls repeatation
+		+ - One or more
+		* - Zero or more
+		? - Zero or one
+		{n} - Exactly n
+		{n,m} - Between n and m
+
+	Anchors (Position control)
+		^ - Start of string
+		$ - Ends of string
+
+
+Encoding Decoding
+
+	Encoding means converting data into safe, standardized format 
+		- it can be transmitted
+		- stored
+
+	Decoding means converting the encoded data back to its original form
+
+	Why?
+		- some characters break urls
+
+			/hello.html?name=Dhruvik%20parikh
+
+		- System may use different formats
+		- Text may include special or binary characters
+
+	Encoding makes data safe to send, decoding restores it back.
+
+	URL encoing:
+		URL  can not have spaces, special characters (&, ?, = ,#,%)
+
+
+	Base64 - encoding and decoding
+		Base64 converts binary or special data into readable ASCII text
+
+
+	Why?
+		- sends binary data over text based protocols
+		- Embed images into HTML
+		- Authorization in heads
+
+
+		btoa() -- encoding
+		atob() -- decoding
+
+
+Functions:
+	- Pass function as an argument
+	- Function returns function
+	- Function constructor
+	- Function Context Manipulation 	
+		- call(), apply()s and bind()
+
+
+	Functions 
+		- Can be stored in variables
+		- every function has propertis and methods.
+
+	Function as constructor
+
+		A way to create function dynamically at runtime
+
+	Function Context manipulation?
+
+	What is Function Context?
+		this refers to the object that calls the function.
+
+
+	Why Context manipulation is needed?
+
+		- Method borrwing
+		- callbacks losing this
+
+	use call - for one-time execution
+	use apply - when args are many (or in array)
+	use bind - for callbacks and events
+
+	prefer arrow fn when possible.	
+
+
+
+
 
 
 
