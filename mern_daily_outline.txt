@@ -32,6 +32,677 @@ This is not just a class - it is a transformation journey.
 https://github.com/dhruvikp/JFSD_MERN_WORK
 
 
+====================================================================================================================
+28/02/2026
+====================================================================================================================
+
+What is Tailwind?
+Tailwind Characteristics
+Why Use Tailwind?
+Tailwind Usecases
+Overview of other CSS Frameworks:
+  - Bootstrap, Material UI, Foundation
+
+Setting up Tailwind CSS 
+
+Key Features of Tailwind
+Responsive Webdesign
+Utilitis: Margin, Padding, Width, Flex system (Horizontal flex Alignment, Justify-Content, Vertical Flex Alignment, align-items)
+
+
+
+Typography
+  Text sizing
+  Colour - Shade System
+  Text Alignment
+
+
+How to define customization>
+NPM Configuration -  tailwind.config.js (to define custom style , theme and Utilitis)
+CDN approach      - Use :root selector inside a <style> tag and applies styles inline using the style attribute
+Custom CSS Classes - Define styles within :root and reuse them by creating custom css classes
+
+
+
+Tailwind CSS Layout system
+Column Layout System 
+Tailwind Grid System
+
+
+
+----------------
+	Tailwind CSS
+
+	Tailwind CSS is utility-first class framework that allows you to build modern UIs by compositing small, single purpose utility classes directly in the HTML.
+
+	.card {
+		padding: 16px;
+		background: blue;
+	}
+
+	<div class="p-4 bg-blue-500" />
+
+	Tailwind provides low-level design utilities
+
+Utility-first approach
+--------------------
+	
+	- Every class does one job
+	- Classes are composable	<div class>
+									<div>
+								</div>
+
+	- No large, opinionated CSS blocks
+
+No Predefined UI components
+------------------------
+	- Navbar component
+	- button component
+	- card component
+
+Instead you build your own, based on your design needs.
+	- Full freedom
+	- No CSS overrides war
+
+Highly Customizable Design system
+	tailwind.config.js
+
+	- colors
+	- Fonts
+	- Spacing
+	- Shadows
+	- Border radius
+
+Mobile First & Responsive by default
+--------------------------------
+	
+	<div class="p-2 md:p-6 lg:p-10">
+
+JIT Compiler
+---------
+	Tailwind:
+		- Generates CSS only for used classes
+		- Remove unused styles automatically
+
+
+Framework Friendly
+--------------
+	- React
+	- Angular
+	- Vue
+	- Next.js
+	- ..
+
+Bootstrap
+	- Component first CSS framework
+
+	Provides:
+		- styles library for all html element/components
+			- navbar, buttons, card, modals etc.
+
+		style --> url
+
+		<button class="btn btd-primary">Click</button>
+
+Material UI (MUI)
+
+	React UI component library based on Google material design
+
+----------------
+
+npm install tailwindcss@latest
+
+npm install vite --save-dev
+
+# 1. Initialize project (if starting fresh)
+npm init -y
+
+# 2. Install Vite as dev dependency
+npm install -D vite
+
+# 3. Install Tailwind CSS v4
+npm install tailwindcss
+
+# 4. Install @tailwindcss/postcss (REQUIRED for v4 PostCSS support)
+npm install -D @tailwindcss/postcss
+
+# 5. Install autoprefixer (OPTIONAL but RECOMMENDED for production)
+npm install -D autoprefixer
+
+# 6. Create necessary config files:
+# - postcss.config.js
+# - tailwind.config.js
+# - src/style.css
+# - index.html
+# (See content as per my code)
+
+# 7. Start dev server
+npm run dev
+
+
+
+
+Vite
+	frontend build tool
+	deisgned significatly for buiding modern front end projects
+	Created by Evan You (vue.js)
+
+	industry standard due its remarkable speed compared to some older tools like webpack
+
+Developement server - Native ES Module
+
+----------------
+Tailwind Utilities - Margin
+
+Margine - control space - outside an element
+	-creates distance between elements
+
+Syntax:
+	m{direction}-{value}
+
+	m -> margin
+	direction -> side(s)
+	value -> spacing scale
+
+	m-*	--> All sides
+	mt-* --> top
+	mr-* --> right
+	mb-* --> bottom
+	ml-* --> left
+	mx-* --> left+right
+	my-* --> top+bottom
+
+
+Padding
+	control space inside element
+
+	space between content and border
+
+	p{direction}-{value}
+
+	p-* -> all sides
+	pt-* -> padding top
+	pr-* -->
+	pb-* --> bottom
+	pl-* --> left
+	px-* --> left + right
+	py-*  --> top + bottom
+
+
+	p-2
+		Mobile padding --> 8px
+
+	md:p-6
+		md --> screen >= 768 px
+		padding becomes 24px
+
+	lg:p-10
+		lg --> screeen >= 1024px
+		padding becomes 40px
+
+	bg-purple-200
+		- Background color for visibility
+
+------------------
+
+	Flex system is	
+
+		Flexbox is one-dimensional layout system.
+
+			- it arranges items in a row or column
+			- the parent controls alignment
+			- childrens responds automatically.
+
+		Flex properties always go on the parent.
+
+		Axes in flexbox
+			main axis --> Horizontal	--> flex-row
+			corss axis --> Vertical axis--> flex-col
+
+
+			justify-start/end/between/around/evenly etc. --> horizontal alignments
+			items-*. - controls vertical alignments
+
+--------------
+
+Topography 
+	Text sizing - are utility class
+	They follow a consistent scale
+
+	Each size includes:
+		- font-size
+		- line-height 
+
+	text-{size}
+		text--> topography utility
+		{size} --> predefined size from Tailwind scale
+
+				Font size 		Line Height
+	text-xs --> 12px --> 		16px
+	text-sm 
+	text-base.  16px 			24px
+
+	text-lg 								emphasized text
+	text-xl
+	text-2xl
+	text-3xl
+	text-4xl
+	text-5xl
+	text-6xl 	60px 			1 			banners
+
+-----------
+Color
+	
+	Tailwind uses shade based color system, not a single color (hex value)
+
+	blue-50 --> very light
+	blue-500 --> base color
+	blue-900 --> very dark
+
+	text-{color}-{shade}
+
+	50 - Very light
+	100-200 -- Light
+	300-400 -- Medium
+	500 -- Base color
+	600-800 - Dark
+	800-900 - very dark
+	950 -- Almost blank
+
+
+
+text- {alignment}
+	
+	text-left
+	text-center
+	text-right
+	text-justify
+
+
+
+Core layout buiding blocks in tailwind
+	
+	Tailwind layout = Composition of utilities, 
+
+	Layout system controls:
+		- How elements are positioned
+		- How space is distributed?
+		- How UI adapts to screen sizes
+
+ 1. Container
+ 2 BOx model (width, height, spacing)
+ 3. Flexbox
+ 4. Grid
+ 5. Positioning
+
+ Container:
+ 	Center content and control max width.
+
+ Box model
+ 	w-1/2 -50% of the parent width
+
+ Flex model
+
+ 	justify-* --> 
+ 	items-* 	
+
+ Grid Layout System
+
+ 	2 D layout system
+
+ - Rows and COlumns at the same time
+ - Precise placement of items
+ - Complex layouts with simple rules
+
+ grid-cols --> defines column definition
+ gap-4 - defins space between rows and columns
+
+ col-span-3 --> item spans 3 columns
+ col-span-1 ==> item spans 1 column
+
+
+ CSS - Positioning SYstem
+
+ Positioning controls where an element appears and how it is taken out of the normal flow.
+
+ By default HTML elements follow normal document flow
+ 	- one after another
+ 	- top to bottom
+
+ Positioning allows you to:
+ 	- Overlay elements
+ 	- Pin elements
+ 	- Float elements
+
+ Positioning all about - location not layout
+
+ static 		- Default
+ relative 		- Reference container
+ abolute 		- Positioned relative to the parent
+ fixed 			- Positined relative to viewport
+ sticky. 		- Scroll based
+
+
+ Absolute elements position themselves relative to the nearest relative parent.
+
+
+relative - sets positioning context
+absolute - removes elements from the normal flow
+		- positions relative to nearest relative ancestor
+
+top-2 --> 	distance from top --> 8px
+right-2 	distance from right -
+
+fixed 
+	- positioned relative to the browser window
+	- Does not move on scroll
+
+
+
+
+
+===================================================================================================================
+21-Feb-2026
+===================================================================================================================
+ 	Prototype
+	Async programming (promise)
+
+	Webpack
+	MOdern javascript --> 
+	Babel introduction --> 
+
+
+Object
+	- toString()
+	--
+	---
+
+
+
+
+
+Prototype:
+	What is ? 
+		A prototype is an object that another object can inherit properties and methods from.
+
+		JavaScript uses prototype-based inheritance, not classical inheritance.
+
+	Why?
+		- To share methods between objects
+		- To save memory
+
+	Objects donot copy methods - they delegate to their prototype.
+
+	Every js object --> hidden internal reference
+		[[prototype]]
+
+JavaScript does:
+	1. Look in obj
+	2. Not found --> look in obj's prototype
+	3. Continue up the chain
+	4. Stop at null.
+
+	obj--> obj.prototype--> null
+
+JavaScript searches properties through the prototype chain.
+
+
+Every function has property called prototype.
+
+	This prototype is used only when function is called with new.
+
+Person.prototype = {
+	constructor: Person;
+}
+
+
+
+
+let person1 = new Person("Alice");
+person1.greet(); // Output: Hello, my name is Alice
+
+Internally:
+	1. New object created
+	2. person1.[[prototype]] = Person.prototype == Object.prototype
+	3. this bound to person1
+	4. Object returned.
+
+constructor function links objects to their prototype automatically.
+
+
+person1.toString()
+
+Prototype chaining in JavaScript
+---------------------------------
+	
+	A Prototype chain is a linked chain of objects used for inheritance and lookup
+
+	isPrototypeOf() - checks inheritance relationship
+
+
+--------------------------------
+
+Asynchronous programming
+	
+Promise:
+	A promise is a JavaScript object that represents the result of an asynchronous operation that will be available:
+	- Now
+	- Later
+	- Or never
+
+	
+- JavaScript is Single-Threaded (executes one task at a time)
+
+console.log("A"); // API Calls (fetch data)
+console.log("B");	
+console.log("C");
+
+Promise object helps you to asynchronous operations.
+
+Promise manage asynchronous tasks without blocking JavaScript execution.
+
+Promise States
+-----------------------
+	A promise object can be in only one of these three states
+
+	1. Pending
+		- Initial state
+		- Operation has not finished yet
+		- Neither success or failure
+
+		Promise is just created
+
+	2. Fulfilled
+		- Operation completed successfully
+		- Promise has a resolved value
+
+		resolve("Data") --> Move state of the promise from pending to fulfulled
+
+	3. Rejected
+		- Operation failed
+		- Promise has a reason (error
+
+		reject("Something went wrong"); --> Pending to Rejected.
+
+
+Notes: Once promise is settle (fulfilled or rejected), its state cannot change.
+
+
+How do you create promise?
+
+	let promise = new Promise(
+		function(resolve, reject) {
+			// async operations
+		});
+
+
+Promise chaining
+
+Promise chaining means executing aysnc task one after another, where each step depends on the previous one.
+
+	.then()
+
+
+
+loginUser().
+then(getProfile)
+.then(getOrders)
+.then(showDashboard()
+.catch(handleFailure);
+
+Promise chaining allows sequential async execution using .then() by passing results forward
+
+async/await
+
+	async/ await is syntactic sugar over promises that makes your async code more synchronous.
+
+	- It doesn't replace promise
+	- It built on top of Promise obj
+
+
+// await
+	- Used only inside async functions
+	- pauses execution until promise settles
+	- Returns the resolved value
+
+
+
+	async function getUser() {
+		const user = await fetchUser();
+		console.log(user);
+	}	
+
+
+----->
+	async function loadData() {
+
+		try {
+
+			const data = await fetchUser();
+			console.log(data);
+
+			// call another api with passing data..
+
+
+		} catch(error) {
+			console.log("Error:", error)
+		}
+
+	}
+
+
+d--
+--
+--
+--
+	fetchUser().then(console.log).catch(console.log)
+
+
+
+
+
+stmt1
+stmt2 -- async loadData();
+stmt3
+stmt4
+
+
+Webpack?
+	Webpack is a module bundler for JavaScript applications.
+
+	It takes many files (JS, CSS, images etc), and bundles them into one or more optimized files that the browser can udnerstand.
+
+	<script src="a.js" />
+	<script src="b.js" />
+	<script src="c.js" />
+
+	<script src="bundle.js"/>
+	Hot Module replacement (HMR)
+
+
+
+	Performance optimization
+
+
+	What webpack can be used?
+		- JavaScript
+		- CSS
+		- Images
+		- Fonts
+
+	
+	Plugins:	
+		- Extra functionality
+	- HTML generation
+	- Minification
+	- Environment varialbes
+
+
+CoffeeScript
+	Syntactic suger language that compiles to JavaScript.
+
+	It tries to make JS:
+		- Shorter
+		- Cleaner
+		- Less verbose
+
+Flow:
+	Static type checker for JavaScript developed Facebook
+
+	let a = "10";
+	a/10;
+
+Why flow exist?
+	- catch bugs early
+	- add type safety
+	- improve larege codebase
+
+TypeScript
+	TypeScript is superset of JavaScript - Microsoft
+
+	a.ts
+		compiler --> js
+
+	Key features:
+		- Static typing
+		- Interface
+		- Enums
+		- Generics
+
+Dart
+	- compile to JavaScript
+	- Run natively
+
+	- Strong typing
+	- Performance
+	- Structured lang
+
+	.dart --> .js
+
+	Flutter --> 
+
+Babel
+
+
+	Javascript compiler (transpiler) that converts modern JavaScript into backward compatible JS for older browser to runs.
+	It does syntax transformation , not building
+
+	preset --> collection of plugins
+
+	@babel/preset-react--> 
+	@babel/preset-typescript -->
+
+	JSX
+		const App = () => <h1>Hello</h1>
+
+		
+
+
+
+
+
+
+
 ===================================================================================================================
 21-Feb-2026
 ===================================================================================================================
@@ -45,8 +716,7 @@ Agenda:
 	String conversions
 	String formatting
 	Encoding decoding
-	Function and its prototype
-	Async programming (promise)
+	Function and its
 
 
 String
