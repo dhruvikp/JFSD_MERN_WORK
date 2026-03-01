@@ -33,6 +33,116 @@ https://github.com/dhruvikp/JFSD_MERN_WORK
 
 
 ====================================================================================================================
+01/03/2026
+====================================================================================================================
+
+Styling Essential UI Elements
+Dropdown,
+Button, 
+Badge, 
+Spinner/Progress Bar 
+
+
+Presentation Elements in Tailwind
+Hero Section
+Tables
+Form Input UI Elements
+ Styling Navigation UI Elements : Navbar and Breadcrumbs
+
+
+---------
+	
+	elements hiddden by default
+	clcik --> appears on user action
+	floats -> above other content
+
+	positioned relative to a trigger.
+
+	block - makes item to full width
+			- Make entire raw clickable
+
+Badge
+	Display status (Active, New, Pending)
+	Show counts
+	Highlight labels(Beta, Pro, Draft)
+
+	Badge - Text + backgroung + padding + shape
+
+overflow-hidden 
+	Prevents inner bar from overflowing container
+
+animate-pulse
+	fades in and out
+	indicates on going activity
+
+
+Hero section strategy
+
+Full width section
+	Contered container
+		- Heading
+		- Description
+		- CTA buttons
+
+	flex or gird
+	text
+	bg
+	py
+	max-w
+
+
+md:
+lg:
+overflow-x-auto
+	- enables horizontal scrolling
+	- prevents layout breaking on small screens
+	- 
+
+sticky
+	- Header sticks while scrooling
+
+Navbar 
+	top-level navigation component that:
+		- helps users to navigate the app
+		- contains links, actions, profile mnus
+		- is often sticky or fixed
+
+
+Breadcrubs:
+	Show user's location in the app hierarchy
+
+	Home > Proucts > Electronics > Mobile
+
+
+- understand where they are
+- Navigate back to parent pages
+- Reduce confusio in deep navigation
+
+Hierarchy + navigation 
+
+
+Container
+	Item(link) > Item(link) > Current page (text)
+
+
+Modal Overlay
+	Semi-transparent background layer behind popup.
+
+	- it covers full screen
+	- Dims backgound
+	- prevents clicks on the page behind
+
+	1. Overlay (backgound)
+	2. Modal box (content)
+
+	
+
+
+
+
+
+
+====================================================================================================================
 28/02/2026
 ====================================================================================================================
 
