@@ -33,6 +33,409 @@ https://github.com/dhruvikp/JFSD_MERN_WORK
 
 
 ====================================================================================================================
+28/03/2026 - REACT JS
+====================================================================================================================
+
+JSON Server?
+
+	JSON Server is a lightweight tool that lets you to create a fake REST API using a simple JSON file.
+
+	 Important: Instead of waiting for backend APIs, you can simulate a backend instantly.
+
+	How it works?
+
+		{
+		empId: 1,
+		empName: "Dhruvik",
+		address: {
+
+			street1:
+			city
+			count.
+			...
+		}
+		}
+
+
+nodejs
+
+
+npm install -g json-server
+
+
+
+Postman
+
+
+				expose login API
+
+				POST	/login
+							body
+								username
+								password
+
+
+login -> React -> Login form
+							_-> Submit
+										INvoke API /login (username and pwd user has entered)
+
+										True/false
+
+
+										
+const resp = await fetch(API_URL);
+const data = resp.json();
+
+
+
+Old School - Method to call API
+
+const xhr = XMLHttpRequest();
+
+xhr.open("GET" "URL");
+
+xhr.onload = function() {
+	console.log(..... parse and render)
+}
+
+xhr.send();
+
+
+
+====================================================================================================================
+22/03/2026
+====================================================================================================================
+Prompting Techniques:
+	
+	Structured way of guiding LLM to:
+		- Thikn better
+		- Respond accurately
+		- Follow logic
+		- Reduce mistakes
+
+	LLM - Probability Machine
+	Prompt - Steering wheel
+
+
+Zero-Shot prompting
+-------------------
+	Asking the model to perform a task without giving examples.
+
+	Model relies on pre-trained knowledge
+	No pattern guidance
+
+	Usecase:
+		- simple tasks
+		- common knowledge tasks
+
+	Limitation:
+		- Inconsistent for complex tasks
+		- May misinterpret intent
+
+Few-Shot Prompting
+------------------
+	Provide examples in prompt to guide model behavior
+
+	Model learns pattern from examples.
+
+ Usecase:
+ 	- custom logic
+ 	- Business rule
+ 	- Domain specific tasks
+
+ Limitation:
+ 	- Prompt becomes very long
+
+ Chain Of Thought (CoT)
+ ----------------------
+ Ask model to reason step-by-step
+
+ LLM performs better when reasoning is explicit.
+
+ 	Usecase:
+ 		- Math
+ 		- Complex logic/reasoning
+
+ 	Limitation:
+ 		- Slower
+ 		- More tokens
+
+
+ 	Self-Consistency Prompting
+ 	--------------------------
+ 		Generate multiple reasoning paths --> Pick the best answer.
+
+ 	How it works
+ 		1. Ask model multiple times
+ 		2. Get multiple answers
+ 		3. Choose most common answer
+
+ 		When to use?
+ 			- When you need critical decisions
+ 			- High accuracy needed
+
+ 		Limitation:
+ 			- Expensive (Multiple calls)
+ 			- slower
+
+
+Tree of Thoughts (ToT)
+	Model explores multiple reasoning paths like a tree
+
+	How it works?
+	Problem?
+		Idea 1: --> Evaluate
+		Idea 2: --> Evaluate
+		Idea 3: --> Evaluate
+
+		Choose best path.
+
+		Ex:
+			How to increase sales of a coffee shop?
+
+				Think of multiple strategies and evaluate each before choosing the best.
+
+
+Best Practices
+
+	Be clear and specific
+
+		Ex. Explain generative AI with real-world examples for backend developer
+
+	Define the role
+		Act as senior Nodejs architech, ....
+
+		Model will adapt, tone, depth and perspective
+
+	Break down the task
+		Build a system
+
+		Ex.
+		Design Architecture
+		Explain components
+		Provide example
+
+ Provide context
+ 	I have 15 years of experience in Java/Node backend, what to learn in AI
+
+ 	Output will be more personalized
+
+ Use examples (Few-shot prompting)
+
+
+ Specify the output format
+ 	Return response in JSON format with keys: name info etc
+
+ Add constraints
+ 	Limit to 100 words
+ 	Do not include explanation
+
+  Prevents unwanted output
+
+Encourage step by step reasoning
+	Improves accuracy
+
+
+AVOID AMBIGUITY
+	Make it better
+
+	instead:
+	Make it more concise and professional with bullet points.
+
+
+Pre-Training?
+=------------
+	Pre-training is the process where a model is trained on  massive general data to learn language patterns.
+
+	Pre-training = School education
+	Fine-tuning = Job specialization
+
+
+	What happens during pre-training?
+		Model is trained on:
+			- books
+			- websites
+			- code
+
+		Learn:
+			- Grammer
+			- context
+			- Reasoning patterns
+
+
+What is Fine-Tuning?
+	Training a pre-trained model on specific domain data.
+
+	Pre trained model'
+		konws english language
+
+	Fine-Tuned model:
+		Becomes expert:
+			- Medical domain
+			- Legal domain
+			- Finance domain
+
+
+
+	What is a balance sheet? --> general AI basic answer
+
+
+	--> Detailed CA level explaination
+
+
+Fine-tuning
+	1. Domain Expertise
+	2. Better accuracy
+	3. Consistent output
+
+	Consider:
+		Data quality
+		Data size --> too small data --> Overfitting		
+
+									too large --> Expensive
+
+		Cost
+			Training cost
+			Infrastructure cost
+
+RAG
+
+	LLM 			Datastore (Vector DB)  --> Output
+
+
+
+
+
+
+
+
+
+====================================================================================================================
+21/03/2026
+====================================================================================================================
+Evaluation:
+
+	Turing Test (Propsed by Alan Turing)
+		Concept:
+			- If human cannot distinguished between:
+				machine response
+				human response
+					Then machine is "Intelligent"
+
+	ELIZA Chatbot 
+
+		- pattern matching
+		- Rule based responses
+
+		Ex:
+			User : I feel sad
+			ELIZA: Why do you feel sad?
+
+
+Stage2: Neural Networks
+	Inspired by human brain.
+
+	Input --> Hidden Layers --> Output
+
+	Learn pattern from data
+	Adjust weight accordingly.
+
+	text, time-series - not good
+
+Stage 3: Sequence Models
+	LSTM (Long Short Term Memory)
+
+		Standard NN forgets past data, where LSTM remembers long-term dependencies.
+
+	Ex:
+		I love drining ________
+		--> "cofee"
+
+
+
+	GRU (Gated Recurrent Unit)
+
+		- Simpler
+		- Faster
+		- Fewer gates
+
+	Focus on important words
+
+Stage 4: Transformer (Revolution)
+	
+	Paper: "Attention is all you need"
+		Only attention
+
+		I have a cat. it is cute.
+
+	Benefits:
+		- Parallel processing
+		- Faster training
+		- Better context understanding.
+
+	Stage 5: LLM (Large Language Models)
+		LLM - Transformer based model trained on huge text data.
+
+		Capabilities:
+			- Text generation
+			- Code generation
+
+	Examples:
+		GPT
+		Llama
+		Gemini
+		Claude
+
+GPT Series 
+	GPT - Generative Pre-trained Transformer
+
+	GPT 1 - Basic Text
+	GPT 2 - Better generation
+	GPT 3 - Few shot learning
+	GPT 4 - Advanced reasoning.
+
+	Prompt:
+		Write down summary for MERN backend developer
+
+		User prompt -> Tokenization --> LLM processing --> Probability Prediction -> Response
+
+		Tokenization: "Java backend developer"
+			"Java"  "backend" "developer"
+
+
+			Model Processing
+				Uses Transformer + Attention
+					Understand context+ relationships
+
+			Prediction
+					Predicts next token stey by step
+
+			Output 
+				Final Structured response.
+
+Prompt
+	1. Task (What to do)
+
+	2. Instruction (How to do)
+
+		Use professional tone, consise language, 
+
+	3. Context(Background info)
+		Give model enough informaton
+
+		I am a MERN Developer with 15 years of exp, in ....
+
+	4. Input data (Actual content)
+		Skill: Java/Spring, Kafka, React, Angular....
+		Achievements: .. ... ..
+
+		
+
+
+
+
+
+====================================================================================================================
 01/03/2026
 ====================================================================================================================
 
