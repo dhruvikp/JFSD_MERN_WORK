@@ -1,2629 +1,3068 @@
-Instructions:
-1. Join on time
-	Late joining disrupts the flow and your own understanding
+	Instructions:
+	1. Join on time
+		Late joining disrupts the flow and your own understanding
 
-2. Stay focused during session
-	- Keep your mic mute unless speaking
-	- Avoid parallel work or distractions
+	2. Stay focused during session
+		- Keep your mic mute unless speaking
+		- Avoid parallel work or distractions
 
-3. Ask Questions at right momemnt
-	- Note down your doubts while the topic is being explained
-	- Ask questions at logical end of a topic, not in the middle
+	3. Ask Questions at right momemnt
+		- Note down your doubts while the topic is being explained
+		- Ask questions at logical end of a topic, not in the middle
 
-4. Daily Practice is mandatory
-	- Practice what is taught every day
-	- Even 30-40 minutes daily is better than long, irregular study
+	4. Daily Practice is mandatory
+		- Practice what is taught every day
+		- Even 30-40 minutes daily is better than long, irregular study
 
-5. Complete Assigned exercises
-	- Exercises will be given after each session
-	- Treat them as non-optional - they are part of the learning process
+	5. Complete Assigned exercises
+		- Exercises will be given after each session
+		- Treat them as non-optional - they are part of the learning process
 
-6. Be consistent and committed
-	- Learning compounds with consistency
-	- Missing sessions or practice will directly affects your progress
+	6. Be consistent and committed
+		- Learning compounds with consistency
+		- Missing sessions or practice will directly affects your progress
 
-This is not just a class - it is a transformation journey.
+	This is not just a class - it is a transformation journey.
 
 
 
 
--- AWS, DOcker, K8s
+	-- AWS, DOcker, K8s
 
-https://github.com/dhruvikp/JFSD_MERN_WORK
+	https://github.com/dhruvikp/JFSD_MERN_WORK
 
 
-====================================================================================================================
-28/03/2026 - REACT JS
-====================================================================================================================
 
-JSON Server?
+	Local Storage and session storage
 
-	JSON Server is a lightweight tool that lets you to create a fake REST API using a simple JSON file.
+	====================================================================================================================
+	04/04/2026 
+	====================================================================================================================
+	- Creating project using vital
+	- Create app named expense management app
+	- Create component
+	- Apply style
+	- Creating child component
+	- passing data from parent to child - through props concept
+	- Adding component wrapper
+	- State and Event Handler
 
-	 Important: Instead of waiting for backend APIs, you can simulate a backend instantly.
 
-	How it works?
 
-		{
-		empId: 1,
-		empName: "Dhruvik",
-		address: {
+	Vite
+		Modern frontend development tool used to create and run web applications (like reqct apps) very fast.
 
-			street1:
-			city
-			count.
-			...
-		}
-		}
+	Think of it as a tool that:
+		- start your app instantly
+		- updates changes immediately
+		- Build optimized production code
 
+	Problems:
+		- Takes time to start
+		- Slow refresh after code changes
+		- Heavy bulding before running
 
-nodejs
+	Vite solves these problems:
+		1. Instant start
+			- no waiting
+			- app starts in ms
+		2. Super fast update
+		3. Efficient build
+		4. Moerrn approachs
 
 
-npm install -g json-server
+	How?
+		npm create vite@latest expense-mgmt-app
+		cd expense-mgmt-app
+		npm run dev
 
 
+	Props:
 
-Postman
+		"Props" are the attributes of your custom HTML elements (components)
 
+		Components can not jsut use data stored in other component.
 
-				expose login API
 
-				POST	/login
-							body
-								username
-								password
 
+Sometimes, we need two or more components that needs to share some data. 
 
-login -> React -> Login form
-							_-> Submit
-										INvoke API /login (username and pwd user has entered)
+A Wrapper component is a component that wraps other component (children) and provides:
+	Common Layout
+	Styling
+	Logic
 
-										True/false
+It acts like a container around other components
 
+Instead of repeating code in multiple places, you
+	create one wrapper
+	put common structure inside it
+	wrap other components using it
 
-										
-const resp = await fetch(API_URL);
-const data = resp.json();
 
+	Card component
 
+		props.children
 
-Old School - Method to call API
 
-const xhr = XMLHttpRequest();
+	how to use it?
 
-xhr.open("GET" "URL");
+	<Card className="expenses">
+		--
+		--
+		--
+	<Card>
 
-xhr.onload = function() {
-	console.log(..... parse and render)
-}
 
-xhr.send();
+Components are nothing but just a function.
+Components functions are invoked when it is called while loading the page (initially rendered)
 
+when we change any property , we need some way to tell something has changed, ask to reevaluate!!!
 
+State:
+	A way to store and manage dynamic data inside a component
 
-====================================================================================================================
-22/03/2026
-====================================================================================================================
-Prompting Techniques:
-	
-	Structured way of guiding LLM to:
-		- Thikn better
-		- Respond accurately
-		- Follow logic
-		- Reduce mistakes
+	It represents data that can change over time and affect what is shown on the UI.
 
-	LLM - Probability Machine
-	Prompt - Steering wheel
+	Fundamental Idea;
+		- When state changes --> UI updates automatically
+		- State is local to a component 
 
+ useState - Funciton provided by react allows variables to use as state. Where changes these values are called react to reevaluate function.
 
-Zero-Shot prompting
--------------------
-	Asking the model to perform a task without giving examples.
 
-	Model relies on pre-trained knowledge
-	No pattern guidance
+ Important Note: State item is separated on per component instance bases.
 
-	Usecase:
-		- simple tasks
-		- common knowledge tasks
 
-	Limitation:
-		- Inconsistent for complex tasks
-		- May misinterpret intent
+	====================================================================================================================
+	29/03/2026 
+	====================================================================================================================
 
-Few-Shot Prompting
-------------------
-	Provide examples in prompt to guide model behavior
 
-	Model learns pattern from examples.
-
- Usecase:
- 	- custom logic
- 	- Business rule
- 	- Domain specific tasks
-
- Limitation:
- 	- Prompt becomes very long
-
- Chain Of Thought (CoT)
- ----------------------
- Ask model to reason step-by-step
-
- LLM performs better when reasoning is explicit.
-
- 	Usecase:
- 		- Math
- 		- Complex logic/reasoning
-
- 	Limitation:
- 		- Slower
- 		- More tokens
-
-
- 	Self-Consistency Prompting
- 	--------------------------
- 		Generate multiple reasoning paths --> Pick the best answer.
-
- 	How it works
- 		1. Ask model multiple times
- 		2. Get multiple answers
- 		3. Choose most common answer
-
- 		When to use?
- 			- When you need critical decisions
- 			- High accuracy needed
-
- 		Limitation:
- 			- Expensive (Multiple calls)
- 			- slower
-
-
-Tree of Thoughts (ToT)
-	Model explores multiple reasoning paths like a tree
-
-	How it works?
-	Problem?
-		Idea 1: --> Evaluate
-		Idea 2: --> Evaluate
-		Idea 3: --> Evaluate
-
-		Choose best path.
-
-		Ex:
-			How to increase sales of a coffee shop?
-
-				Think of multiple strategies and evaluate each before choosing the best.
-
-
-Best Practices
-
-	Be clear and specific
-
-		Ex. Explain generative AI with real-world examples for backend developer
-
-	Define the role
-		Act as senior Nodejs architech, ....
-
-		Model will adapt, tone, depth and perspective
-
-	Break down the task
-		Build a system
-
-		Ex.
-		Design Architecture
-		Explain components
-		Provide example
-
- Provide context
- 	I have 15 years of experience in Java/Node backend, what to learn in AI
-
- 	Output will be more personalized
-
- Use examples (Few-shot prompting)
-
-
- Specify the output format
- 	Return response in JSON format with keys: name info etc
-
- Add constraints
- 	Limit to 100 words
- 	Do not include explanation
-
-  Prevents unwanted output
-
-Encourage step by step reasoning
-	Improves accuracy
-
-
-AVOID AMBIGUITY
-	Make it better
-
-	instead:
-	Make it more concise and professional with bullet points.
-
-
-Pre-Training?
-=------------
-	Pre-training is the process where a model is trained on  massive general data to learn language patterns.
-
-	Pre-training = School education
-	Fine-tuning = Job specialization
-
-
-	What happens during pre-training?
-		Model is trained on:
-			- books
-			- websites
-			- code
-
-		Learn:
-			- Grammer
-			- context
-			- Reasoning patterns
-
-
-What is Fine-Tuning?
-	Training a pre-trained model on specific domain data.
-
-	Pre trained model'
-		konws english language
-
-	Fine-Tuned model:
-		Becomes expert:
-			- Medical domain
-			- Legal domain
-			- Finance domain
-
-
-
-	What is a balance sheet? --> general AI basic answer
-
-
-	--> Detailed CA level explaination
-
-
-Fine-tuning
-	1. Domain Expertise
-	2. Better accuracy
-	3. Consistent output
-
-	Consider:
-		Data quality
-		Data size --> too small data --> Overfitting		
-
-									too large --> Expensive
-
-		Cost
-			Training cost
-			Infrastructure cost
-
-RAG
-
-	LLM 			Datastore (Vector DB)  --> Output
-
-
-
-
-
-
-
-
-
-====================================================================================================================
-21/03/2026
-====================================================================================================================
-Evaluation:
-
-	Turing Test (Propsed by Alan Turing)
-		Concept:
-			- If human cannot distinguished between:
-				machine response
-				human response
-					Then machine is "Intelligent"
-
-	ELIZA Chatbot 
-
-		- pattern matching
-		- Rule based responses
-
-		Ex:
-			User : I feel sad
-			ELIZA: Why do you feel sad?
-
-
-Stage2: Neural Networks
-	Inspired by human brain.
-
-	Input --> Hidden Layers --> Output
-
-	Learn pattern from data
-	Adjust weight accordingly.
-
-	text, time-series - not good
-
-Stage 3: Sequence Models
-	LSTM (Long Short Term Memory)
-
-		Standard NN forgets past data, where LSTM remembers long-term dependencies.
-
-	Ex:
-		I love drining ________
-		--> "cofee"
-
-
-
-	GRU (Gated Recurrent Unit)
-
-		- Simpler
-		- Faster
-		- Fewer gates
-
-	Focus on important words
-
-Stage 4: Transformer (Revolution)
-	
-	Paper: "Attention is all you need"
-		Only attention
-
-		I have a cat. it is cute.
-
-	Benefits:
-		- Parallel processing
-		- Faster training
-		- Better context understanding.
-
-	Stage 5: LLM (Large Language Models)
-		LLM - Transformer based model trained on huge text data.
-
-		Capabilities:
-			- Text generation
-			- Code generation
-
-	Examples:
-		GPT
-		Llama
-		Gemini
-		Claude
-
-GPT Series 
-	GPT - Generative Pre-trained Transformer
-
-	GPT 1 - Basic Text
-	GPT 2 - Better generation
-	GPT 3 - Few shot learning
-	GPT 4 - Advanced reasoning.
-
-	Prompt:
-		Write down summary for MERN backend developer
-
-		User prompt -> Tokenization --> LLM processing --> Probability Prediction -> Response
-
-		Tokenization: "Java backend developer"
-			"Java"  "backend" "developer"
-
-
-			Model Processing
-				Uses Transformer + Attention
-					Understand context+ relationships
-
-			Prediction
-					Predicts next token stey by step
-
-			Output 
-				Final Structured response.
-
-Prompt
-	1. Task (What to do)
-
-	2. Instruction (How to do)
-
-		Use professional tone, consise language, 
-
-	3. Context(Background info)
-		Give model enough informaton
-
-		I am a MERN Developer with 15 years of exp, in ....
-
-	4. Input data (Actual content)
-		Skill: Java/Spring, Kafka, React, Angular....
-		Achievements: .. ... ..
-
+	Fundamentals
 		
 
+	Realtime application ()
+
+		as we go thorugh concept --> implementa that concept in the same application.
+
+
+	JavaScript
+	------------------------------
+
+		Arrow function
+
+			test = (username, message) => {
+					return username + message;
+			}
+
+			test('dhruvik','hi');
 
 
 
+		class User {
+			constructor(name, age) {
+				this.name = name;
+				this.age = age;
+			}
 
-====================================================================================================================
-01/03/2026
-====================================================================================================================
+			greet() {
+				console.log(this.name + " "+ this.age);
+			}
+		}
 
-Styling Essential UI Elements
-Dropdown,
-Button, 
-Badge, 
-Spinner/Progress Bar 
+		const user1 = new User('Dhruvik', 34);
 
-
-Presentation Elements in Tailwind
-Hero Section
-Tables
-Form Input UI Elements
- Styling Navigation UI Elements : Navbar and Breadcrumbs
+		user1.greet();
 
 
----------
-	
-	elements hiddden by default
-	clcik --> appears on user action
-	floats -> above other content
+		const hobbies = ["Sports", "Cooking", "Reading"];
+		console.log(hobbies[1]);
 
-	positioned relative to a trigger.
-
-	block - makes item to full width
-			- Make entire raw clickable
-
-Badge
-	Display status (Active, New, Pending)
-	Show counts
-	Highlight labels(Beta, Pro, Draft)
-
-	Badge - Text + backgroung + padding + shape
-
-overflow-hidden 
-	Prevents inner bar from overflowing container
-
-animate-pulse
-	fades in and out
-	indicates on going activity
+		hobbies.push("working");
 
 
-Hero section strategy
+		let ind = hobbies.findINdex((item)=> {
+		 return item === 'Cooking'
+		})
 
-Full width section
-	Contered container
-		- Heading
-		- Description
-		- CTA buttons
+		console.log(ind);
 
-	flex or gird
-	text
-	bg
-	py
-	max-w
+Destructure
+
+	const[firstname, lastname] = ["Dhruvik", "Parikh"];
 
 
-md:
-lg:
-overflow-x-auto
-	- enables horizontal scrolling
-	- prevents layout breaking on small screens
-	- 
+	const {name1: username, age1: age}  = {
+	name1: "Dhruvik",
+	age1: 34
 
-sticky
-	- Header sticks while scrooling
-
-Navbar 
-	top-level navigation component that:
-		- helps users to navigate the app
-		- contains links, actions, profile mnus
-		- is often sticky or fixed
-
-
-Breadcrubs:
-	Show user's location in the app hierarchy
-
-	Home > Proucts > Electronics > Mobile
-
-
-- understand where they are
-- Navigate back to parent pages
-- Reduce confusio in deep navigation
-
-Hierarchy + navigation 
-
-
-Container
-	Item(link) > Item(link) > Current page (text)
-
-
-Modal Overlay
-	Semi-transparent background layer behind popup.
-
-	- it covers full screen
-	- Dims backgound
-	- prevents clicks on the page behind
-
-	1. Overlay (backgound)
-	2. Modal box (content)
-
-	
-
-
-
-
-
-
-====================================================================================================================
-28/02/2026
-====================================================================================================================
-
-What is Tailwind?
-Tailwind Characteristics
-Why Use Tailwind?
-Tailwind Usecases
-Overview of other CSS Frameworks:
-  - Bootstrap, Material UI, Foundation
-
-Setting up Tailwind CSS 
-
-Key Features of Tailwind
-Responsive Webdesign
-Utilitis: Margin, Padding, Width, Flex system (Horizontal flex Alignment, Justify-Content, Vertical Flex Alignment, align-items)
-
-
-
-Typography
-  Text sizing
-  Colour - Shade System
-  Text Alignment
-
-
-How to define customization>
-NPM Configuration -  tailwind.config.js (to define custom style , theme and Utilitis)
-CDN approach      - Use :root selector inside a <style> tag and applies styles inline using the style attribute
-Custom CSS Classes - Define styles within :root and reuse them by creating custom css classes
-
-
-
-Tailwind CSS Layout system
-Column Layout System 
-Tailwind Grid System
-
-
-
-----------------
-	Tailwind CSS
-
-	Tailwind CSS is utility-first class framework that allows you to build modern UIs by compositing small, single purpose utility classes directly in the HTML.
-
-	.card {
-		padding: 16px;
-		background: blue;
 	}
 
-	<div class="p-4 bg-blue-500" />
+	console.log(username);
+	console.log(age);
 
-	Tailwind provides low-level design utilities
 
-Utility-first approach
---------------------
-	
-	- Every class does one job
-	- Classes are composable	<div class>
-									<div>
-								</div>
+	...spread operator
 
-	- No large, opinionated CSS blocks
+		const hobbies= ["Sports", "Cooking"]
+		const newHobbies = ["Reading"]
 
-No Predefined UI components
-------------------------
-	- Navbar component
-	- button component
-	- card component
+		const mergedHobbies = [...hobbies, ...newHobbies]
+		console.log(mergedHobbies)
 
-Instead you build your own, based on your design needs.
-	- Full freedom
-	- No CSS overrides war
+		const user = {
+			name: "Dhruvik",
+			age: 34
+		}
 
-Highly Customizable Design system
-	tailwind.config.js
+		const extendedUser = {
+			isAdmin: true,
+			...user
+		}
 
-	- colors
-	- Fonts
-	- Spacing
-	- Shadows
-	- Border radius
+		console.log(extendedUser)
 
-Mobile First & Responsive by default
---------------------------------
-	
-	<div class="p-2 md:p-6 lg:p-10">
-
-JIT Compiler
----------
-	Tailwind:
-		- Generates CSS only for used classes
-		- Remove unused styles automatically
-
-
-Framework Friendly
---------------
-	- React
-	- Angular
-	- Vue
-	- Next.js
-	- ..
-
-Bootstrap
-	- Component first CSS framework
-
-	Provides:
-		- styles library for all html element/components
-			- navbar, buttons, card, modals etc.
-
-		style --> url
-
-		<button class="btn btd-primary">Click</button>
-
-Material UI (MUI)
-
-	React UI component library based on Google material design
-
-----------------
-
-npm install tailwindcss@latest
-
-npm install vite --save-dev
-
-# 1. Initialize project (if starting fresh)
-npm init -y
-
-# 2. Install Vite as dev dependency
-npm install -D vite
-
-# 3. Install Tailwind CSS v4
-npm install tailwindcss
-
-# 4. Install @tailwindcss/postcss (REQUIRED for v4 PostCSS support)
-npm install -D @tailwindcss/postcss
-
-# 5. Install autoprefixer (OPTIONAL but RECOMMENDED for production)
-npm install -D autoprefixer
-
-# 6. Create necessary config files:
-# - postcss.config.js
-# - tailwind.config.js
-# - src/style.css
-# - index.html
-# (See content as per my code)
-
-# 7. Start dev server
-npm run dev
-
-
-
-
-Vite
-	frontend build tool
-	deisgned significatly for buiding modern front end projects
-	Created by Evan You (vue.js)
-
-	industry standard due its remarkable speed compared to some older tools like webpack
-
-Developement server - Native ES Module
-
-----------------
-Tailwind Utilities - Margin
-
-Margine - control space - outside an element
-	-creates distance between elements
-
-Syntax:
-	m{direction}-{value}
-
-	m -> margin
-	direction -> side(s)
-	value -> spacing scale
-
-	m-*	--> All sides
-	mt-* --> top
-	mr-* --> right
-	mb-* --> bottom
-	ml-* --> left
-	mx-* --> left+right
-	my-* --> top+bottom
-
-
-Padding
-	control space inside element
-
-	space between content and border
-
-	p{direction}-{value}
-
-	p-* -> all sides
-	pt-* -> padding top
-	pr-* -->
-	pb-* --> bottom
-	pl-* --> left
-	px-* --> left + right
-	py-*  --> top + bottom
-
-
-	p-2
-		Mobile padding --> 8px
-
-	md:p-6
-		md --> screen >= 768 px
-		padding becomes 24px
-
-	lg:p-10
-		lg --> screeen >= 1024px
-		padding becomes 40px
-
-	bg-purple-200
-		- Background color for visibility
-
-------------------
-
-	Flex system is	
-
-		Flexbox is one-dimensional layout system.
-
-			- it arranges items in a row or column
-			- the parent controls alignment
-			- childrens responds automatically.
-
-		Flex properties always go on the parent.
-
-		Axes in flexbox
-			main axis --> Horizontal	--> flex-row
-			corss axis --> Vertical axis--> flex-col
-
-
-			justify-start/end/between/around/evenly etc. --> horizontal alignments
-			items-*. - controls vertical alignments
-
---------------
-
-Topography 
-	Text sizing - are utility class
-	They follow a consistent scale
-
-	Each size includes:
-		- font-size
-		- line-height 
-
-	text-{size}
-		text--> topography utility
-		{size} --> predefined size from Tailwind scale
-
-				Font size 		Line Height
-	text-xs --> 12px --> 		16px
-	text-sm 
-	text-base.  16px 			24px
-
-	text-lg 								emphasized text
-	text-xl
-	text-2xl
-	text-3xl
-	text-4xl
-	text-5xl
-	text-6xl 	60px 			1 			banners
-
------------
-Color
-	
-	Tailwind uses shade based color system, not a single color (hex value)
-
-	blue-50 --> very light
-	blue-500 --> base color
-	blue-900 --> very dark
-
-	text-{color}-{shade}
-
-	50 - Very light
-	100-200 -- Light
-	300-400 -- Medium
-	500 -- Base color
-	600-800 - Dark
-	800-900 - very dark
-	950 -- Almost blank
-
-
-
-text- {alignment}
-	
-	text-left
-	text-center
-	text-right
-	text-justify
-
-
-
-Core layout buiding blocks in tailwind
-	
-	Tailwind layout = Composition of utilities, 
-
-	Layout system controls:
-		- How elements are positioned
-		- How space is distributed?
-		- How UI adapts to screen sizes
-
- 1. Container
- 2 BOx model (width, height, spacing)
- 3. Flexbox
- 4. Grid
- 5. Positioning
-
- Container:
- 	Center content and control max width.
-
- Box model
- 	w-1/2 -50% of the parent width
-
- Flex model
-
- 	justify-* --> 
- 	items-* 	
-
- Grid Layout System
-
- 	2 D layout system
-
- - Rows and COlumns at the same time
- - Precise placement of items
- - Complex layouts with simple rules
-
- grid-cols --> defines column definition
- gap-4 - defins space between rows and columns
-
- col-span-3 --> item spans 3 columns
- col-span-1 ==> item spans 1 column
-
-
- CSS - Positioning SYstem
-
- Positioning controls where an element appears and how it is taken out of the normal flow.
-
- By default HTML elements follow normal document flow
- 	- one after another
- 	- top to bottom
-
- Positioning allows you to:
- 	- Overlay elements
- 	- Pin elements
- 	- Float elements
-
- Positioning all about - location not layout
-
- static 		- Default
- relative 		- Reference container
- abolute 		- Positioned relative to the parent
- fixed 			- Positined relative to viewport
- sticky. 		- Scroll based
-
-
- Absolute elements position themselves relative to the nearest relative parent.
-
-
-relative - sets positioning context
-absolute - removes elements from the normal flow
-		- positions relative to nearest relative ancestor
-
-top-2 --> 	distance from top --> 8px
-right-2 	distance from right -
-
-fixed 
-	- positioned relative to the browser window
-	- Does not move on scroll
-
-
-
-
-
-===================================================================================================================
-21-Feb-2026
-===================================================================================================================
- 	Prototype
-	Async programming (promise)
-
-	Webpack
-	MOdern javascript --> 
-	Babel introduction --> 
-
-
-Object
-	- toString()
-	--
-	---
-
-
-
-
-
-Prototype:
-	What is ? 
-		A prototype is an object that another object can inherit properties and methods from.
-
-		JavaScript uses prototype-based inheritance, not classical inheritance.
-
-	Why?
-		- To share methods between objects
-		- To save memory
-
-	Objects donot copy methods - they delegate to their prototype.
-
-	Every js object --> hidden internal reference
-		[[prototype]]
-
-JavaScript does:
-	1. Look in obj
-	2. Not found --> look in obj's prototype
-	3. Continue up the chain
-	4. Stop at null.
-
-	obj--> obj.prototype--> null
-
-JavaScript searches properties through the prototype chain.
-
-
-Every function has property called prototype.
-
-	This prototype is used only when function is called with new.
-
-Person.prototype = {
-	constructor: Person;
+{
+		isAdmin: true,
+		name: dhruvik
+		age: 34
 }
 
 
 
+	Promise: New, Resolve, Reject
 
-let person1 = new Person("Alice");
-person1.greet(); // Output: Hello, my name is Alice
 
-Internally:
-	1. New object created
-	2. person1.[[prototype]] = Person.prototype == Object.prototype
-	3. this bound to person1
-	4. Object returned.
+		let promise = new Promise( function(resolve, reject) {
+			// YOUR CODE GOES HERE
 
-constructor function links objects to their prototype automatically.
+			resolve(data);
 
+			// reject(err);
 
-person1.toString()
+		}); 
 
-Prototype chaining in JavaScript
----------------------------------
-	
-	A Prototype chain is a linked chain of objects used for inheritance and lookup
+		promise.then(
+			result => console.log(result),
+			error => console.log(error)
+		)
 
-	isPrototypeOf() - checks inheritance relationship
+...
+..
+...
+..
+..
 
-
---------------------------------
-
-Asynchronous programming
-	
-Promise:
-	A promise is a JavaScript object that represents the result of an asynchronous operation that will be available:
-	- Now
-	- Later
-	- Or never
-
-	
-- JavaScript is Single-Threaded (executes one task at a time)
-
-console.log("A"); // API Calls (fetch data)
-console.log("B");	
-console.log("C");
-
-Promise object helps you to asynchronous operations.
-
-Promise manage asynchronous tasks without blocking JavaScript execution.
-
-Promise States
------------------------
-	A promise object can be in only one of these three states
-
-	1. Pending
-		- Initial state
-		- Operation has not finished yet
-		- Neither success or failure
-
-		Promise is just created
-
-	2. Fulfilled
-		- Operation completed successfully
-		- Promise has a resolved value
-
-		resolve("Data") --> Move state of the promise from pending to fulfulled
-
-	3. Rejected
-		- Operation failed
-		- Promise has a reason (error
-
-		reject("Something went wrong"); --> Pending to Rejected.
-
-
-Notes: Once promise is settle (fulfilled or rejected), its state cannot change.
-
-
-How do you create promise?
-
-	let promise = new Promise(
-		function(resolve, reject) {
-			// async operations
-		});
-
-
-Promise chaining
-
-Promise chaining means executing aysnc task one after another, where each step depends on the previous one.
-
-	.then()
-
-
-
-loginUser().
-then(getProfile)
-.then(getOrders)
-.then(showDashboard()
-.catch(handleFailure);
-
-Promise chaining allows sequential async execution using .then() by passing results forward
-
-async/await
-
-	async/ await is syntactic sugar over promises that makes your async code more synchronous.
-
-	- It doesn't replace promise
-	- It built on top of Promise obj
-
-
-// await
-	- Used only inside async functions
-	- pauses execution until promise settles
-	- Returns the resolved value
-
-
-
-	async function getUser() {
-		const user = await fetchUser();
-		console.log(user);
-	}	
-
-
------>
-	async function loadData() {
-
-		try {
-
-			const data = await fetchUser();
-			console.log(data);
-
-			// call another api with passing data..
-
-
-		} catch(error) {
-			console.log("Error:", error)
-		}
-
-	}
-
-
-d--
---
---
---
-	fetchUser().then(console.log).catch(console.log)
-
-
-
-
-
-stmt1
-stmt2 -- async loadData();
-stmt3
-stmt4
-
-
-Webpack?
-	Webpack is a module bundler for JavaScript applications.
-
-	It takes many files (JS, CSS, images etc), and bundles them into one or more optimized files that the browser can udnerstand.
-
-	<script src="a.js" />
-	<script src="b.js" />
-	<script src="c.js" />
-
-	<script src="bundle.js"/>
-	Hot Module replacement (HMR)
-
-
-
-	Performance optimization
-
-
-	What webpack can be used?
-		- JavaScript
-		- CSS
-		- Images
-		- Fonts
-
-	
-	Plugins:	
-		- Extra functionality
-	- HTML generation
-	- Minification
-	- Environment varialbes
-
-
-CoffeeScript
-	Syntactic suger language that compiles to JavaScript.
-
-	It tries to make JS:
-		- Shorter
-		- Cleaner
-		- Less verbose
-
-Flow:
-	Static type checker for JavaScript developed Facebook
-
-	let a = "10";
-	a/10;
-
-Why flow exist?
-	- catch bugs early
-	- add type safety
-	- improve larege codebase
-
-TypeScript
-	TypeScript is superset of JavaScript - Microsoft
-
-	a.ts
-		compiler --> js
-
-	Key features:
-		- Static typing
-		- Interface
-		- Enums
-		- Generics
-
-Dart
-	- compile to JavaScript
-	- Run natively
-
-	- Strong typing
-	- Performance
-	- Structured lang
-
-	.dart --> .js
-
-	Flutter --> 
-
-Babel
-
-
-	Javascript compiler (transpiler) that converts modern JavaScript into backward compatible JS for older browser to runs.
-	It does syntax transformation , not building
-
-	preset --> collection of plugins
-
-	@babel/preset-react--> 
-	@babel/preset-typescript -->
-
-	JSX
-		const App = () => <h1>Hello</h1>
-
-		
-
-
-
-
-
-
-
-===================================================================================================================
-21-Feb-2026
-===================================================================================================================
-Agenda:
-	String (Indexing, methods, properties, Interpolation)
-	Escape characters
-	String manipulation techniques 
-	String Iteration
-	Unicode
-	RegularExpression in javascript
-	String conversions
-	String formatting
-	Encoding decoding
-	Function and its
-
-
-String
-	Representation of text data in javascript
-
-	let name = "Dhruvik"
-
-	Internally, Strings are primitive values, but JavaScript temporarily wraps them with String object to provide its methods.
-
-	String indexing:
-		zero-based index
-
-	String - Immutable
-			 Once String is created, it cannot be changed.
-
-	Coercion (Automatic Type Conversion)
-		JavaScript automatically converts values to strings in some cases
-		"5"+ 2;
-
-	String performance issue:
-		- Heavy String modification can hurt performance
-
-String methods:
-
-String interpolation: - Embedding variables and expressions insiide strings using backticks
-
-String comparision:
-	==		- Compares values (type coercision)
-	===		- Compare values + type
-	localeCompare() - Compares strings based on language rules
-
-		0 --> strings are equals
-		-1 --> first string comes before
-		1 --> first string comes after
-
-Unicode:
-	Unicode is Universal character encoding standard that assigns unique number (code point) to every character in language.		
-
-	 A --> U+0041
-	 ₹ --> U+20B9
-
-	 😀 --> ..
-
-
-UTF-16 - JS strings are stored using UTF-16 encoding.
-	Meaning:
-		- some characters take 1 unit (2 bytes)
-		- some take 2 units (4 bytes)
-
-	codePointAt() - correctly reads unicode characters, including emojis
-
-
-	Surrogate Pair:
-		Characters beyond U+FFFF are stored as two UTF-16 code units:
-		-
-
-	Create unicode strings - fromCodePoint()
-
-Regular Expression 
-	Regex - pattern used to search, match, extract, or replace text
-
-Think of it like rules for text matching.
-
-- Validate input (email, phone, password)
-- search text
-- Extract data
-- Repalce or clean text
-- Parse logs, urls , files...
-
-Regex - pattern language for working with text
-
-Create regular expression?
-	let pattern = "/abc/";
-	let pattern = new RegExp("abc"); // used only when pattern is dynamic
-
-
-test() - check if match exist
-
-	let regex = /js/;
-	regex.test("I love js"); // true
-
-Regex Flags (Modifiers)
-	
-	g - Global (all matches)
-	i - Case-insensitive
-	m - multine
-	s - Dot matches newline
-
-Flag control how regex matches text.
-
-Common Regex Patterns
-	Literal Characters -  /hello/ --> matches exact word hello.
-
-	Character sets [] - [abc] // a or b or c
-						[0-9] // digits
-						[a-z] // lowercase characters
-
-	Negated Sets[^] [^0-9] //anything except digits
-
-	Predefined characters:
-		\d - Digits
-		\D - Non-Digits
-		\w - WOrd char
-		\W - Non-Word
-		\s - Whitespace
-		\S - Non-whitespace
-
-	Quantifiers(How many tiems?) - controls repeatation
-		+ - One or more
-		* - Zero or more
-		? - Zero or one
-		{n} - Exactly n
-		{n,m} - Between n and m
-
-	Anchors (Position control)
-		^ - Start of string
-		$ - Ends of string
-
-
-Encoding Decoding
-
-	Encoding means converting data into safe, standardized format 
-		- it can be transmitted
-		- stored
-
-	Decoding means converting the encoded data back to its original form
-
-	Why?
-		- some characters break urls
-
-			/hello.html?name=Dhruvik%20parikh
-
-		- System may use different formats
-		- Text may include special or binary characters
-
-	Encoding makes data safe to send, decoding restores it back.
-
-	URL encoing:
-		URL  can not have spaces, special characters (&, ?, = ,#,%)
-
-
-	Base64 - encoding and decoding
-		Base64 converts binary or special data into readable ASCII text
-
-
-	Why?
-		- sends binary data over text based protocols
-		- Embed images into HTML
-		- Authorization in heads
-
-
-		btoa() -- encoding
-		atob() -- decoding
-
-
-Functions:
-	- Pass function as an argument
-	- Function returns function
-	- Function constructor
-	- Function Context Manipulation 	
-		- call(), apply()s and bind()
-
-
-	Functions 
-		- Can be stored in variables
-		- every function has propertis and methods.
-
-	Function as constructor
-
-		A way to create function dynamically at runtime
-
-	Function Context manipulation?
-
-	What is Function Context?
-		this refers to the object that calls the function.
-
-
-	Why Context manipulation is needed?
-
-		- Method borrwing
-		- callbacks losing this
-
-	use call - for one-time execution
-	use apply - when args are many (or in array)
-	use bind - for callbacks and events
-
-	prefer arrow fn when possible.	
-
-
-
-
-
-
-
-===================================================================================================================
-15-Feb-2026
-===================================================================================================================
-Agenda:
-	- Control flow statements 
-		if else, switch case, for while, do while, for..in, for..of, break, continue
-
-	- Object cloning, Object factory method, Object constructor fn
-	- Math object
-	- String object
-	- template laterals
-	- Arrow function
-	- Arrays (Splice, sort, filters, reduce, map etc)
-
-
-JS Controlflow statements:
-------------------------
-	Control flow statements decides which code runs, when it runs , and how many times it runs.
-
-	Control flow == Decision making + looping.
-
-
-1. if, else
-
-	Executes code only if a condition is true.
-
-
-2. Switch
-	Used when one value is compared against multiple cases.
-
-3. Looping statements:
-	
-	3.1 : for loop
-
-	when number of iteration is known.
-
-	3.2 : while loop
-		when condition is checked before execution
-
-
-	3.3: do..while loop
-		Code runs at least once.
-
-4. Loop control statements
-	break, continue
-
-5. Ternary operator (Control flow shortcut)
-
-
-for..in
-	Loops over the keys (property names) of an object.
-
- Iterate over object properties
-
-
- for..of
- 	Loops over values of iterable objects
-
- 	clean way to iterator over arrays, strings
- 	you get direct access to values
-
-
-
-Object cloning - JS
+React
 ---------------------
-Object cloning means creating new object that has the same properties and values as an existing object.
-
-
-Why?
- - Objects are reference types
- - If you copy an object , both variants point to the same memory
-
- user: {}
- empl = user;
-
-
- Two types of object cloning
-
- 1. Shallow Cloning
-
- 	Shallow cloning copies only top-level properties.
- 	Nested objects are still shared by reference.
-
- 	Fast
- 	simple
- 	works when object has no nested objects.
-
- 	Imp: Spread syntax (...)
-
-
- 	Method 2: Object.assign()
-
-
-
- 2. Deep Cloning
-
- 	Deep cloning copies all level of the object, including nested object.
-
- 	Method 1: JSON.parse(JSON.stringify())
-
- 		Limitations:
- 			- Loses functions
- 			- Undefined is ignored
- 			- Date becomes string
-
- 	Method 2: structuredClone() (Modern & Best)
-
-
-Object creation:
-Why Object creation patterns matter?
-	- Object represents real-word entities (User, Product, Person).
-
-	When creating many similar objects, how ou create then affects:
-		- code reuse
-		- Maintainability
-		- Memory usage
-		- Scalability
-
-	Manual object creation causes duplication and poor scalability.
-
-Method1: Factory function:
-		A normal function that returns a new object.
-
-		code reuse
-		cleaner
-		more sclable than literals
-
-	 Factory functions resuse structure but waste memory on methods.
-
-	 	Problem:
-	 		- Manual assignments
-	 		- Ugly for many method
-	 		- Error prone
-
-Method 2: Prototype based factory 
 	
-	A better factory that uses prototypes.
+	A JavaScript Library for building User interfaces (UI) - especially Dynamic, Interactive, and fast web applications
 
-	const personsMethods1 = {
-    getFullName() {
-        return this.firstName + " "+this.lastName;
-    }
-};
+		- Developed by Meta
+		- Component based architecture
+		- Uses Virtual DOM
+		- Follows Declarative Programming
 
-
- function createPerson2 (firstName, lastName) {
-        let person = Object.create(personsMethods);
-        person.firstName = firstName;
-        person.lastName = lastName;
-
-        return person;
-}
-
-	Why this better:
-		- Methods live in one place
-		- Objects share methods via prototype
-		- Memory efficient
-
-Method 3: Constructore Function (Industry standard)
-		A special function with new keyword to create objects.
+		Iterative programming
+			- you provide step to get execute
+			line1
+			line2
+			...
+			...
+			..
 
 
-function Person(firstName, lastName){
-    this.firstName = firstName;
-    this.lastName = lastName;
-}
-
-let p11 = new Person("A","B");
-
-Internally:
-	- create a new empty object
-	- Sets prototype to Person.prototype
-	- Binds this to new object
-	- Returns object automatically
+		Declarative programming
+			You describe what UI should look like, and React handles the rest.
 
 
-NOte: Constructor functions must start with a capital letter.
+		function App() {
 
-Math obj:
-	Built in JS object that provides mathematical constants and functions.
+			return <h1> Hello React</h1>;
 
-	Why?
-		- Perform calculations
-		- Handle rouding
-		- Generate random numbers
-		- Avoid writing complex math logic manually.
+		}
 
-	Math.round() - Rounds to nearest integer
-	Math.floor() - Rounds down.
-	Math.ceil()
-	Math.trunc() - Removes decimal part
-
-
-	-1.2
-	-1.2
-
-String obj
-	String - text data
-
-	'
-Template Literals
- Modern way to create and work with string in javascript.
- They use backticks instead of quotes.
-
- WHy?
- 	- Easier string concatenation
- 	- Embed variables directly
- 	- Supports Multi-line strings
- 	- cleaner and more readable code
-
-
-
-----------------------
-JS Arrow function
-
-	An Arrow function is a shorter syntax for writing functions in JS
-
-	() => {}
-	Less code
-	cleaner syntax
-
-
------------------------
-map() - Transform Array
-
-	creates a new array by transforming each element.
-
-	- convert data
-	- format values
-	- apply some logic to all items
-
-filter() - Select elements
-	
-
-reduce() - Accumulate to single value
-	
-	Sum
-	Count
-	Group
-
-
-	array.reduce(  (accumulator, current) => {}, initialValue    )	
-
-
-	sort
-	splice - modifies original array by adding or removing elements
-
-	array.splice(startIndex, deleteCount, item1, item2);
-
-	
-
-
-
-===================================================================================================================
-14-Feb-2026
-===================================================================================================================
-Agenda:
-	What is JS? Adv of JS?
-	JS Variable, var, let, const
-	JS Primitive types, Dynamic types
-	JS Object, Arrays(Push,pop, Unshift, shift), Functions, DOM and HTML JS interaction
-
-
-What is JavaScript?
-	JavaScript is a programming language used to make web pages interactive and dynamic.
-
-Without jvascript, a website is mostly static (just text and images)
-
-	- Respond to user actions (clicks, typing)
-	- Change content without reloading page.
-	- Validations and logic
-
-
-HTML - Structure
-CSS - Style
-JS - Behavior
+		JSX
+			Converts your JSX --> Javascript
+			and update DOM efficiently.
 
 Benefits:
-	- Runs in the browser (Fast)
-	- Makes website Interactive
-		Clicks, sliders, popups, live updates without reload
+	1. Component based architecture
 
-	- Easy to learn
-	- Portable - write once, run it anywhere (browser)
-	- Huge Ecosystem
-		- React, Angular, Vue
-	- versatile language
-		You can build, websites, webapps, mobile apps, desktop apps.
+			Reusable
+			Clean structure
 
+	2. Reusability
+		Write once - use multiple times
 
-Installation:
-	- Install plugin - Code runner from VS Code
-	- install nodejs
+	3. Declarative approach
 
 
-JavaScript Primitive DataTypes
+	4. Virtual DOM
+			lightweight, in-memory representation of actual browser DOM
 
-	Primitive Types are basic data tpes in JS, that store single, simple values.
-	Why?
-		- Represent fundamental values (number, text, true/false etc)
-		- Fast and memory efficient
-		- Immutable (cannot be changed directly)
+				- Compares changes 
+				- Optimze it
+				- Updates only necessary parts
 
-	JS has 7 primitive types
-	1. Number
-		Represents both integers and decimal
-	
-	age, salary, product price, quantity
+		Faster than direct DOM manipulation
 
+		document.getElementById("root");
 
-	2. string
-	Represents Text data.
+	5. Strong Ecosystem
 
-	Name, message, labels
+			- State management
+			- Routing
+			....
 
-	3. Boolean
-		Represents value true/false.
+	6. Cross-platform Development
 
-		Login status,validations, conditions
+		With React Native:
+			- Build mobile applications using React.
 
-	4. Undefined
-		A variable that is declared but not assigned
+Facebook
+Instagram
+Netflix
+Airbnb
 
-	- Represents missing data, optional values
 
+npx create-react-app my-app
 
-	5. Null
-		Represents Intentional absence of value
 
-	- Clear values
-	- no selected item
 
-	6. Bigint
-		Used for very large numbers beyond safe integer limit
-
-	Represents 
-	-	Financial system
-	-  	Large IDs
-
-	7. Symbol
-
-		Represents unique identifiers
-
-	let id = Symbol("id");
-
-	Real-world usecase:
-		- Unique object keys
-
-
-
-Question1: let id=symbol("id") --> both name should be same right?(in this case id?)
-
-
-HTML DOM ? (Document Object Model)
-	Tree like object representation of an HTML page created by browser.
-
-It allows javaScript to:
-	- Read HTML
-	- Change HTML content
-	- Add or remove elements
-	- Handle events
-
-	Browser converts HTML --> DOM Tree
-
-	Important points:
-		- DOM is not HTML
-		- DOM is a Object Model.
-
-
-DOM Nodes:
-	A node is any item in the DOM tree.
-
-	Types of DOM Nodes:
-		1. Element Node - <p>, <div>
-		2. Text Node - Text inside an element
-		3. Attribute Node - id, class
-		4. Comment Node - <!-- comment -->
-
-
-	DOM Element:
-		DOM elements are specific type of node that represent HTML tags.
-
-
-		<p class="test"> Hello </p>
-
-		<div id="box"></div>
-
-		<div> -- DOM element
-		id-"box" --> attribute node
-
-	
-	DOM Methods:
-		DOM Methods are functions provided by the browser to access and manipulate HTML elements
-
-
-	1. getElementById
-		document.getElementById("title");
-
-
-	2. querySelector
-	elem =	document.querySelector("#box")
-
-	3. document.querySelectorAll("p");
-
-
-	elem.innnerHTML="<b>Hello</b>"
-	elem.style.color="red";
-
-	element = document.createElement("div");
-
-	element.appendChild(child);
-	element.remove();
-
-
-JavaSCript - Dynamic Type language
-
-	let a = 4;
-
-	Makes code very faster
-	easy to understand
-	flexible to write code
-
-
-	Type is detected automatically at runtime, not compiletime
-
-
-JavaScript Function:
-	
-	A Function is a block of reusable code that performs specific task.
-
-	- Avoid code repetition
-	- Organize code
-	- Improve redability
-
-
-JavaScript Object
-
-JavaScript Array
-	Array is a data structure used to store multiple values in a single variable, in an ordered way.
-
-	Why?
-		- It stores list of data
-		- Access value by its position
-		- Loop and process multiple values easily
-
-	To add elemnents:
-		- push -- Add element at end
-		- Unshift -- Add element at start
-
-JS Operators 
+index.html 
 -------------
+<div id="root"> </div>
 
-Operators are symbols used to perform operations on values and variables.
 
-They allow JavaScript to:
-	- Calculate values
-	- Compare data
-	- Make decidions
-	- Assign values
+This is the ONLY HTML React uses
+React will inject everything inside , root element
 
-	etc
 
+index.js
+------------
 
-1. Arithmatic Operators:
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <App />. --> THis is the starting point of your UI
+ );
 
-	+, -, *, /, %, **
 
-	a**b = 
 
-2. Assignment Operators:
-	
-	Assign values to variable.
+src/App.js
+----------
+	<div>
+      <h1>Welcome to my React App!</h1>
+    </div>
 
-	=, +=, -=
-	x=10
-	x += 5; // x= x+5;
-	x -=5; // x=x-5;
 
+  Calls APP() function
+  Gets JSX
+  Converts JSX -> JS  (Using Babel)
 
-3. Comparision Operators:
-	Compare two values and return true or false.
-
-	==	--> Equal(value)
-	=== --> Equal(value + type)
-	!=	
-	!==	
-	>,<, >=, <=
-
-4. Logical Operators:
-	
-	Combine or invert conditions
-
-	&& - AND
-	||
-	! 
-
-5. Unary Operators
-	++	- Increment by 1
-	--  -- Decrement by 1
-	type of	- Type check
-
-
-6. Ternary Operator
-	Short hand if-else
-
-	condition ? value1 : value2;
-
-7. String operators:
-
-
-
-
-Simple calculator:
-
-Calculator object
-	add
-	sub
-	mul
-	div
-
-
-
-calc.add()
-
-	
-
-
-
-
-
-	
-
-	
-
-
-===================================================================================================================
-08-Feb-2026
-===================================================================================================================
-
- Extra topics on demand:	
- 		CSS animation
-	 	pseudoelement and pseudo class --> 
- 		flex, box model
- 			how to use align-itmes? 
-
-CSS Text styling & Formatting
-	1. color - Controls the color of text inside an element
-		p {
-			color: blue;
-		}
-
-		color values:
-			Named colors - 
-			HEX (#ff0000)
-			RGB (rgb(255,0,0))
-
-	2. Text Identation (text-ident)
-		Controls space before the line of text.
-
-		p {
-			text-ident:40px
-		}
-
-		- Paragraph format
-
-	3. Text alignment (text-align)
-		Controls horizontal alignment of text.
-
-		Values:
-			left
-			right
-			center
-
-		h1 {
-			text-align: center;
-		}
-
-
-	4. Text decoration (text-decoration)
-		Adds or remove lines on text.
-
-		Values:
-			- none
-			- underline
-			- overline
-			- line-through
-
-
-	5. Letter spacing (letter-spacing)
-		Controls space between characters.
-
-		h2 {
-			letter-spacing: 2px;
-		}
-
-		d h r u v i k 
-
-
-CSS Topography
-
-	Topography - art of styling and arranging text to make content readable , clear and visually appealing.
-
-
-	1. font-family
-		Defines which font is used for text.
-
-
-		body {
-			font-family: Arial, Helvetica, sans-serif;
-		}
-
-	2. font-size
-		px - fixed
-		em - relative to parent
-		rem - relative to root (html)
-
-	3. font-weight
-		Controls thickness of text.
-
-		values:
-			normal
-			bold
-			100-900
-
-	4. font-style
-		style text of normal or italic.
-
-
-	5. line-height 
-		controls spaces between lines of text.
-
-		ddd	
-
-		p {
-			line-height: 1.5;
-		}
-
-	6. letter-spacing
-		controls space between characters
-
-
-	7. word-spacing
-		controls space between words.
-		Dhruvik parikh
-
-	8. text-transform
-		changes case of text.
-
-		uppercase
-		lowercase
-		capitalize
-
-
-CSS Border:
- 	Line drawn around an HTML element, separating it from other elements.
-
- 	A border is made up of three parts:
- 		1. Border width
- 		2. Border style
- 		3. Border color
-
- 	selector {
- 		border: width style color
- 	}
-
- 	div {
- 		border: 2px solid black;
- 	}
-
- 	Border style:
- 		- solid 	- continuous straight line
- 		- dotted	- small dots
- 		- dashed	- short dashes
-
-
-CSS Background image
-
-	body {
-		backound-image: url("");
-
-	}
-
-CSS positioning
---------------
-	
-	CSS positioning controls how an element is placed on the page. 
-	and behaves when the page is scrolled or resozed.
-
-Position - decies where an element lives on the page.
-
-positioning works with two things together:
-	1. position:
-	2. offset properties
-		(works only when position is NOT static)
-
-
-position: static
-	- Default position for all elements
-	- top, left, etc do not work.
-
-
-.box {
-	position: static;
-	top: 50px ; // ignored
-}
-
-Key points
-	- No special positioning.
-	- can not move element
-	- Default behavior.
-
-
-posion: relative
-	- Element stya in the normal flow
-	- Can be moved relative to its original position.
-
-
-position: absolute
-
-	- Removed from normal document flow
-	- position relative to nearest positioned ancestor.
-	- if no positioned parent --> relative to <body>
-
-Absolute always looks for a positioned parent.
-
-uscase:	
-	- tooltip
-
-position: fixed
-	- Positioned relative to viewport (visible area of the webpage on your screen)
-	- Sticky header
-
-
-
-Psuedo element
-	used to style a specific part of an element 
-
-	::before		: Insert content before element
-	::after 		: Insert content after element
-	::first-letter	: Style first letter
-	::first-line	: Style first line
-	::selection	    : Style selected text
-
-
-	select::pseudo-class {
-	
-	}
-
-
-Pseudo class
-	Styles based on state of an element, 
-
-	selector:pseudo-class {
-
-	}
-
-:hover
-:active - Applies style while the element is being clicked.
-:focus - Applies style when an element (input, textarea, button) receives focus.
-:link - Style unvisited links <a> tag only
-:visited - Styles visited links
-
-
-Note:
-	Always define link-related pseudo-classes in this order:
-	:link --> :visited --> :hover --> :active
-
-
-Structural pseudo classes
-	list
-
-	li:first-child {
-
-	}	
-
-	li:last-child {
-
-	}
-
-	li:nth-child(odd) {
-
-	}
-
-
-
-
-
-Exercise:
-
-	Build product listing page for small e-commerce website
-
-		- Display page title at the top
-		- Show multiple product cards.
-		- Each product card must include
-			- product name
-			- short description
-			- Price
-			- availablibility status
-
-
-Self study :
-	- box,  flex and grid container
-
-	Box model:
-		treated as rectangular box
-
-	Flexbox model:
-		Layout model --> arrange items in one direction (row/column)
-
-		flexbox makes centering easy
-
-		display: flex;
-
-		<div class="parent">
-			<p class="child">
-			<p>
-			<p>
 		
+		<h1> Hello world</h1>
+
+Converted into:
+
+	React.createElement('h1', null, "Hello React");
+
+	This is what your browser actually understand
+
+	Virual DOM creation
+		App
+			div
+				h1
+
+	DOM Convert this into (HTML DOM)
+		<div id="root">
+			<div>
+				<h1> Hello React </h1>
+			</div>
+		</div>
+
+
+	
+	React.createElement('h1', null, "Hello React");
+
+
 
 		</div>
 
-		flex container --> parent
-		flex items --> children
-
-		Main axis - default -- row
 
 
-		.parent {
+index.html --> index.js (connects React to DOM) render APP --> App.js executes --> JSX into JS (BABEL) --> Virtual DOM --> Updates HTML DOM
+
+
+Concepts:
+	
+	SPA - Single Page Application
+
+		- Only ONE HTML file
+		- React updates UI dynamically
+
+	Which component is Root component here?
+
+		APP
+
+	index.js --> APP --> Child components
+
+
+JSX
+	JSX - JavaScript XML
+
+	Write HTML like code inside JavaScript
+
+	const element = <h1> Hello JSX</h1>
+
+		const element = React.createElement(..,..,..)
+		
+		Hard to read
+
+
+JSX + Javascript power
+	
+	- Improves readability
+	- Developer Productivity
+	- Powerful combination (HTML + JS tegether)
+	- Fewer Errors (Checked during compilation)
+
+
+Component
+	Reusable, independent pice of UI built using JavaScript and JSX
+
+	A function that returns UI (JSX)
+
+
+	Two types of Components
+	 1. Functional Component (Modern - Mostly used method)
+
+	 		funciton Header() {
+	 			return <h1> Welcome </h1>;
+	 		}
+
+
+	 2. Class Component (Old)
+
+	 	class Header extends React.Component {
+	 		render() {
+	 			return <h1> Welcome </h1>
+	 		}
+
+	 	}
+
+	 	verbose
+
+How component works:
+	App -> Header -> Product -> Footer
+
+	Component can be Nested, Resused, Combined
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	====================================================================================================================
+	28/03/2026 - REACT JS
+	====================================================================================================================
+
+	JSON Server?
+
+		JSON Server is a lightweight tool that lets you to create a fake REST API using a simple JSON file.
+
+		 Important: Instead of waiting for backend APIs, you can simulate a backend instantly.
+
+		How it works?
+
+			{
+			empId: 1,
+			empName: "Dhruvik",
+			address: {
+
+				street1:
+				city
+				count.
+				...
+			}
+			}
+
+
+	nodejs
+
+
+	npm install -g json-server
+
+
+
+	Postman
+
+
+					expose login API
+
+					POST	/login
+								body
+									username
+									password
+
+
+	login -> React -> Login form
+								_-> Submit
+											INvoke API /login (username and pwd user has entered)
+
+											True/false
+
+
+											
+	const resp = await fetch(API_URL);
+	const data = resp.json();
+
+
+
+	Old School - Method to call API
+
+	const xhr = XMLHttpRequest();
+
+	xhr.open("GET" "URL");
+
+	xhr.onload = function() {
+		console.log(..... parse and render)
+	}
+
+	xhr.send();
+
+
+
+	====================================================================================================================
+	22/03/2026
+	====================================================================================================================
+	Prompting Techniques:
+		
+		Structured way of guiding LLM to:
+			- Thikn better
+			- Respond accurately
+			- Follow logic
+			- Reduce mistakes
+
+		LLM - Probability Machine
+		Prompt - Steering wheel
+
+
+	Zero-Shot prompting
+	-------------------
+		Asking the model to perform a task without giving examples.
+
+		Model relies on pre-trained knowledge
+		No pattern guidance
+
+		Usecase:
+			- simple tasks
+			- common knowledge tasks
+
+		Limitation:
+			- Inconsistent for complex tasks
+			- May misinterpret intent
+
+	Few-Shot Prompting
+	------------------
+		Provide examples in prompt to guide model behavior
+
+		Model learns pattern from examples.
+
+	 Usecase:
+	 	- custom logic
+	 	- Business rule
+	 	- Domain specific tasks
+
+	 Limitation:
+	 	- Prompt becomes very long
+
+	 Chain Of Thought (CoT)
+	 ----------------------
+	 Ask model to reason step-by-step
+
+	 LLM performs better when reasoning is explicit.
+
+	 	Usecase:
+	 		- Math
+	 		- Complex logic/reasoning
+
+	 	Limitation:
+	 		- Slower
+	 		- More tokens
+
+
+	 	Self-Consistency Prompting
+	 	--------------------------
+	 		Generate multiple reasoning paths --> Pick the best answer.
+
+	 	How it works
+	 		1. Ask model multiple times
+	 		2. Get multiple answers
+	 		3. Choose most common answer
+
+	 		When to use?
+	 			- When you need critical decisions
+	 			- High accuracy needed
+
+	 		Limitation:
+	 			- Expensive (Multiple calls)
+	 			- slower
+
+
+	Tree of Thoughts (ToT)
+		Model explores multiple reasoning paths like a tree
+
+		How it works?
+		Problem?
+			Idea 1: --> Evaluate
+			Idea 2: --> Evaluate
+			Idea 3: --> Evaluate
+
+			Choose best path.
+
+			Ex:
+				How to increase sales of a coffee shop?
+
+					Think of multiple strategies and evaluate each before choosing the best.
+
+
+	Best Practices
+
+		Be clear and specific
+
+			Ex. Explain generative AI with real-world examples for backend developer
+
+		Define the role
+			Act as senior Nodejs architech, ....
+
+			Model will adapt, tone, depth and perspective
+
+		Break down the task
+			Build a system
+
+			Ex.
+			Design Architecture
+			Explain components
+			Provide example
+
+	 Provide context
+	 	I have 15 years of experience in Java/Node backend, what to learn in AI
+
+	 	Output will be more personalized
+
+	 Use examples (Few-shot prompting)
+
+
+	 Specify the output format
+	 	Return response in JSON format with keys: name info etc
+
+	 Add constraints
+	 	Limit to 100 words
+	 	Do not include explanation
+
+	  Prevents unwanted output
+
+	Encourage step by step reasoning
+		Improves accuracy
+
+
+	AVOID AMBIGUITY
+		Make it better
+
+		instead:
+		Make it more concise and professional with bullet points.
+
+
+	Pre-Training?
+	=------------
+		Pre-training is the process where a model is trained on  massive general data to learn language patterns.
+
+		Pre-training = School education
+		Fine-tuning = Job specialization
+
+
+		What happens during pre-training?
+			Model is trained on:
+				- books
+				- websites
+				- code
+
+			Learn:
+				- Grammer
+				- context
+				- Reasoning patterns
+
+
+	What is Fine-Tuning?
+		Training a pre-trained model on specific domain data.
+
+		Pre trained model'
+			konws english language
+
+		Fine-Tuned model:
+			Becomes expert:
+				- Medical domain
+				- Legal domain
+				- Finance domain
+
+
+
+		What is a balance sheet? --> general AI basic answer
+
+
+		--> Detailed CA level explaination
+
+
+	Fine-tuning
+		1. Domain Expertise
+		2. Better accuracy
+		3. Consistent output
+
+		Consider:
+			Data quality
+			Data size --> too small data --> Overfitting		
+
+										too large --> Expensive
+
+			Cost
+				Training cost
+				Infrastructure cost
+
+	RAG
+
+		LLM 			Datastore (Vector DB)  --> Output
+
+
+
+
+
+
+
+
+
+	====================================================================================================================
+	21/03/2026
+	====================================================================================================================
+	Evaluation:
+
+		Turing Test (Propsed by Alan Turing)
+			Concept:
+				- If human cannot distinguished between:
+					machine response
+					human response
+						Then machine is "Intelligent"
+
+		ELIZA Chatbot 
+
+			- pattern matching
+			- Rule based responses
+
+			Ex:
+				User : I feel sad
+				ELIZA: Why do you feel sad?
+
+
+	Stage2: Neural Networks
+		Inspired by human brain.
+
+		Input --> Hidden Layers --> Output
+
+		Learn pattern from data
+		Adjust weight accordingly.
+
+		text, time-series - not good
+
+	Stage 3: Sequence Models
+		LSTM (Long Short Term Memory)
+
+			Standard NN forgets past data, where LSTM remembers long-term dependencies.
+
+		Ex:
+			I love drining ________
+			--> "cofee"
+
+
+
+		GRU (Gated Recurrent Unit)
+
+			- Simpler
+			- Faster
+			- Fewer gates
+
+		Focus on important words
+
+	Stage 4: Transformer (Revolution)
+		
+		Paper: "Attention is all you need"
+			Only attention
+
+			I have a cat. it is cute.
+
+		Benefits:
+			- Parallel processing
+			- Faster training
+			- Better context understanding.
+
+		Stage 5: LLM (Large Language Models)
+			LLM - Transformer based model trained on huge text data.
+
+			Capabilities:
+				- Text generation
+				- Code generation
+
+		Examples:
+			GPT
+			Llama
+			Gemini
+			Claude
+
+	GPT Series 
+		GPT - Generative Pre-trained Transformer
+
+		GPT 1 - Basic Text
+		GPT 2 - Better generation
+		GPT 3 - Few shot learning
+		GPT 4 - Advanced reasoning.
+
+		Prompt:
+			Write down summary for MERN backend developer
+
+			User prompt -> Tokenization --> LLM processing --> Probability Prediction -> Response
+
+			Tokenization: "Java backend developer"
+				"Java"  "backend" "developer"
+
+
+				Model Processing
+					Uses Transformer + Attention
+						Understand context+ relationships
+
+				Prediction
+						Predicts next token stey by step
+
+				Output 
+					Final Structured response.
+
+	Prompt
+		1. Task (What to do)
+
+		2. Instruction (How to do)
+
+			Use professional tone, consise language, 
+
+		3. Context(Background info)
+			Give model enough informaton
+
+			I am a MERN Developer with 15 years of exp, in ....
+
+		4. Input data (Actual content)
+			Skill: Java/Spring, Kafka, React, Angular....
+			Achievements: .. ... ..
+
+			
+
+
+
+
+
+	====================================================================================================================
+	01/03/2026
+	====================================================================================================================
+
+	Styling Essential UI Elements
+	Dropdown,
+	Button, 
+	Badge, 
+	Spinner/Progress Bar 
+
+
+	Presentation Elements in Tailwind
+	Hero Section
+	Tables
+	Form Input UI Elements
+	 Styling Navigation UI Elements : Navbar and Breadcrumbs
+
+
+	---------
+		
+		elements hiddden by default
+		clcik --> appears on user action
+		floats -> above other content
+
+		positioned relative to a trigger.
+
+		block - makes item to full width
+				- Make entire raw clickable
+
+	Badge
+		Display status (Active, New, Pending)
+		Show counts
+		Highlight labels(Beta, Pro, Draft)
+
+		Badge - Text + backgroung + padding + shape
+
+	overflow-hidden 
+		Prevents inner bar from overflowing container
+
+	animate-pulse
+		fades in and out
+		indicates on going activity
+
+
+	Hero section strategy
+
+	Full width section
+		Contered container
+			- Heading
+			- Description
+			- CTA buttons
+
+		flex or gird
+		text
+		bg
+		py
+		max-w
+
+
+	md:
+	lg:
+	overflow-x-auto
+		- enables horizontal scrolling
+		- prevents layout breaking on small screens
+		- 
+
+	sticky
+		- Header sticks while scrooling
+
+	Navbar 
+		top-level navigation component that:
+			- helps users to navigate the app
+			- contains links, actions, profile mnus
+			- is often sticky or fixed
+
+
+	Breadcrubs:
+		Show user's location in the app hierarchy
+
+		Home > Proucts > Electronics > Mobile
+
+
+	- understand where they are
+	- Navigate back to parent pages
+	- Reduce confusio in deep navigation
+
+	Hierarchy + navigation 
+
+
+	Container
+		Item(link) > Item(link) > Current page (text)
+
+
+	Modal Overlay
+		Semi-transparent background layer behind popup.
+
+		- it covers full screen
+		- Dims backgound
+		- prevents clicks on the page behind
+
+		1. Overlay (backgound)
+		2. Modal box (content)
+
+		
+
+
+
+
+
+
+	====================================================================================================================
+	28/02/2026
+	====================================================================================================================
+
+	What is Tailwind?
+	Tailwind Characteristics
+	Why Use Tailwind?
+	Tailwind Usecases
+	Overview of other CSS Frameworks:
+	  - Bootstrap, Material UI, Foundation
+
+	Setting up Tailwind CSS 
+
+	Key Features of Tailwind
+	Responsive Webdesign
+	Utilitis: Margin, Padding, Width, Flex system (Horizontal flex Alignment, Justify-Content, Vertical Flex Alignment, align-items)
+
+
+
+	Typography
+	  Text sizing
+	  Colour - Shade System
+	  Text Alignment
+
+
+	How to define customization>
+	NPM Configuration -  tailwind.config.js (to define custom style , theme and Utilitis)
+	CDN approach      - Use :root selector inside a <style> tag and applies styles inline using the style attribute
+	Custom CSS Classes - Define styles within :root and reuse them by creating custom css classes
+
+
+
+	Tailwind CSS Layout system
+	Column Layout System 
+	Tailwind Grid System
+
+
+
+	----------------
+		Tailwind CSS
+
+		Tailwind CSS is utility-first class framework that allows you to build modern UIs by compositing small, single purpose utility classes directly in the HTML.
+
+		.card {
+			padding: 16px;
+			background: blue;
+		}
+
+		<div class="p-4 bg-blue-500" />
+
+		Tailwind provides low-level design utilities
+
+	Utility-first approach
+	--------------------
+		
+		- Every class does one job
+		- Classes are composable	<div class>
+										<div>
+									</div>
+
+		- No large, opinionated CSS blocks
+
+	No Predefined UI components
+	------------------------
+		- Navbar component
+		- button component
+		- card component
+
+	Instead you build your own, based on your design needs.
+		- Full freedom
+		- No CSS overrides war
+
+	Highly Customizable Design system
+		tailwind.config.js
+
+		- colors
+		- Fonts
+		- Spacing
+		- Shadows
+		- Border radius
+
+	Mobile First & Responsive by default
+	--------------------------------
+		
+		<div class="p-2 md:p-6 lg:p-10">
+
+	JIT Compiler
+	---------
+		Tailwind:
+			- Generates CSS only for used classes
+			- Remove unused styles automatically
+
+
+	Framework Friendly
+	--------------
+		- React
+		- Angular
+		- Vue
+		- Next.js
+		- ..
+
+	Bootstrap
+		- Component first CSS framework
+
+		Provides:
+			- styles library for all html element/components
+				- navbar, buttons, card, modals etc.
+
+			style --> url
+
+			<button class="btn btd-primary">Click</button>
+
+	Material UI (MUI)
+
+		React UI component library based on Google material design
+
+	----------------
+
+	npm install tailwindcss@latest
+
+	npm install vite --save-dev
+
+	# 1. Initialize project (if starting fresh)
+	npm init -y
+
+	# 2. Install Vite as dev dependency
+	npm install -D vite
+
+	# 3. Install Tailwind CSS v4
+	npm install tailwindcss
+
+	# 4. Install @tailwindcss/postcss (REQUIRED for v4 PostCSS support)
+	npm install -D @tailwindcss/postcss
+
+	# 5. Install autoprefixer (OPTIONAL but RECOMMENDED for production)
+	npm install -D autoprefixer
+
+	# 6. Create necessary config files:
+	# - postcss.config.js
+	# - tailwind.config.js
+	# - src/style.css
+	# - index.html
+	# (See content as per my code)
+
+	# 7. Start dev server
+	npm run dev
+
+
+
+
+	Vite
+		frontend build tool
+		deisgned significatly for buiding modern front end projects
+		Created by Evan You (vue.js)
+
+		industry standard due its remarkable speed compared to some older tools like webpack
+
+	Developement server - Native ES Module
+
+	----------------
+	Tailwind Utilities - Margin
+
+	Margine - control space - outside an element
+		-creates distance between elements
+
+	Syntax:
+		m{direction}-{value}
+
+		m -> margin
+		direction -> side(s)
+		value -> spacing scale
+
+		m-*	--> All sides
+		mt-* --> top
+		mr-* --> right
+		mb-* --> bottom
+		ml-* --> left
+		mx-* --> left+right
+		my-* --> top+bottom
+
+
+	Padding
+		control space inside element
+
+		space between content and border
+
+		p{direction}-{value}
+
+		p-* -> all sides
+		pt-* -> padding top
+		pr-* -->
+		pb-* --> bottom
+		pl-* --> left
+		px-* --> left + right
+		py-*  --> top + bottom
+
+
+		p-2
+			Mobile padding --> 8px
+
+		md:p-6
+			md --> screen >= 768 px
+			padding becomes 24px
+
+		lg:p-10
+			lg --> screeen >= 1024px
+			padding becomes 40px
+
+		bg-purple-200
+			- Background color for visibility
+
+	------------------
+
+		Flex system is	
+
+			Flexbox is one-dimensional layout system.
+
+				- it arranges items in a row or column
+				- the parent controls alignment
+				- childrens responds automatically.
+
+			Flex properties always go on the parent.
+
+			Axes in flexbox
+				main axis --> Horizontal	--> flex-row
+				corss axis --> Vertical axis--> flex-col
+
+
+				justify-start/end/between/around/evenly etc. --> horizontal alignments
+				items-*. - controls vertical alignments
+
+	--------------
+
+	Topography 
+		Text sizing - are utility class
+		They follow a consistent scale
+
+		Each size includes:
+			- font-size
+			- line-height 
+
+		text-{size}
+			text--> topography utility
+			{size} --> predefined size from Tailwind scale
+
+					Font size 		Line Height
+		text-xs --> 12px --> 		16px
+		text-sm 
+		text-base.  16px 			24px
+
+		text-lg 								emphasized text
+		text-xl
+		text-2xl
+		text-3xl
+		text-4xl
+		text-5xl
+		text-6xl 	60px 			1 			banners
+
+	-----------
+	Color
+		
+		Tailwind uses shade based color system, not a single color (hex value)
+
+		blue-50 --> very light
+		blue-500 --> base color
+		blue-900 --> very dark
+
+		text-{color}-{shade}
+
+		50 - Very light
+		100-200 -- Light
+		300-400 -- Medium
+		500 -- Base color
+		600-800 - Dark
+		800-900 - very dark
+		950 -- Almost blank
+
+
+
+	text- {alignment}
+		
+		text-left
+		text-center
+		text-right
+		text-justify
+
+
+
+	Core layout buiding blocks in tailwind
+		
+		Tailwind layout = Composition of utilities, 
+
+		Layout system controls:
+			- How elements are positioned
+			- How space is distributed?
+			- How UI adapts to screen sizes
+
+	 1. Container
+	 2 BOx model (width, height, spacing)
+	 3. Flexbox
+	 4. Grid
+	 5. Positioning
+
+	 Container:
+	 	Center content and control max width.
+
+	 Box model
+	 	w-1/2 -50% of the parent width
+
+	 Flex model
+
+	 	justify-* --> 
+	 	items-* 	
+
+	 Grid Layout System
+
+	 	2 D layout system
+
+	 - Rows and COlumns at the same time
+	 - Precise placement of items
+	 - Complex layouts with simple rules
+
+	 grid-cols --> defines column definition
+	 gap-4 - defins space between rows and columns
+
+	 col-span-3 --> item spans 3 columns
+	 col-span-1 ==> item spans 1 column
+
+
+	 CSS - Positioning SYstem
+
+	 Positioning controls where an element appears and how it is taken out of the normal flow.
+
+	 By default HTML elements follow normal document flow
+	 	- one after another
+	 	- top to bottom
+
+	 Positioning allows you to:
+	 	- Overlay elements
+	 	- Pin elements
+	 	- Float elements
+
+	 Positioning all about - location not layout
+
+	 static 		- Default
+	 relative 		- Reference container
+	 abolute 		- Positioned relative to the parent
+	 fixed 			- Positined relative to viewport
+	 sticky. 		- Scroll based
+
+
+	 Absolute elements position themselves relative to the nearest relative parent.
+
+
+	relative - sets positioning context
+	absolute - removes elements from the normal flow
+			- positions relative to nearest relative ancestor
+
+	top-2 --> 	distance from top --> 8px
+	right-2 	distance from right -
+
+	fixed 
+		- positioned relative to the browser window
+		- Does not move on scroll
+
+
+
+
+
+	===================================================================================================================
+	21-Feb-2026
+	===================================================================================================================
+	 	Prototype
+		Async programming (promise)
+
+		Webpack
+		MOdern javascript --> 
+		Babel introduction --> 
+
+
+	Object
+		- toString()
+		--
+		---
+
+
+
+
+
+	Prototype:
+		What is ? 
+			A prototype is an object that another object can inherit properties and methods from.
+
+			JavaScript uses prototype-based inheritance, not classical inheritance.
+
+		Why?
+			- To share methods between objects
+			- To save memory
+
+		Objects donot copy methods - they delegate to their prototype.
+
+		Every js object --> hidden internal reference
+			[[prototype]]
+
+	JavaScript does:
+		1. Look in obj
+		2. Not found --> look in obj's prototype
+		3. Continue up the chain
+		4. Stop at null.
+
+		obj--> obj.prototype--> null
+
+	JavaScript searches properties through the prototype chain.
+
+
+	Every function has property called prototype.
+
+		This prototype is used only when function is called with new.
+
+	Person.prototype = {
+		constructor: Person;
+	}
+
+
+
+
+	let person1 = new Person("Alice");
+	person1.greet(); // Output: Hello, my name is Alice
+
+	Internally:
+		1. New object created
+		2. person1.[[prototype]] = Person.prototype == Object.prototype
+		3. this bound to person1
+		4. Object returned.
+
+	constructor function links objects to their prototype automatically.
+
+
+	person1.toString()
+
+	Prototype chaining in JavaScript
+	---------------------------------
+		
+		A Prototype chain is a linked chain of objects used for inheritance and lookup
+
+		isPrototypeOf() - checks inheritance relationship
+
+
+	--------------------------------
+
+	Asynchronous programming
+		
+	Promise:
+		A promise is a JavaScript object that represents the result of an asynchronous operation that will be available:
+		- Now
+		- Later
+		- Or never
+
+		
+	- JavaScript is Single-Threaded (executes one task at a time)
+
+	console.log("A"); // API Calls (fetch data)
+	console.log("B");	
+	console.log("C");
+
+	Promise object helps you to asynchronous operations.
+
+	Promise manage asynchronous tasks without blocking JavaScript execution.
+
+	Promise States
+	-----------------------
+		A promise object can be in only one of these three states
+
+		1. Pending
+			- Initial state
+			- Operation has not finished yet
+			- Neither success or failure
+
+			Promise is just created
+
+		2. Fulfilled
+			- Operation completed successfully
+			- Promise has a resolved value
+
+			resolve("Data") --> Move state of the promise from pending to fulfulled
+
+		3. Rejected
+			- Operation failed
+			- Promise has a reason (error
+
+			reject("Something went wrong"); --> Pending to Rejected.
+
+
+	Notes: Once promise is settle (fulfilled or rejected), its state cannot change.
+
+
+	How do you create promise?
+
+		let promise = new Promise(
+			function(resolve, reject) {
+				// async operations
+			});
+
+
+	Promise chaining
+
+	Promise chaining means executing aysnc task one after another, where each step depends on the previous one.
+
+		.then()
+
+
+
+	loginUser().
+	then(getProfile)
+	.then(getOrders)
+	.then(showDashboard()
+	.catch(handleFailure);
+
+	Promise chaining allows sequential async execution using .then() by passing results forward
+
+	async/await
+
+		async/ await is syntactic sugar over promises that makes your async code more synchronous.
+
+		- It doesn't replace promise
+		- It built on top of Promise obj
+
+
+	// await
+		- Used only inside async functions
+		- pauses execution until promise settles
+		- Returns the resolved value
+
+
+
+		async function getUser() {
+			const user = await fetchUser();
+			console.log(user);
+		}	
+
+
+	----->
+		async function loadData() {
+
+			try {
+
+				const data = await fetchUser();
+				console.log(data);
+
+				// call another api with passing data..
+
+
+			} catch(error) {
+				console.log("Error:", error)
+			}
+
+		}
+
+
+	d--
+	--
+	--
+	--
+		fetchUser().then(console.log).catch(console.log)
+
+
+
+
+
+	stmt1
+	stmt2 -- async loadData();
+	stmt3
+	stmt4
+
+
+	Webpack?
+		Webpack is a module bundler for JavaScript applications.
+
+		It takes many files (JS, CSS, images etc), and bundles them into one or more optimized files that the browser can udnerstand.
+
+		<script src="a.js" />
+		<script src="b.js" />
+		<script src="c.js" />
+
+		<script src="bundle.js"/>
+		Hot Module replacement (HMR)
+
+
+
+		Performance optimization
+
+
+		What webpack can be used?
+			- JavaScript
+			- CSS
+			- Images
+			- Fonts
+
+		
+		Plugins:	
+			- Extra functionality
+		- HTML generation
+		- Minification
+		- Environment varialbes
+
+
+	CoffeeScript
+		Syntactic suger language that compiles to JavaScript.
+
+		It tries to make JS:
+			- Shorter
+			- Cleaner
+			- Less verbose
+
+	Flow:
+		Static type checker for JavaScript developed Facebook
+
+		let a = "10";
+		a/10;
+
+	Why flow exist?
+		- catch bugs early
+		- add type safety
+		- improve larege codebase
+
+	TypeScript
+		TypeScript is superset of JavaScript - Microsoft
+
+		a.ts
+			compiler --> js
+
+		Key features:
+			- Static typing
+			- Interface
+			- Enums
+			- Generics
+
+	Dart
+		- compile to JavaScript
+		- Run natively
+
+		- Strong typing
+		- Performance
+		- Structured lang
+
+		.dart --> .js
+
+		Flutter --> 
+
+	Babel
+
+
+		Javascript compiler (transpiler) that converts modern JavaScript into backward compatible JS for older browser to runs.
+		It does syntax transformation , not building
+
+		preset --> collection of plugins
+
+		@babel/preset-react--> 
+		@babel/preset-typescript -->
+
+		JSX
+			const App = () => <h1>Hello</h1>
+
+			
+
+
+
+
+
+
+
+	===================================================================================================================
+	21-Feb-2026
+	===================================================================================================================
+	Agenda:
+		String (Indexing, methods, properties, Interpolation)
+		Escape characters
+		String manipulation techniques 
+		String Iteration
+		Unicode
+		RegularExpression in javascript
+		String conversions
+		String formatting
+		Encoding decoding
+		Function and its
+
+
+	String
+		Representation of text data in javascript
+
+		let name = "Dhruvik"
+
+		Internally, Strings are primitive values, but JavaScript temporarily wraps them with String object to provide its methods.
+
+		String indexing:
+			zero-based index
+
+		String - Immutable
+				 Once String is created, it cannot be changed.
+
+		Coercion (Automatic Type Conversion)
+			JavaScript automatically converts values to strings in some cases
+			"5"+ 2;
+
+		String performance issue:
+			- Heavy String modification can hurt performance
+
+	String methods:
+
+	String interpolation: - Embedding variables and expressions insiide strings using backticks
+
+	String comparision:
+		==		- Compares values (type coercision)
+		===		- Compare values + type
+		localeCompare() - Compares strings based on language rules
+
+			0 --> strings are equals
+			-1 --> first string comes before
+			1 --> first string comes after
+
+	Unicode:
+		Unicode is Universal character encoding standard that assigns unique number (code point) to every character in language.		
+
+		 A --> U+0041
+		 ₹ --> U+20B9
+
+		 😀 --> ..
+
+
+	UTF-16 - JS strings are stored using UTF-16 encoding.
+		Meaning:
+			- some characters take 1 unit (2 bytes)
+			- some take 2 units (4 bytes)
+
+		codePointAt() - correctly reads unicode characters, including emojis
+
+
+		Surrogate Pair:
+			Characters beyond U+FFFF are stored as two UTF-16 code units:
+			-
+
+		Create unicode strings - fromCodePoint()
+
+	Regular Expression 
+		Regex - pattern used to search, match, extract, or replace text
+
+	Think of it like rules for text matching.
+
+	- Validate input (email, phone, password)
+	- search text
+	- Extract data
+	- Repalce or clean text
+	- Parse logs, urls , files...
+
+	Regex - pattern language for working with text
+
+	Create regular expression?
+		let pattern = "/abc/";
+		let pattern = new RegExp("abc"); // used only when pattern is dynamic
+
+
+	test() - check if match exist
+
+		let regex = /js/;
+		regex.test("I love js"); // true
+
+	Regex Flags (Modifiers)
+		
+		g - Global (all matches)
+		i - Case-insensitive
+		m - multine
+		s - Dot matches newline
+
+	Flag control how regex matches text.
+
+	Common Regex Patterns
+		Literal Characters -  /hello/ --> matches exact word hello.
+
+		Character sets [] - [abc] // a or b or c
+							[0-9] // digits
+							[a-z] // lowercase characters
+
+		Negated Sets[^] [^0-9] //anything except digits
+
+		Predefined characters:
+			\d - Digits
+			\D - Non-Digits
+			\w - WOrd char
+			\W - Non-Word
+			\s - Whitespace
+			\S - Non-whitespace
+
+		Quantifiers(How many tiems?) - controls repeatation
+			+ - One or more
+			* - Zero or more
+			? - Zero or one
+			{n} - Exactly n
+			{n,m} - Between n and m
+
+		Anchors (Position control)
+			^ - Start of string
+			$ - Ends of string
+
+
+	Encoding Decoding
+
+		Encoding means converting data into safe, standardized format 
+			- it can be transmitted
+			- stored
+
+		Decoding means converting the encoded data back to its original form
+
+		Why?
+			- some characters break urls
+
+				/hello.html?name=Dhruvik%20parikh
+
+			- System may use different formats
+			- Text may include special or binary characters
+
+		Encoding makes data safe to send, decoding restores it back.
+
+		URL encoing:
+			URL  can not have spaces, special characters (&, ?, = ,#,%)
+
+
+		Base64 - encoding and decoding
+			Base64 converts binary or special data into readable ASCII text
+
+
+		Why?
+			- sends binary data over text based protocols
+			- Embed images into HTML
+			- Authorization in heads
+
+
+			btoa() -- encoding
+			atob() -- decoding
+
+
+	Functions:
+		- Pass function as an argument
+		- Function returns function
+		- Function constructor
+		- Function Context Manipulation 	
+			- call(), apply()s and bind()
+
+
+		Functions 
+			- Can be stored in variables
+			- every function has propertis and methods.
+
+		Function as constructor
+
+			A way to create function dynamically at runtime
+
+		Function Context manipulation?
+
+		What is Function Context?
+			this refers to the object that calls the function.
+
+
+		Why Context manipulation is needed?
+
+			- Method borrwing
+			- callbacks losing this
+
+		use call - for one-time execution
+		use apply - when args are many (or in array)
+		use bind - for callbacks and events
+
+		prefer arrow fn when possible.	
+
+
+
+
+
+
+
+	===================================================================================================================
+	15-Feb-2026
+	===================================================================================================================
+	Agenda:
+		- Control flow statements 
+			if else, switch case, for while, do while, for..in, for..of, break, continue
+
+		- Object cloning, Object factory method, Object constructor fn
+		- Math object
+		- String object
+		- template laterals
+		- Arrow function
+		- Arrays (Splice, sort, filters, reduce, map etc)
+
+
+	JS Controlflow statements:
+	------------------------
+		Control flow statements decides which code runs, when it runs , and how many times it runs.
+
+		Control flow == Decision making + looping.
+
+
+	1. if, else
+
+		Executes code only if a condition is true.
+
+
+	2. Switch
+		Used when one value is compared against multiple cases.
+
+	3. Looping statements:
+		
+		3.1 : for loop
+
+		when number of iteration is known.
+
+		3.2 : while loop
+			when condition is checked before execution
+
+
+		3.3: do..while loop
+			Code runs at least once.
+
+	4. Loop control statements
+		break, continue
+
+	5. Ternary operator (Control flow shortcut)
+
+
+	for..in
+		Loops over the keys (property names) of an object.
+
+	 Iterate over object properties
+
+
+	 for..of
+	 	Loops over values of iterable objects
+
+	 	clean way to iterator over arrays, strings
+	 	you get direct access to values
+
+
+
+	Object cloning - JS
+	---------------------
+	Object cloning means creating new object that has the same properties and values as an existing object.
+
+
+	Why?
+	 - Objects are reference types
+	 - If you copy an object , both variants point to the same memory
+
+	 user: {}
+	 empl = user;
+
+
+	 Two types of object cloning
+
+	 1. Shallow Cloning
+
+	 	Shallow cloning copies only top-level properties.
+	 	Nested objects are still shared by reference.
+
+	 	Fast
+	 	simple
+	 	works when object has no nested objects.
+
+	 	Imp: Spread syntax (...)
+
+
+	 	Method 2: Object.assign()
+
+
+
+	 2. Deep Cloning
+
+	 	Deep cloning copies all level of the object, including nested object.
+
+	 	Method 1: JSON.parse(JSON.stringify())
+
+	 		Limitations:
+	 			- Loses functions
+	 			- Undefined is ignored
+	 			- Date becomes string
+
+	 	Method 2: structuredClone() (Modern & Best)
+
+
+	Object creation:
+	Why Object creation patterns matter?
+		- Object represents real-word entities (User, Product, Person).
+
+		When creating many similar objects, how ou create then affects:
+			- code reuse
+			- Maintainability
+			- Memory usage
+			- Scalability
+
+		Manual object creation causes duplication and poor scalability.
+
+	Method1: Factory function:
+			A normal function that returns a new object.
+
+			code reuse
+			cleaner
+			more sclable than literals
+
+		 Factory functions resuse structure but waste memory on methods.
+
+		 	Problem:
+		 		- Manual assignments
+		 		- Ugly for many method
+		 		- Error prone
+
+	Method 2: Prototype based factory 
+		
+		A better factory that uses prototypes.
+
+		const personsMethods1 = {
+	    getFullName() {
+	        return this.firstName + " "+this.lastName;
+	    }
+	};
+
+
+	 function createPerson2 (firstName, lastName) {
+	        let person = Object.create(personsMethods);
+	        person.firstName = firstName;
+	        person.lastName = lastName;
+
+	        return person;
+	}
+
+		Why this better:
+			- Methods live in one place
+			- Objects share methods via prototype
+			- Memory efficient
+
+	Method 3: Constructore Function (Industry standard)
+			A special function with new keyword to create objects.
+
+
+	function Person(firstName, lastName){
+	    this.firstName = firstName;
+	    this.lastName = lastName;
+	}
+
+	let p11 = new Person("A","B");
+
+	Internally:
+		- create a new empty object
+		- Sets prototype to Person.prototype
+		- Binds this to new object
+		- Returns object automatically
+
+
+	NOte: Constructor functions must start with a capital letter.
+
+	Math obj:
+		Built in JS object that provides mathematical constants and functions.
+
+		Why?
+			- Perform calculations
+			- Handle rouding
+			- Generate random numbers
+			- Avoid writing complex math logic manually.
+
+		Math.round() - Rounds to nearest integer
+		Math.floor() - Rounds down.
+		Math.ceil()
+		Math.trunc() - Removes decimal part
+
+
+		-1.2
+		-1.2
+
+	String obj
+		String - text data
+
+		'
+	Template Literals
+	 Modern way to create and work with string in javascript.
+	 They use backticks instead of quotes.
+
+	 WHy?
+	 	- Easier string concatenation
+	 	- Embed variables directly
+	 	- Supports Multi-line strings
+	 	- cleaner and more readable code
+
+
+
+	----------------------
+	JS Arrow function
+
+		An Arrow function is a shorter syntax for writing functions in JS
+
+		() => {}
+		Less code
+		cleaner syntax
+
+
+	-----------------------
+	map() - Transform Array
+
+		creates a new array by transforming each element.
+
+		- convert data
+		- format values
+		- apply some logic to all items
+
+	filter() - Select elements
+		
+
+	reduce() - Accumulate to single value
+		
+		Sum
+		Count
+		Group
+
+
+		array.reduce(  (accumulator, current) => {}, initialValue    )	
+
+
+		sort
+		splice - modifies original array by adding or removing elements
+
+		array.splice(startIndex, deleteCount, item1, item2);
+
+		
+
+
+
+	===================================================================================================================
+	14-Feb-2026
+	===================================================================================================================
+	Agenda:
+		What is JS? Adv of JS?
+		JS Variable, var, let, const
+		JS Primitive types, Dynamic types
+		JS Object, Arrays(Push,pop, Unshift, shift), Functions, DOM and HTML JS interaction
+
+
+	What is JavaScript?
+		JavaScript is a programming language used to make web pages interactive and dynamic.
+
+	Without jvascript, a website is mostly static (just text and images)
+
+		- Respond to user actions (clicks, typing)
+		- Change content without reloading page.
+		- Validations and logic
+
+
+	HTML - Structure
+	CSS - Style
+	JS - Behavior
+
+	Benefits:
+		- Runs in the browser (Fast)
+		- Makes website Interactive
+			Clicks, sliders, popups, live updates without reload
+
+		- Easy to learn
+		- Portable - write once, run it anywhere (browser)
+		- Huge Ecosystem
+			- React, Angular, Vue
+		- versatile language
+			You can build, websites, webapps, mobile apps, desktop apps.
+
+
+	Installation:
+		- Install plugin - Code runner from VS Code
+		- install nodejs
+
+
+	JavaScript Primitive DataTypes
+
+		Primitive Types are basic data tpes in JS, that store single, simple values.
+		Why?
+			- Represent fundamental values (number, text, true/false etc)
+			- Fast and memory efficient
+			- Immutable (cannot be changed directly)
+
+		JS has 7 primitive types
+		1. Number
+			Represents both integers and decimal
+		
+		age, salary, product price, quantity
+
+
+		2. string
+		Represents Text data.
+
+		Name, message, labels
+
+		3. Boolean
+			Represents value true/false.
+
+			Login status,validations, conditions
+
+		4. Undefined
+			A variable that is declared but not assigned
+
+		- Represents missing data, optional values
+
+
+		5. Null
+			Represents Intentional absence of value
+
+		- Clear values
+		- no selected item
+
+		6. Bigint
+			Used for very large numbers beyond safe integer limit
+
+		Represents 
+		-	Financial system
+		-  	Large IDs
+
+		7. Symbol
+
+			Represents unique identifiers
+
+		let id = Symbol("id");
+
+		Real-world usecase:
+			- Unique object keys
+
+
+
+	Question1: let id=symbol("id") --> both name should be same right?(in this case id?)
+
+
+	HTML DOM ? (Document Object Model)
+		Tree like object representation of an HTML page created by browser.
+
+	It allows javaScript to:
+		- Read HTML
+		- Change HTML content
+		- Add or remove elements
+		- Handle events
+
+		Browser converts HTML --> DOM Tree
+
+		Important points:
+			- DOM is not HTML
+			- DOM is a Object Model.
+
+
+	DOM Nodes:
+		A node is any item in the DOM tree.
+
+		Types of DOM Nodes:
+			1. Element Node - <p>, <div>
+			2. Text Node - Text inside an element
+			3. Attribute Node - id, class
+			4. Comment Node - <!-- comment -->
+
+
+		DOM Element:
+			DOM elements are specific type of node that represent HTML tags.
+
+
+			<p class="test"> Hello </p>
+
+			<div id="box"></div>
+
+			<div> -- DOM element
+			id-"box" --> attribute node
+
+		
+		DOM Methods:
+			DOM Methods are functions provided by the browser to access and manipulate HTML elements
+
+
+		1. getElementById
+			document.getElementById("title");
+
+
+		2. querySelector
+		elem =	document.querySelector("#box")
+
+		3. document.querySelectorAll("p");
+
+
+		elem.innnerHTML="<b>Hello</b>"
+		elem.style.color="red";
+
+		element = document.createElement("div");
+
+		element.appendChild(child);
+		element.remove();
+
+
+	JavaSCript - Dynamic Type language
+
+		let a = 4;
+
+		Makes code very faster
+		easy to understand
+		flexible to write code
+
+
+		Type is detected automatically at runtime, not compiletime
+
+
+	JavaScript Function:
+		
+		A Function is a block of reusable code that performs specific task.
+
+		- Avoid code repetition
+		- Organize code
+		- Improve redability
+
+
+	JavaScript Object
+
+	JavaScript Array
+		Array is a data structure used to store multiple values in a single variable, in an ordered way.
+
+		Why?
+			- It stores list of data
+			- Access value by its position
+			- Loop and process multiple values easily
+
+		To add elemnents:
+			- push -- Add element at end
+			- Unshift -- Add element at start
+
+	JS Operators 
+	-------------
+
+	Operators are symbols used to perform operations on values and variables.
+
+	They allow JavaScript to:
+		- Calculate values
+		- Compare data
+		- Make decidions
+		- Assign values
+
+		etc
+
+
+	1. Arithmatic Operators:
+
+		+, -, *, /, %, **
+
+		a**b = 
+
+	2. Assignment Operators:
+		
+		Assign values to variable.
+
+		=, +=, -=
+		x=10
+		x += 5; // x= x+5;
+		x -=5; // x=x-5;
+
+
+	3. Comparision Operators:
+		Compare two values and return true or false.
+
+		==	--> Equal(value)
+		=== --> Equal(value + type)
+		!=	
+		!==	
+		>,<, >=, <=
+
+	4. Logical Operators:
+		
+		Combine or invert conditions
+
+		&& - AND
+		||
+		! 
+
+	5. Unary Operators
+		++	- Increment by 1
+		--  -- Decrement by 1
+		type of	- Type check
+
+
+	6. Ternary Operator
+		Short hand if-else
+
+		condition ? value1 : value2;
+
+	7. String operators:
+
+
+
+
+	Simple calculator:
+
+	Calculator object
+		add
+		sub
+		mul
+		div
+
+
+
+	calc.add()
+
+		
+
+
+
+
+
+		
+
+		
+
+
+	===================================================================================================================
+	08-Feb-2026
+	===================================================================================================================
+
+	 Extra topics on demand:	
+	 		CSS animation
+		 	pseudoelement and pseudo class --> 
+	 		flex, box model
+	 			how to use align-itmes? 
+
+	CSS Text styling & Formatting
+		1. color - Controls the color of text inside an element
+			p {
+				color: blue;
+			}
+
+			color values:
+				Named colors - 
+				HEX (#ff0000)
+				RGB (rgb(255,0,0))
+
+		2. Text Identation (text-ident)
+			Controls space before the line of text.
+
+			p {
+				text-ident:40px
+			}
+
+			- Paragraph format
+
+		3. Text alignment (text-align)
+			Controls horizontal alignment of text.
+
+			Values:
+				left
+				right
+				center
+
+			h1 {
+				text-align: center;
+			}
+
+
+		4. Text decoration (text-decoration)
+			Adds or remove lines on text.
+
+			Values:
+				- none
+				- underline
+				- overline
+				- line-through
+
+
+		5. Letter spacing (letter-spacing)
+			Controls space between characters.
+
+			h2 {
+				letter-spacing: 2px;
+			}
+
+			d h r u v i k 
+
+
+	CSS Topography
+
+		Topography - art of styling and arranging text to make content readable , clear and visually appealing.
+
+
+		1. font-family
+			Defines which font is used for text.
+
+
+			body {
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+		2. font-size
+			px - fixed
+			em - relative to parent
+			rem - relative to root (html)
+
+		3. font-weight
+			Controls thickness of text.
+
+			values:
+				normal
+				bold
+				100-900
+
+		4. font-style
+			style text of normal or italic.
+
+
+		5. line-height 
+			controls spaces between lines of text.
+
+			ddd	
+
+			p {
+				line-height: 1.5;
+			}
+
+		6. letter-spacing
+			controls space between characters
+
+
+		7. word-spacing
+			controls space between words.
+			Dhruvik parikh
+
+		8. text-transform
+			changes case of text.
+
+			uppercase
+			lowercase
+			capitalize
+
+
+	CSS Border:
+	 	Line drawn around an HTML element, separating it from other elements.
+
+	 	A border is made up of three parts:
+	 		1. Border width
+	 		2. Border style
+	 		3. Border color
+
+	 	selector {
+	 		border: width style color
+	 	}
+
+	 	div {
+	 		border: 2px solid black;
+	 	}
+
+	 	Border style:
+	 		- solid 	- continuous straight line
+	 		- dotted	- small dots
+	 		- dashed	- short dashes
+
+
+	CSS Background image
+
+		body {
+			backound-image: url("");
+
+		}
+
+	CSS positioning
+	--------------
+		
+		CSS positioning controls how an element is placed on the page. 
+		and behaves when the page is scrolled or resozed.
+
+	Position - decies where an element lives on the page.
+
+	positioning works with two things together:
+		1. position:
+		2. offset properties
+			(works only when position is NOT static)
+
+
+	position: static
+		- Default position for all elements
+		- top, left, etc do not work.
+
+
+	.box {
+		position: static;
+		top: 50px ; // ignored
+	}
+
+	Key points
+		- No special positioning.
+		- can not move element
+		- Default behavior.
+
+
+	posion: relative
+		- Element stya in the normal flow
+		- Can be moved relative to its original position.
+
+
+	position: absolute
+
+		- Removed from normal document flow
+		- position relative to nearest positioned ancestor.
+		- if no positioned parent --> relative to <body>
+
+	Absolute always looks for a positioned parent.
+
+	uscase:	
+		- tooltip
+
+	position: fixed
+		- Positioned relative to viewport (visible area of the webpage on your screen)
+		- Sticky header
+
+
+
+	Psuedo element
+		used to style a specific part of an element 
+
+		::before		: Insert content before element
+		::after 		: Insert content after element
+		::first-letter	: Style first letter
+		::first-line	: Style first line
+		::selection	    : Style selected text
+
+
+		select::pseudo-class {
+		
+		}
+
+
+	Pseudo class
+		Styles based on state of an element, 
+
+		selector:pseudo-class {
+
+		}
+
+	:hover
+	:active - Applies style while the element is being clicked.
+	:focus - Applies style when an element (input, textarea, button) receives focus.
+	:link - Style unvisited links <a> tag only
+	:visited - Styles visited links
+
+
+	Note:
+		Always define link-related pseudo-classes in this order:
+		:link --> :visited --> :hover --> :active
+
+
+	Structural pseudo classes
+		list
+
+		li:first-child {
+
+		}	
+
+		li:last-child {
+
+		}
+
+		li:nth-child(odd) {
+
+		}
+
+
+
+
+
+	Exercise:
+
+		Build product listing page for small e-commerce website
+
+			- Display page title at the top
+			- Show multiple product cards.
+			- Each product card must include
+				- product name
+				- short description
+				- Price
+				- availablibility status
+
+
+	Self study :
+		- box,  flex and grid container
+
+		Box model:
+			treated as rectangular box
+
+		Flexbox model:
+			Layout model --> arrange items in one direction (row/column)
+
+			flexbox makes centering easy
+
 			display: flex;
-			align-items: center
 
+			<div class="parent">
+				<p class="child">
+				<p>
+				<p>
+			
+
+			</div>
+
+			flex container --> parent
+			flex items --> children
+
+			Main axis - default -- row
+
+
+			.parent {
+				display: flex;
+				align-items: center
+
+			}
+
+
+			CSS Grid (Two Dimentional layout)
+
+			-- rows
+			-- columns
+
+			display: grid;
+
+			grid-template-columns: 1fr 1fr 1fr
+			gap:10px;
+
+
+	===================================================================================================================
+	07-Feb-2026
+	===================================================================================================================
+	ID attribute in HTML
+
+		Uniquely identifies one element
+
+		<h1 id="pageTitle"> </h1>
+		ID is for identity
+
+	Class attribute in HTML
+		Groups multiple elements
+		Reusable styling
+
+
+		<p class="card"> </p>
+		<p class="card"> </p>
+
+		.card {
+			color: green;
 		}
 
 
-		CSS Grid (Two Dimentional layout)
+	Header element
+	<header> - Used for page header (section header)
 
-		-- rows
-		-- columns
+		Logo, Website Title, Navigation
 
-		display: grid;
+		The <header> tag explicitly tells search engine (like google) that the content inside is introductory. When crowsers see a <header> tag, they quickly identify site name, logo, and primary navigation, which helps them to understand site's hierarchy and purpose for more efficiency.
 
-		grid-template-columns: 1fr 1fr 1fr
-		gap:10px;
 
+		Better redability
+		Accesibility
 
-===================================================================================================================
-07-Feb-2026
-===================================================================================================================
-ID attribute in HTML
+	<footer> 
+		A sementic element used for:
+			- copyright info
+			- Contact details
+			- Legal links
 
-	Uniquely identifies one element
 
-	<h1 id="pageTitle"> </h1>
-	ID is for identity
+	nav, section, article, time and abbr
 
-Class attribute in HTML
-	Groups multiple elements
-	Reusable styling
+	Problem:
+		- No meaning
+		- Poor SEO
+		- Poor accessibility
 
+	Semantic HTML:
+	- Explains what the content is
+	- Helps search engine & screen readers
+	- Makes code redable & mainable.
 
-	<p class="card"> </p>
-	<p class="card"> </p>
+	<nav>
+		Represents a section containing navigation links.
 
-	.card {
-		color: green;
-	}
+		- Menus
+		- Navigation bars
 
+	<section>
+		Represents a thematic group of content
 
-Header element
-<header> - Used for page header (section header)
+		Think of it as a chaper in a book.
 
-	Logo, Website Title, Navigation
+		- Group related content
+		- Each section usually has a heading
 
-	The <header> tag explicitly tells search engine (like google) that the content inside is introductory. When crowsers see a <header> tag, they quickly identify site name, logo, and primary navigation, which helps them to understand site's hierarchy and purpose for more efficiency.
+		Key Rule:
+			- A <section> should have a heading (h1-h6)
 
 
-	Better redability
-	Accesibility
+	<article > - Independent content unit
+		
+		Represents self-contained content that can stand alone.
 
-<footer> 
-	A sementic element used for:
-		- copyright info
-		- Contact details
-		- Legal links
+		Examples:
+			- blog post
+			- News article
+			- Product card
+			- Comment
 
 
-nav, section, article, time and abbr
+	<time> - Machine-Readable dates and time
 
-Problem:
-	- No meaning
-	- Poor SEO
-	- Poor accessibility
+	Represents date or time in a machine-readable format.
 
-Semantic HTML:
-- Explains what the content is
-- Helps search engine & screen readers
-- Makes code redable & mainable.
+	Helps:
+		- SEO
+		- Search engines
 
-<nav>
-	Represents a section containing navigation links.
+	WHy use <time< instead of plain text?
+		Browsers and search engine understand - published on this date.
 
-	- Menus
-	- Navigation bars
 
-<section>
-	Represents a thematic group of content
+	<abbr> - Abbrevation and Acronym
+		Defines an abbrevation with its full meaning.
 
-	Think of it as a chaper in a book.
 
-	- Group related content
-	- Each section usually has a heading
+	<main> - semantic element defines, primary, and unique content of an HTML element.
+	It serves as a central hub of your webpage, core information that users are visiting page.
 
-	Key Rule:
-		- A <section> should have a heading (h1-h6)
+	Key rules:
+		- Only One per page.
+		- Unique content only
 
+		SHould not add <nav> headers, <article> inside main	
 
-<article > - Independent content unit
-	
-	Represents self-contained content that can stand alone.
+	HTML5
+		- Fifth and latest major version of HTML
 
-	Examples:
-		- blog post
-		- News article
-		- Product card
-		- Comment
+		Multimedia - Older versions, rely on external plugins
+					- HTML5 - <video> <audio>
 
+		Structurs	- Relied heavily on <div>
+					- tags with clear meaning with all semantic elements
 
-<time> - Machine-Readable dates and time
+		Doctype		- complex and lengthy doctype decrations
+					- 
 
-Represents date or time in a machine-readable format.
+					<svg>
 
-Helps:
-	- SEO
-	- Search engines
 
-WHy use <time< instead of plain text?
-	Browsers and search engine understand - published on this date.
+	CSS?
+		Types of CSS?
+		CSS Selectors
 
+		CSS color property
+		Text styling, formatting etc.
 
-<abbr> - Abbrevation and Acronym
-	Defines an abbrevation with its full meaning.
 
+	CSS - Cascading style sheets
 
-<main> - semantic element defines, primary, and unique content of an HTML element.
-It serves as a central hub of your webpage, core information that users are visiting page.
+	CSS is used to control how HTML elements look on the webpage.
+	HTML - What element is
+	CSS - How the content looks
 
-Key rules:
-	- Only One per page.
-	- Unique content only
+	What CSS can do?
+		- change colors and fonts
+		- Control spacing (margine, padding)
+		- Create layouts (colomns, sections)
+		- Add hover effects
+		- Makes more responsive for mobile and desktop.
 
-	SHould not add <nav> headers, <article> inside main	
 
-HTML5
-	- Fifth and latest major version of HTML
+	Types of CSS:
+	Inline
+		- Quick testing
+		- One-time styling.
 
-	Multimedia - Older versions, rely on external plugins
-				- HTML5 - <video> <audio>
+		- Not use for real projects
+	Internal:
+		- Written inside a <style> tag under head tag.
 
-	Structurs	- Relied heavily on <div>
-				- tags with clear meaning with all semantic elements
+		- use for small projects
+		- Single page demos
+		- Learning and practice only
 
-	Doctype		- complex and lengthy doctype decrations
-				- 
+	External CSS
+		- Write seperate CSS file with .css extension and linked that file to your html.
 
-				<svg>
+		- Clean HTML
+		- Reusable styles
+		- Easy to maintain
+		- Faster loading	
 
+	Inline > Internal > External
 
-CSS?
-	Types of CSS?
-	CSS Selectors
 
-	CSS color property
-	Text styling, formatting etc.
+	CSS selector:
+		A selector is used to select HTML elements so we can apply styles to them
 
-
-CSS - Cascading style sheets
-
-CSS is used to control how HTML elements look on the webpage.
-HTML - What element is
-CSS - How the content looks
-
-What CSS can do?
-	- change colors and fonts
-	- Control spacing (margine, padding)
-	- Create layouts (colomns, sections)
-	- Add hover effects
-	- Makes more responsive for mobile and desktop.
-
-
-Types of CSS:
-Inline
-	- Quick testing
-	- One-time styling.
-
-	- Not use for real projects
-Internal:
-	- Written inside a <style> tag under head tag.
-
-	- use for small projects
-	- Single page demos
-	- Learning and practice only
-
-External CSS
-	- Write seperate CSS file with .css extension and linked that file to your html.
-
-	- Clean HTML
-	- Reusable styles
-	- Easy to maintain
-	- Faster loading	
-
-Inline > Internal > External
-
-
-CSS selector:
-	A selector is used to select HTML elements so we can apply styles to them
-
-	selector {
-		property: value;
-	}
-
-Basic Selector
-	a. Universal selector
-		Selects ALL elements on the page.
-
-		* {
-
-		}
-
-		- Reset default browser styles
-		- Apply some common base styling.
-
-	b. Type/Element selector
-
-		Selects all elemnts of specific HTML tag.
-		p {
-
-		}
-
-
-	c. Class selector
-		Selects multiple elements with the same class name.
-
-		.className {
-
-		}
-
-		padding - space inside the frame 
-
-		margine - space between frames on the wall.
-
-		- Reusable
-		- Most commonly used selector.
-
-
-	d. ID selector
-
-	Selects one unique element.
-	#idName {
-		propery: value;
-	}
-
-	ID must be unique
-	DO not reuse IDs
-
-	e. Attribute selector
-
-		selects elements based on the presence of value of an attribute.
-
-		[attribute] {
-
-		}
-
-		[attribute="value"] {
-
-		}
-
-		used in form styling
-		targetting links
-
-	
-Grouping selector
-	a. Descendant selector
-
-	Selects all matching elements inside another element, at any depth level.
-
-	ancestor descendant {
-		propery: value;
-	}
-
-
-
-	b. Child selector
-
-		Selects only direct children, not deeper nested elements.
-
-		parent > child {
+		selector {
 			property: value;
 		}
 
+	Basic Selector
+		a. Universal selector
+			Selects ALL elements on the page.
 
-<p> This is a sentence where i only want the <span class="last-word">last</span> </p>
-.last-word {
-	text-decoration: underline;
-	text-decoration-color: blue;
-}
+			* {
 
+			}
 
+			- Reset default browser styles
+			- Apply some common base styling.
 
-===================================================================================================================
-31-Jan-2026
-===================================================================================================================
+		b. Type/Element selector
 
-GIT
+			Selects all elemnts of specific HTML tag.
+			p {
 
-VCS - Versioning control system
-
-	Tool that helps software developer team to manager changes to the source code over time.
-
-		- Every modification made to the code
-		- developers can go back to earlier versions of the code and compare changes
-
-Two types of VCS
-	1. Centralized VCS	
-		Single server where all versioned files as stored.
-
-		Problem:
-			- if central server fails --> all history made will be lost
-			- Collaboration is limited when disconnected from the server
-
-	Tool : SVN
+			}
 
 
+		c. Class selector
+			Selects multiple elements with the same class name.
 
-	2. Decentralized VCS
+			.className {
 
-		Every developer has local copy of entire repository, including history.
-		Changes can be made locally and later pushed to the central repository when ready.
+			}
 
-		Pros:
-			- Every dev has full copy of project's history
-			- Work can be continued offline
-			- More robust against server failures.
+			padding - space inside the frame 
 
-		cons:
-			- More disk space
+			margine - space between frames on the wall.
 
-	Tool: GIT
+			- Reusable
+			- Most commonly used selector.
 
 
-	Two types of storage:
+		d. ID selector
 
-	1. Snapshot based storage (Git)
+		Selects one unique element.
+		#idName {
+			propery: value;
+		}
 
-		takes snapshot of entire project directory at time of each commit
+		ID must be unique
+		DO not reuse IDs
 
+		e. Attribute selector
 
-	2. Delta based storage (C- VCS SVN)
+			selects elements based on the presence of value of an attribute.
 
-		initial change --> delta1 --> delta2
+			[attribute] {
 
-		space efficient --> very slow down performance
+			}
 
+			[attribute="value"] {
 
-Git File System
+			}
 
-	Working directory 		--> 		Staging area 			--> 		Repository (Local Git DB)
-	 (files)							ready to commit 					final submitted changes
+			used in form styling
+			targetting links
 
+		
+	Grouping selector
+		a. Descendant selector
 
-Commands
+		Selects all matching elements inside another element, at any depth level.
 
-git --version
-git init
-git status
-git add <fileName>
-git commit -m "<COMMIT_MESSAGE>"
-git log			 Display all commits
-git log --oneline
-git config 
-	used to set and read git settings like username, email, aliases etc
-git config --global user.name "Dhruvik Parikh"
-git config --global user.email "dhruvik@simplilearn.com"
-
-
-git remote add origin <>
-git push origin master
-git pull origin master
-
-github
-	cloud platform to store git repositories and collaborate
-
-	- backup code online
-	- share code with team
-	- work together (collaborate)
+		ancestor descendant {
+			propery: value;
+		}
 
 
-git remote -v
 
-git clone <repo> --> To clone any repository in local for any existing repository
+		b. Child selector
+
+			Selects only direct children, not deeper nested elements.
+
+			parent > child {
+				property: value;
+			}
 
 
-git checkout -b <branch_name>  --> To create new branch
-git checkout <branch_name> --> to switch to another branch
+	<p> This is a sentence where i only want the <span class="last-word">last</span> </p>
+	.last-word {
+		text-decoration: underline;
+		text-decoration-color: blue;
+	}
+
+
+
+	===================================================================================================================
+	31-Jan-2026
+	===================================================================================================================
+
+	GIT
+
+	VCS - Versioning control system
+
+		Tool that helps software developer team to manager changes to the source code over time.
+
+			- Every modification made to the code
+			- developers can go back to earlier versions of the code and compare changes
+
+	Two types of VCS
+		1. Centralized VCS	
+			Single server where all versioned files as stored.
+
+			Problem:
+				- if central server fails --> all history made will be lost
+				- Collaboration is limited when disconnected from the server
+
+		Tool : SVN
+
+
+
+		2. Decentralized VCS
+
+			Every developer has local copy of entire repository, including history.
+			Changes can be made locally and later pushed to the central repository when ready.
+
+			Pros:
+				- Every dev has full copy of project's history
+				- Work can be continued offline
+				- More robust against server failures.
+
+			cons:
+				- More disk space
+
+		Tool: GIT
+
+
+		Two types of storage:
+
+		1. Snapshot based storage (Git)
+
+			takes snapshot of entire project directory at time of each commit
+
+
+		2. Delta based storage (C- VCS SVN)
+
+			initial change --> delta1 --> delta2
+
+			space efficient --> very slow down performance
+
+
+	Git File System
+
+		Working directory 		--> 		Staging area 			--> 		Repository (Local Git DB)
+		 (files)							ready to commit 					final submitted changes
+
+
+	Commands
+
+	git --version
+	git init
+	git status
+	git add <fileName>
+	git commit -m "<COMMIT_MESSAGE>"
+	git log			 Display all commits
+	git log --oneline
+	git config 
+		used to set and read git settings like username, email, aliases etc
+	git config --global user.name "Dhruvik Parikh"
+	git config --global user.email "dhruvik@simplilearn.com"
+
+
+	git remote add origin <>
+	git push origin master
+	git pull origin master
+
+	github
+		cloud platform to store git repositories and collaborate
+
+		- backup code online
+		- share code with team
+		- work together (collaborate)
+
+
+	git remote -v
+
+	git clone <repo> --> To clone any repository in local for any existing repository
+
+
+	git checkout -b <branch_name>  --> To create new branch
+	git checkout <branch_name> --> to switch to another branch

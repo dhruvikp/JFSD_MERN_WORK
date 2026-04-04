@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.6">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" pages="2">
   <diagram name="Page-1" id="DqhZtL42gsG71vEOq7eb">
     <mxGraphModel dx="1106" dy="524" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -171,6 +171,79 @@
         </mxCell>
         <mxCell id="4vfYV5uF1lL0y1aKkh_b-44" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="release012026" vertex="1">
           <mxGeometry height="30" width="60" x="60" y="400" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="HZbCMKCLcMZzlOFr9MAY" name="React">
+    <mxGraphModel dx="1094" dy="518" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-3" edge="1" parent="1" source="VnoCzIbLpA-td5Qg8UO6-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="VnoCzIbLpA-td5Qg8UO6-2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-14" edge="1" parent="1" source="VnoCzIbLpA-td5Qg8UO6-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="VnoCzIbLpA-td5Qg8UO6-15">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="530" y="60" />
+            </Array>
+            <mxPoint x="580" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-23" edge="1" parent="1" source="VnoCzIbLpA-td5Qg8UO6-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&amp;lt;App /&amp;gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="280" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-9" edge="1" parent="1" source="VnoCzIbLpA-td5Qg8UO6-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="VnoCzIbLpA-td5Qg8UO6-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&amp;lt;Expenses /&amp;gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="280" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;rounded=0;" value="{titel: &quot;&quot; , date:&#39;&quot;, amount: &quot;&quot;}" vertex="1">
+          <mxGeometry height="30" width="270" x="480" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-13" edge="1" parent="1" source="VnoCzIbLpA-td5Qg8UO6-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="VnoCzIbLpA-td5Qg8UO6-12" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-10" parent="1" style="whiteSpace=wrap;html=1;" value="&amp;lt;ExpenseItem /&amp;gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="280" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-12" parent="1" style="whiteSpace=wrap;html=1;" value="&amp;lt;ExpenseDate /&amp;gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="280" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-17" edge="1" parent="1" source="VnoCzIbLpA-td5Qg8UO6-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="VnoCzIbLpA-td5Qg8UO6-16" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-20" edge="1" parent="1" source="VnoCzIbLpA-td5Qg8UO6-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" target="VnoCzIbLpA-td5Qg8UO6-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&amp;lt;NewExpense /&amp;gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="470" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-18" edge="1" parent="1" source="VnoCzIbLpA-td5Qg8UO6-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-21" edge="1" parent="1" source="VnoCzIbLpA-td5Qg8UO6-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="VnoCzIbLpA-td5Qg8UO6-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&amp;lt;ExpenseForm&amp;nbsp; /&amp;gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="470" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="data" vertex="1">
+          <mxGeometry height="30" width="60" x="640" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-22" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="list of expenses" vertex="1">
+          <mxGeometry height="30" width="140" x="240" y="10" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
