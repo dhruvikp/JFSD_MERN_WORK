@@ -24,7 +24,7 @@ const ExpenseItem = (props) => {
             <h2>{title}</h2>
             </div>
 
-            <div className='expense-item_price'>${expenseAmount.toFixed(2)}</div>
+            <div className='expense-item_price'>${expenseAmount}</div>
             <button onClick={clickHandler}>Show Details</button>
         </Card>
   )
