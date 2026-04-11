@@ -1,0 +1,10 @@
+.header {display: flex;}
+.list { display: flex; gap: 1rem;}
+
+
+.list a:hover,
+.list a.active {
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: underline;
+}

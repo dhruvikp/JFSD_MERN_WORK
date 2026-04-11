@@ -35,6 +35,51 @@
 
 	Local Storage and session storage
 
+
+	====================================================================================================================
+	04/04/2026 
+	====================================================================================================================
+	What is Routing?
+
+
+		Showing different UI (Components/pages) based on the URL.
+
+
+	/ -> Home
+	/products -> Products
+
+	Traditional web application
+		when you change url -> new request to server -> response
+								reload whole page
+
+	SPA
+		- No reload
+		- Only component changes
+
+	How to work with this?
+
+		npm install react-router-dom
+
+	This library will give routing capability.
+
+	createBrowserRouter() --> Defines routing config:
+								URL --> Component (mapping)
+
+	RouterProvider --> Activates routing system
+
+	Link -> wihtout refreshing page
+
+	Adding Layout:
+	--------------
+		Without layout 
+			navigation repeated on every page.
+
+	Outlet - Placeholder where child routes render
+
+	NavLink - isActive
+
+
+
 	====================================================================================================================
 	04/04/2026 
 	====================================================================================================================
