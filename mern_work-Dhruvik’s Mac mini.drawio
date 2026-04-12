@@ -211,7 +211,7 @@
         <mxCell id="VnoCzIbLpA-td5Qg8UO6-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&amp;lt;Expenses /&amp;gt;" vertex="1">
           <mxGeometry height="40" width="120" x="240" y="160" as="geometry" />
         </mxCell>
-        <mxCell id="VnoCzIbLpA-td5Qg8UO6-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;rounded=0;" value="{titel: &quot;&quot; , date:&#39;&quot;, amount: &quot;&quot;}" vertex="1">
+        <mxCell id="VnoCzIbLpA-td5Qg8UO6-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;rounded=0;" value="items: {titel: &quot;&quot; , date:&#39;&quot;, amount: &quot;&quot;}" vertex="1">
           <mxGeometry height="30" width="270" x="395" y="10" as="geometry" />
         </mxCell>
         <mxCell id="VnoCzIbLpA-td5Qg8UO6-13" edge="1" parent="1" source="VnoCzIbLpA-td5Qg8UO6-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="VnoCzIbLpA-td5Qg8UO6-12" value="">
@@ -221,7 +221,7 @@
           <mxGeometry height="40" width="120" x="240" y="240" as="geometry" />
         </mxCell>
         <mxCell id="VnoCzIbLpA-td5Qg8UO6-12" parent="1" style="whiteSpace=wrap;html=1;" value="&amp;lt;ExpenseDate /&amp;gt;" vertex="1">
-          <mxGeometry height="40" width="120" x="240" y="310" as="geometry" />
+          <mxGeometry height="40" width="120" x="240" y="330" as="geometry" />
         </mxCell>
         <mxCell id="VnoCzIbLpA-td5Qg8UO6-17" edge="1" parent="1" source="VnoCzIbLpA-td5Qg8UO6-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="VnoCzIbLpA-td5Qg8UO6-16" value="">
           <mxGeometry relative="1" as="geometry" />
@@ -242,6 +242,9 @@
         </mxCell>
         <mxCell id="VnoCzIbLpA-td5Qg8UO6-22" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="list of expenses" vertex="1">
           <mxGeometry height="30" width="140" x="220" y="-10" as="geometry" />
+        </mxCell>
+        <mxCell id="az-UPMz-QhS9AXS5N4Tr-1" edge="1" parent="1" source="VnoCzIbLpA-td5Qg8UO6-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="VnoCzIbLpA-td5Qg8UO6-16">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

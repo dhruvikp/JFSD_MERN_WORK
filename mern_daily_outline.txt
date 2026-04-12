@@ -34,14 +34,170 @@
 
 
 	Local Storage and session storage
+	useMemo
+
+	
 
 
-	====================================================================================================================
+====================================================================================================================
+	12/04/2026 
+====================================================================================================================
+
+Problem: Props Drilling
+
+Fix:
+	1. Compoent Composition
+	2. React Context API
+
+Feedback:
+	- Everything is going is well. Most importantly revision is important. Some one is missing it. So failing to keep pace.
+
+
+
+FULL Stack developer:
+--------------------
+	Frontend - js/react/.....
+	Backend - node/express/java/python/.....
+	DB.    - SQL/NoSQL MySQL/MongoDB
+	Devops - How to deploy the application
+
+	AI
+		RAG
+		Fine tuning
+		open source model - hugging face -> deploy locally thorugh ollama
+
+
+ Props drilling?
+
+ 	Props - Props drilling is the process of passing data (props) from a parent component to a deeply nested child component through multiple intermediate components.
+
+ 	Data travels thorugh components that don't actually need its, just to reach the component that does.
+
+ 	Problems:
+ 	Unnecessarily passing	- Intermediate component don't care about data
+ 	Hard to maintain - if you rename expenses--> exp--> change everywhere
+ 	Hard to debug - Trace thorugh multiple layers
+ 	Tight coupling - Component becomes highly dependent on the data unnecessarily
+
+ 	small application - managable
+
+
+ Solution?	
+ 	1. Component Composition
+ 		Pass components instead of passing data
+
+ 	2. Context API
+ 		Global-like data sharing
+
+ 	3. State management
+ 		- Redux
+
+Component Composition:
+	Building UI by combining smaller components and passing components as props or childrens instead of passing raw data thorugh multiple layers
+
+
+App -> A -> B -> C -> D
+	
+	Only D needs the data¯
+
+Component - just function - so they can be passed like values.
+			{children}
+
+function Card({children}) {
+	return <div className="card"> {children} </div>;
+}
+
+
+<Card>
+	<h1> Hello</h1>
+	<p> This is inside card </p>
+</Card>
+
+
+
+
+Problems:
+	1. Too much nesting (Wrapper Hell problem)
+
+		<Layout>
+			<AuthWrapper>
+				<ThemeWrapper>
+					<DataProvider >
+						<Dashboard data/>
+					</DataProviderComponent>
+				</ThemeWrapper>
+			</AuthWrapper>
+		</Layout>
+	Hard to read and udnerstand
+
+	2. Hard to trace data flow
+
+		Less explicit than props
+		Hard to deubug in large apps
+
+	3. Tight coupling via structure
+
+	Parent controls children heavily
+		Comopnent depend on the struvture
+
+	Hard to reuse component independently
+
+Some technique -> state can be managed globally?
+
+	
+React Context API
+-------------------
+	Context API is a way to share data across multiple components without passing props manually at every level (avoiding prop drilling)
+	context lets you to define global-like data accessible anywhere in the component tree.
+
+Implementation:
+	1. Create context
+
+		import {createContext} from "react";
+
+		export const UserContext = createContext();
+
+	2. Provide context
+
+
+		import {UserContext} from '';
+
+		function App() {
+			const user = "Dhruvik";
+
+			return (
+
+				<UserContext.Provider value = {user}>
+
+					<Child />
+
+				</UserContext.provider>
+
+			)
+
+		}
+
+	3. Consume context?
+
+	import {useContext} from "react";
+	import {UserContext} from  '';
+
+	function child() {
+		const user = useContext(UserContext);
+
+		return <h1>Hello {user} </h1>
+
+
+	}
+
+A -> B (update conext variable) -> C -> D -> E (using context variable using useContext hook)
+
+
+
+====================================================================================================================
 	04/04/2026 
-	====================================================================================================================
+====================================================================================================================
 	What is Routing?
-
-
 		Showing different UI (Components/pages) based on the URL.
 
 

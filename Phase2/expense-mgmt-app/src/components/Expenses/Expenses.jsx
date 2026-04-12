@@ -2,10 +2,14 @@ import './Expenses.css';
 import ExpenseItem from './ExpenseItem';
 import Card from '../../UI/Card';
 import ExpenseFilter from './ExpenseFilter';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import ExpenseList from './ExpenseList';
 
+import { ExpenseContext } from '../../store/expense-context';
+
 const Expenses = (props) => {
+
+    const expenseCtx = useContext(ExpenseContext);
 
     const[filteredYear, setFilteredYear] = useState('2024');
 
@@ -13,7 +17,7 @@ const Expenses = (props) => {
         setFilteredYear(selectedYear);
     };
 
-    const filteredExpenses = props.items.filter((expense) => {
+    const filteredExpenses = expenseCtx.items.filter((expense) => {
         return expense.date.getFullYear().toString() === filteredYear;
     });
 
