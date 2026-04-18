@@ -37,7 +37,97 @@
 	useMemo
 
 	
+====================================================================================================================
+	18/04/2026 
+====================================================================================================================
 
+	Reducer
+	Redux
+
+What is Reducer?
+	A function that reduces one or more complex values to a simpler one.
+
+Ex:
+	Reducer reduces the array of numbers to a single number by adding some logic.
+
+	[5,10,100] --> 
+
+
+	useReducer hook
+
+	const [expenses, dispatch] = useReducer(expenseReducer, DUMMY_EXPENSES);
+
+	dispatch function is a callback to register some action.
+
+	if dispatch function invoked by code, its reducr function will be automatically triggerred.
+
+
+expenseReducer -- two arguments (state, action object)
+
+	action 	- type
+			- payload
+
+
+	- When you have state object
+		which has multiple sub-values
+	- State transition depend on previous state
+	- you want structured, scalable way for the state management.
+
+Idea here is:
+	- Instead of directly updating state (like useState)
+	 you
+	 	1. Define a reducer function (how state will change)
+	 	2. Dispatch actions (what happened)
+
+
+state --> current state
+dispatch --> Function to send actions
+
+reducer --> function that decies how state changes (state manipulation logic at one plasce)
+
+Problems with ReactContext API:
+
+1. Performance issues
+
+	even if only small part of the data is changed, 
+		components using only expenses will STILL re-render it.
+
+	Imppct:
+		- Bad for large applications
+		- can cause performance bottlecks
+
+2. Not suitable for High-Frequency updates
+	
+	Context is not optimized for:
+		- Animations
+		- Real-time typing
+		-frequent updates like stock prices, timers
+
+	Every update triggers multiple re-renders.
+
+3. Component is tightl coupled with the context
+	
+	That means:
+		- harder to reuse components elsewhere.
+
+
+4. With context,
+	State + logic mixed inside the providers
+
+
+Redux 
+
+	Core
+
+Components Dispatch Actions, which describe what should be done, but don't do it directly. Then these actions are forwarded to the rducer function then does what action wants, then reducer splits out a new state.
+In central data store when you have new state object with the change, all subscribing components will be notified.
+
+
+Reducer function - is just a javascription function which is invoked by redix when you provide input and it proces output as new state object
+
+	
+	
+Redux tools
 
 ====================================================================================================================
 	12/04/2026 
