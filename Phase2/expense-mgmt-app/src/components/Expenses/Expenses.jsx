@@ -6,10 +6,14 @@ import React, { useState, useContext } from 'react';
 import ExpenseList from './ExpenseList';
 
 import { ExpenseContext } from '../../store/expense-context';
+import { useSelector } from 'react-redux';
 
 const Expenses = (props) => {
 
-    const expenseCtx = useContext(ExpenseContext);
+    //const expenseCtx = useContext(ExpenseContext);
+
+    // When you use useSelector RR (React redux) will automatically sets subscription.
+    const items = useSelector(state => state.items);
 
     const[filteredYear, setFilteredYear] = useState('2024');
 
@@ -17,7 +21,7 @@ const Expenses = (props) => {
         setFilteredYear(selectedYear);
     };
 
-    const filteredExpenses = expenseCtx.items.filter((expense) => {
+    const filteredExpenses = items.filter((expense) => {
         return expense.date.getFullYear().toString() === filteredYear;
     });
 

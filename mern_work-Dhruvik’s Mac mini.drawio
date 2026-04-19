@@ -336,6 +336,12 @@
         <mxCell id="B6wcaOjE6Tdh3Y5rcfZg-28" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="current state" vertex="1">
           <mxGeometry height="30" width="60" x="120" y="540" as="geometry" />
         </mxCell>
+        <mxCell id="B6wcaOjE6Tdh3Y5rcfZg-30" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#36393d;fillColor=#ffcc99;align=center;verticalAlign=middle;rounded=0;fontStyle=1" value="Implement Redux&amp;nbsp;" vertex="1">
+          <mxGeometry height="30" width="220" x="80" y="1120" as="geometry" />
+        </mxCell>
+        <mxCell id="B6wcaOjE6Tdh3Y5rcfZg-31" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1" value="react-redux&amp;nbsp;" vertex="1">
+          <mxGeometry height="30" width="150" x="240" y="1170" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>

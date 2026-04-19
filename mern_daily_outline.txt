@@ -37,6 +37,61 @@
 	useMemo
 
 	
+
+====================================================================================================================
+	19/04/2026 
+====================================================================================================================
+	- React-Redux implementation on expense management system
+	- Redux toolkit
+		slice --> reducers, actions, intial values...
+
+
+1. install react-redux (npm install react-redux)
+2. Provider - main.jsx (wrap your App component with Provider (class from react-redux), and pass expenseStore so that all components under APP will have access to the store)
+3. useSelector - when you want to register component to the store, and use its value.
+4. useDispatcher - to dispatch action object
+
+
+redux toolkit
+	--> Redux Toolkit is official, wrapper around Redux that removes boilerplate and enforces best practices.
+
+	Instead of writing complex redux setup manually, RTK gives you:
+		- Simplier API
+		- Built in best practices
+		- Less code, more clarity
+
+Core BUilding Blocks:
+
+	1. Slice (Single source of truth)
+
+		The store holds the entire application state
+
+		createStore --> 
+
+		configureStore({
+			reducer: {
+
+			},
+
+		})
+
+		Automatically adds:
+			- Redux Devtools
+			- middleware like thuk
+
+
+		Create slice (State + logic together)
+
+		A slice is most important concept in RTK.
+		It contains:
+			- initial state
+			- Reducers (logic)
+			- Actions (auto-generated)
+
+
+			
+
+
 ====================================================================================================================
 	18/04/2026 
 ====================================================================================================================
@@ -50,7 +105,7 @@ What is Reducer?
 Ex:
 	Reducer reduces the array of numbers to a single number by adding some logic.
 
-	[5,10,100] --> 
+	[5,10,100] --> 115
 
 
 	useReducer hook
@@ -86,7 +141,7 @@ dispatch --> Function to send actions
 reducer --> function that decies how state changes (state manipulation logic at one plasce)
 
 Problems with ReactContext API:
-
+-----------------------------
 1. Performance issues
 
 	even if only small part of the data is changed, 
@@ -125,7 +180,7 @@ In central data store when you have new state object with the change, all subscr
 
 Reducer function - is just a javascription function which is invoked by redix when you provide input and it proces output as new state object
 
-	
+
 	
 Redux tools
 
