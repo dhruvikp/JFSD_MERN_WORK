@@ -21,9 +21,12 @@ const expenseSlice = createSlice({
             };
             state.items.push(expenseData);
         },
-        removeExpense() {}
+        removeExpense() {},
+        replaceExpense(state, action) {
+            state.items = action.payload.items || action.payload ;
+        }
     }
-})
+});
 
 const expenseStore = configureStore({
     reducer: expenseSlice.reducer
