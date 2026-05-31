@@ -1,0 +1,775 @@
+Lession 1:
+=====================
+Introduction & Use Case
+Learning Objectives
+
+Overview of JSON
+What is JSON
+History of JSON
+Purpose of JSON
+JSON vs XML
+Features of JSON
+JSON Supporting Languages
+
+JSON Architecture
+Client-Server Architecture
+REST Architecture
+Microservices Usage
+JSON Data Flow
+
+JSON Syntax
+JSON Rules
+
+JSON Data Types
+String
+Number
+Boolean
+Null
+Object
+Array
+
+JSON Structures
+JSON Object (EX)
+JSON Array (EX)
+Object vs Array
+
+JSON Server Overview
+What is JSON Server
+Use Cases of JSON Server
+
+Benefits of JSON Server
+
+Installing JSON Server (EX)
+Running JSON Server (EX)
+Checking JSON Server Version
+
+Using Curl with JSON Server (EX)
+
+Creating db.json File (EX)
+JSON Server Endpoints
+
+HTML Basics
+HTML Elements
+Types of HTML Elements
+
+HTML Tables (EX)
+
+JSON to HTML Integration (EX)
+Dynamic HTML Table (EX)
+
+HTML + JSON Server Integration (EX)
+
+HTML Form to JSON (EX)
+
+JSON Database (NoSQL)
+Document-Based Storage
+
+Working with JSON Server
+db.json Structure (EX)
+Auto Generated Endpoints
+
+CRUD Operations
+GET Method
+POST Method
+PUT Method
+DELETE Method
+
+CRUD using JSON Server (EX)
+
+Advanced JSON Data Handling
+Nested JSON
+Filtering
+Transformation
+Data Merging
+Conditional Access
+Tools (jq, jsonpath)
+
+Fetching Data using API (fetch) (EX)
+Sorting Data (EX)
+Filtering Data (EX)
+
+Full-Text Search
+Full-Text Search Architecture
+
+JSON Configuration
+Configuration File (EX)
+
+
+================================
+Lession 2
+================================
+
+Introduction to React
+Learning Objectives
+
+Getting Started with React
+What is React
+Benefits of React
+Applications of React
+
+Virtual DOM
+Virtual DOM Working
+
+Vite Overview
+What is Vite
+Importance of Vite
+
+Setting up React Project with Vite (EX)
+Running React Project (EX)
+
+React Folder Structure
+node_modules
+public folder
+src folder
+assets folder
+App.jsx
+App.css
+main.jsx
+index.css
+index.html
+package.json
+vite.config.js
+eslint.config.js
+package-lock.json
+README.md
+
+Basic React Application (EX)
+Hello World in React (EX)
+
+JSX in React
+Benefits of JSX
+
+Component Architecture
+Component Hierarchy
+
+Types of Components
+Functional Components
+Class Components
+
+Functional Component (EX)
+Class Component (EX)
+
+Functional vs Class Components
+
+React Hooks
+Introduction to Hooks
+Types of Hooks
+
+useState Hook (EX)
+useEffect Hook (EX)
+useRef Hook (EX)
+useContext Hook (EX)
+
+Props in React
+Features of Props
+Props Example (EX)
+
+State in React
+setState in React (EX)
+
+Destructuring Props and State (EX)
+
+Event Handling in React
+Event Handling Steps
+
+React vs HTML Event Handling
+
+Event Handling in Functional Component (EX)
+Event Handling in Class Component (EX)
+
+Binding Event Handlers
+Dynamic Binding (EX)
+Arrow Function Binding (EX)
+Constructor Binding (EX)
+
+Conditional Rendering
+if/else Rendering (EX)
+Element Variables (EX)
+Ternary Operator (EX)
+Short Circuit Rendering
+
+
+==============================
+Lession 3
+==============================
+
+List Rendering in React
+What is List Rendering
+map() Method in React (EX)
+Rendering List in JSX (EX)
+
+List Rendering with Keys
+Importance of Keys
+List Rendering with Keys (EX)
+
+Rendering List Practice (EX)
+
+Styling in React
+CSS Fundamentals
+Inline Styles (EX)
+CSS Modules (EX)
+CSS-in-JS (EX)
+
+Handling Forms in React
+Basics of Form Handling
+Form Handling with useState (EX)
+Input Handling with onChange (EX)
+Form Submission Handling (EX)
+
+Form with Multiple Fields (EX)
+
+React Component Lifecycle
+Lifecycle Overview
+
+Mounting Phase
+constructor()
+render()
+getDerivedStateFromProps()
+componentDidMount()
+
+Updating Phase
+getDerivedStateFromProps()
+shouldComponentUpdate()
+render()
+getSnapshotBeforeUpdate()
+componentDidUpdate()
+
+Unmounting Phase
+componentWillUnmount()
+
+Lifecycle using useEffect (EX)
+
+React Fragments
+What are Fragments
+Fragments Example (EX)
+Fragments with Keys (EX)
+Use Cases of Fragments
+
+Pure Components
+What is Pure Component
+Pure Component Example (EX)
+shouldComponentUpdate()
+
+Performance Optimization using Pure Components
+
+React Hooks
+Introduction to Hooks
+Rules of Hooks
+Features of Hooks
+
+useState Hook
+useState Counter Example (EX)
+Updating State using Previous State (EX)
+useState with Object (EX)
+useState with Array (EX)
+
+Optimizing Rendering Performance
+
+Creating Dynamic List using useState (EX)
+
+================================================
+Lession 4:
+================================================
+
+Introduction to Routing
+Learning Objectives
+
+Routing in React
+What is Routing in React
+What is React Router
+
+Benefits of React Router
+
+Key Components of React Router
+Navigation Components
+Route Matchers
+Routers
+
+Setting Up React Router
+Install react-router-dom (EX)
+BrowserRouter Setup (EX)
+Define Routes using Route (EX)
+Navigation using Link (EX)
+Route Structure using Routes (EX)
+Dynamic Route Parameters Setup (EX)
+
+Basic Routing Implementation (EX)
+
+Nested Routing
+Nested Routing Overview
+Nested Routing Concepts
+Parent-Child Routes
+Hierarchical Routing
+
+Nested Routing Implementation (EX)
+
+Route Parameters
+What are Route Parameters
+Define Route Parameters (EX)
+Pass Parameters using Link (EX)
+Access Parameters using useParams (EX)
+Complete Route Parameter Flow (EX)
+
+Route Parameters Implementation (EX)
+
+Programmatic Navigation
+What is Programmatic Navigation
+useNavigate Hook (EX)
+useLocation Hook (EX)
+History API (pushState, replaceState)
+Programmatic Navigation Use Cases
+
+Programmatic Navigation Implementation (EX)
+
+Route Guards
+What is Route Guard
+Route Guard Concepts
+PrivateRoute Implementation (EX)
+useEffect for Authentication (EX)
+Route Guard Use Cases
+
+Protected Routes Implementation (EX)
+
+404 Error Handling
+What is 404 Error
+Custom 404 Page Concept
+Create 404 Component (EX)
+Configure 404 Route (EX)
+Test 404 Page (EX)
+Importance of 404 Page
+
+Route Animations
+What are Route Animations
+CSS Transitions
+React Transition Group (EX)
+Framer Motion
+React Spring
+
+Route Animation Implementation (EX)
+
+Advanced Routing Project (EX)
+
+=======================================================
+Lession 5
+=======================================================
+Introduction to React Hooks
+What is a Hook
+Benefits of Hooks
+
+Types of Hooks
+useState
+useEffect
+useContext
+useReducer
+
+useState Hook
+What is useState
+useState Syntax
+useState Example (EX)
+Benefits of useState
+
+useEffect Hook
+What is useEffect
+useEffect Parameters
+useEffect Execution Flow
+Side Effects in React
+Fetching Data using useEffect (EX)
+Cleanup in useEffect
+
+useEffect Implementation (EX)
+
+useContext Hook
+What is useContext
+Benefits of useContext
+Avoiding Prop Drilling
+Steps to use useContext (EX)
+
+useContext Implementation (EX)
+
+useReducer Hook
+What is useReducer
+useReducer Syntax
+Reducer Function
+Dispatch Function
+useReducer Example (EX)
+Advantages of useReducer
+
+useReducer Implementation Steps (EX)
+
+Combining useReducer with useContext (EX)
+
+Fetching Data using useReducer (EX)
+
+useState vs useReducer
+
+Custom Hooks
+What are Custom Hooks
+Benefits of Custom Hooks
+
+Best Practices for Custom Hooks
+
+Steps to Create Custom Hooks (EX)
+Naming Conventions for Custom Hooks
+
+Custom Hook Implementation (EX)
+
+Custom Hooks for Form Handling (EX)
+Custom Hooks for Data Fetching (EX)
+
+Creating Custom Hook for API Fetch (EX)
+
+
+===========================================================
+Lession 6
+===========================================================
+Introduction to React Context API
+What is React Context API
+Benefits of Context API
+
+Applications of Context API
+Sharing Global State
+Theming
+Localization
+
+When to Use Context API
+
+Creating Context in React
+createContext() Method (EX)
+Provider Component
+Consumer Component
+Accessing Context Data
+
+Context API with Class Components (EX)
+Context API with Functional Components (EX)
+useContext Hook with Context (EX)
+
+Using Multiple Contexts
+Multiple Context Setup (EX)
+Access Multiple Contexts (EX)
+
+Theme Implementation using Context API (EX)
+
+Introduction to Redux
+What is Redux
+Features of Redux
+
+Benefits of Redux
+
+Setting up Redux (EX)
+Creating Actions
+Dispatching Actions
+Reducers
+Initial State
+
+Redux Principles
+Single Source of Truth
+Read-only State
+Pure Functions
+
+Redux Core Concepts
+Store
+Dispatch
+Actions
+Reducers
+Subscription
+
+Redux Actions
+Action Object
+Action Type
+Payload
+
+Action Creators (EX)
+
+Redux Reducers
+Reducer Function (EX)
+
+Multiple Reducers
+combineReducers() (EX)
+
+Redux Store
+createStore() (EX)
+getState()
+dispatch()
+subscribe()
+
+Redux Implementation in React (EX)
+
+Accessing Data using Redux
+Data Retrieval Flow
+
+Middleware in Redux
+What is Middleware
+Middleware Applications
+
+Middleware Implementation (EX)
+
+Async Actions in Redux
+Request Action
+Success Action
+Failure Action
+
+Redux Thunk
+Redux Saga
+
+Asynchronous Data Retrieval using Redux (EX)
+
+useSelector Hook (EX)
+useDispatch Hook (EX)
+
+Redux Async Implementation (EX)
+
+Redux Toolkit (RTK)
+What is Redux Toolkit
+
+RTK Core Concepts
+configureStore (EX)
+createSlice (EX)
+Immer
+createAsyncThunk (EX)
+
+Advantages of Redux Toolkit
+
+========================================================
+Lession 7
+========================================================
+Introduction to APIs
+What is API
+Purpose of APIs
+How APIs Work
+
+Types of APIs
+REST API
+SOAP API
+GraphQL API
+gRPC
+
+RESTful API
+REST API Introduction
+How REST APIs Work
+HTTP Methods (GET, POST, PUT, DELETE)
+Data Formats (JSON, XML)
+
+REST API Characteristics
+Statelessness
+Client-Server Architecture
+Uniform Interface
+HATEOAS
+
+Factors for Choosing an API
+Functionality
+Documentation
+Reliability
+Scalability
+Security
+Pricing
+Support
+Data Format
+
+Making API Calls in React
+Fetch API
+Axios
+
+Using Fetch API (EX)
+Construct Request
+Call fetch()
+Handle Response
+Update State
+
+Using Axios (EX)
+Import Axios
+Make API Call
+Handle Response
+Update State
+
+API Data Retrieval (EX)
+
+Handling API Responses
+Parse Response
+Update State
+Display Data
+
+Handling API Errors
+Error Handling Logic (EX)
+Update Error State
+Display Error Message
+
+HTTP Status Codes
+200 OK
+201 Created
+400 Bad Request
+401 Unauthorized
+403 Forbidden
+404 Not Found
+500 Internal Server Error
+
+Sending Data to API
+POST Method (EX)
+PUT Method (EX)
+PATCH Method (EX)
+DELETE Method (EX)
+
+Axios Features
+Promise-based Handling
+Error Handling
+Interceptors
+Request Cancellation
+Timeout Handling
+
+New JSX Transform
+What is JSX Transform
+Benefits of New JSX Transform
+
+Enabling JSX Transform (EX)
+
+Advantages of JSX Transform
+Improved Performance
+Optimized Code
+Reduced Boilerplate
+
+Classic vs New JSX
+Differences
+
+JSX Transform Example (EX)
+
+Limitations of JSX Transform
+
+React Libraries
+Introduction to React Libraries
+
+React Query
+Benefits of React Query
+
+React Hook Form
+Benefits of React Hook Form
+
+React Query Integration (EX)
+React Hook Form Implementation (EX)
+
+Axios + Formik Integration (EX)
+
+=================================================================================
+Lession 8
+=================================================================================
+Frontend Testing Overview
+Importance of Frontend Testing
+Impact on User Experience
+
+Introduction to Jest
+What is Jest
+Benefits of Jest
+Features of Jest
+
+DOM Testing
+What is DOM Testing
+Why DOM Testing
+Importance of DOM Testing
+
+Jest in DOM Testing
+Ensuring Correctness
+Detecting Regression
+Enhancing User Experience
+Cross-Browser Consistency
+
+Setting Up Jest
+Initialize Project (EX)
+Install Jest (EX)
+Configure Test Script (EX)
+Babel Integration (EX)
+
+Writing First Test
+Create Test File (EX)
+Write Test Case (EX)
+Run Test (EX)
+
+Mocking in Jest
+What is Mocking
+Why Mocking
+Mock Functions (EX)
+
+Mocking in DOM Testing
+Mock User Interaction (EX)
+Mock API Calls (EX)
+
+Jest Workflow
+Setup and Configuration
+Writing Tests
+Running Tests
+Analyzing Results
+Debugging & Coverage
+CI/CD Integration
+
+Jest Tools
+Test Suite
+Test Case
+Test Runner
+
+Test Suite
+What is Test Suite
+Benefits of Test Suite
+
+Types of Test Suites
+Unit Tests
+Integration Tests
+End-to-End Tests
+Snapshot Tests
+Mock Tests
+Performance Tests
+
+Test Case
+What is Test Case
+Types of Test Cases
+
+Importance of Test Case
+
+Test Runner
+What is Test Runner
+Types of Test Runner
+
+Importance of Test Runner
+
+Jest Watch Mode
+What is Watch Mode
+Types of Watch Mode
+Working of Watch Mode
+
+Importance of Watch Mode
+
+Jest Reporting
+What is Reporting
+Types of Reports
+Test Coverage
+
+Importance of Reporting
+
+Jest Example
+Add Function (EX)
+Test File (EX)
+Run Test Output (EX)
+
+Jest-DOM
+What is Jest-DOM
+Benefits of Jest-DOM
+
+Jest-DOM Matchers
+toBeInTheDocument() (EX)
+toHaveStyle() (EX)
+toHaveAttribute() (EX)
+toHaveTextContent() (EX)
+toHaveClass() (EX)
+toContainElement() (EX)
+
+Applications of Jest-DOM
+UI Testing
+React Component Testing
+Debugging
+
+DOM Testing Library
+What is DOM Testing Library
+Purpose of DOM Testing Library
+
+Querying Elements
+getBy Method (EX)
+queryBy Method (EX)
+getAllBy Method (EX)
+findAllBy Method (EX)
+

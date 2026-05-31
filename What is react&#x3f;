@@ -1,0 +1,26 @@
+What is react?
+React benefits
+Applications using React
+Virtual DOM in React
+
+What is Vite?
+Vite Importance
+Setting up React project with Vite
+Running React project with Vite
+
+Understand React Folder structure
+
+
+Rendering UI with JSX and COmponent based architecture
+JSX in React
+Benefits of Using JSX
+Component Architecture in React
+
+Types of Component
+	- Functional components
+	- Class Component
+
+
+React Hooks and lifecycle management
+Hooks in React
+Types of Hook

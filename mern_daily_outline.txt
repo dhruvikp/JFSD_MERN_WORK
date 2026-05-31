@@ -36,6 +36,917 @@
 	Local Storage and session storage
 	useMemo
 
+====================================================================================================================
+	30/05/2026 
+====================================================================================================================
+Agenda:
+	Foundation of DS and Algorithms
+Classification of Datastructure
+  - Primitive Data Structure
+  - Non Premitive Data Structure (Linear, Non Lenier)
+
+Algorithm
+  - Time /Space complexity understanding of algorithm
+  
+  
+  What is DSA?
+	DSA = Data Structure + Algorithms
+  
+  Data Structure -> How data is stored and organized.
+  Algorithm -> Step - by - step procedure to solve a problem
+  
+  Data Structure:
+	A data structure is a  specialized way of storing and organizing data in a memory so that it can be accessed and modified efficiently.
+	
+Student names:
+	String[] students = {
+	"John",
+	"Alice",
+	"Bob"
+	}
+	
+Need for datastructure:
+	1. Optimized Operations
+		Find employee with ID = 5000;
+		
+		map.get(5000)
+		
+	2. Memory Management
+		DS helps use memory efficiently
+		
+		int[] arr = new int[1000];
+		
+		LinkedList : 
+			Uses memory on when nodes are added.
+			
+	3. Scalability
+	
+	4. Reusability
+		Same datastructure can be reused.
+		
+		Queue
+			Used in:
+				- Printer Queue
+				- Ticket booking
+				- CPU Scheduling
+				
+				
+Classification of Datastructure
+		
+		Primitive Data types
+			Basic data types provided by programming languages:
+			
+				let age = 25;   // Number
+				let salary = 5000.50 // Number
+				let isActiv = true //Boolean
+				let grade = 'A' // String
+			
+			
+		Non Primitive
+			Built using primitive data types:
+			
+		Ex:
+			Array
+			LinkedList
+			Stack
+			Queue
+			Tree
+			Graph
+			...
+		
+Categorization of Data Structures:
+1. Linear Datastructure
+	Elements arragned sequencially
+	
+	10 -> 20 -> 30 -> 40 
+	
+	Each element has one predecessor and one successor.
+	
+	A. Static Linear DS - Array
+		Fixed size.
+		
+		Advantage:
+			- Fast access
+		Disadvantage:
+			- Fixed size
+			
+	B. Dynamic Linear DS - 
+	
+	LinkedList
+		
+		Collection of nodes
+		Each node contains two values: Data and pointer to the next node
+		
+		Advantage:
+			- Dynamic in size
+			
+		Disadvantage
+			- Extra memory for pointers.
+		
+	Stack
+		Last In First Out
+		
+		Example:
+			Stack of plates
+			
+				
+				push 10
+				push 20
+				push 30
+				
+				pop ==> 30
+	
+	Queue
+		First In First Out
+		
+		Example:
+			Ticket Counter Queue
+			
+			10 20 30
+			
+			Remove ==> 10	
+		
+		
+2. Non Linear Datastructure		
+	Eleents are not stored sequencially
+	
+	Tree
+		Hierarchical structure
+		
+		10
+		
+	20		30
+	
+40		45
+
+	Usecases:
+		- File system.
+		- Databases
+		
+	Graph:
+		Collection of nodes and edges.
+		
+		A ---- 	B
+		|		|
+		|		|
+		C ----  D
+		
+	Uses:
+		- Google Maps
+		- Facebook friends
+		- Network routing.
+	
+	HashMap	
+		Stores key-value pairs.
+		
+		Map<Integer,String> 
+		
+		100 --> John
+		102 --> Alice
+		
+		Look up is very fast.
+		
+
+Introduction of Algorithm
+		Step by step procedure to solve some problem.
+		
+Why do we use Algorithms?
+	Algoriths helps:
+		- Solve problems systematically
+		- Improves performance
+		- Reduce memory consumptions
+		- Handle large scale system.
+		
+	Characteristics:
+		- Well defined Inputs
+			Input should be clear.
+			
+			sum(a,b)
+			
+		- Clear and unambiguous
+			Every steps should be precise.
+			
+		- Language independent
+			Algorithm can be implemented in :
+				- Java
+				- Python
+				- C++
+				- JavaScript
+				
+		- Well Defined output
+			Output should be known.
+			
+			10 + 20  30
+			
+		- Finiteness
+		
+			Must terminate.
+			
+			for(let i=10; i<20; i++) {
+				
+			}	
+
+			while(true) {
+			}
+		
+		- Feasible
+			Should be practical
+			
+	Types of Algorithms
+
+		1. Brute Force
+			Try all possibilities
+			
+		2. Searching
+		
+		3. Sorting
+			Arrange data
+				
+		4. Backtracking
+			
+		5. Greedy
+			Choose best option now.
+			
+		6. Dynamic programming
+			Stores previous results
+			
+			
+Complexity Analsis
+	
+	Why do we need complexity analysis?
+	
+Time compleixity
+SPace Complexity
+
+
+What is Time Complexity?
+
+	How execution time grows as input size increases?
+It doesn't measure the actual seconds.
+
+	Instead, it measure the number operations it has performed.
+	
+	What is Big O notation?
+	
+	Big O descibes algorithm growth.
+	
+	Const time complexity: O(1)
+		Operation count remains constant.
+		
+		No matter how much data exists.
+		let arr = [10,20,30,40]
+		console.log(arr[2])
+		
+	Linear Time Complexity (O(n))
+		Operation grows directly with input size.
+		
+		function printElement(arr) {
+			
+			for(let i=0; i<arr.length; i++) {
+				console.log(i);			}
+		}
+	
+	Logarithmic Time Complexity (O(log n))
+		
+		Very efficient
+		
+		Data gets reduced half every iteration.
+		
+		1024 -> 512
+		512 -> 256
+		256 -> 128
+		.....
+		....
+		
+	Qudratic time complexity (O(n2))
+	
+			for(let i=0; i<arr.length; i++) {
+				
+				for (let j=0; j<n; j++) {
+				
+						// stmt
+						console.log(i,j);
+					
+				}
+				
+			}
+			
+	Cubic Time Complexity(O(n3))
+			
+	for(let i=0; i<arr.length; i++) {
+				
+				for (let j=0; j<n; j++) {
+					for (let k=0; j<n; j++) {
+						// stmt
+						console.log(i,j);
+					
+				}
+				
+			}
+	
+Time complexity Analysis:
+
+		1. Best case
+			Minimum work performed.
+			
+				10 20 30 40 50
+			Search 10
+			
+		2. Worst Case
+		
+			Maximum work performed.
+			
+			Search 50
+			
+			O(n)
+		
+		3. Average case
+		
+			Expected work.
+			
+			Usually middle element.
+			
+			O(n/2)
+			
+			==
+			O(n)
+			
+What is Space Complexity?
+
+Space Complexity measures:
+	How much memory an algorithm requires as input size grows.
+	
+	Mainly two components of space complexity
+	1. Input space
+	
+	2. Auxilary space.
+	
+	
+function sum(a, b) {
+	let result = a + b;
+	return result;
+}	
+		
+		O(1)
+		
+Linear space (O(n))
+Memory grows with input size.
+
+	function copyArray(arr) {
+		let copy = [];
+		
+		for(let i=0; i<arr.length; i++) {
+				copy.push(arr[i]);
+		}
+		return copy;
+	}
+	
+	O(n)
+
+Qudratic space complexity
+
+let matrix = [];
+
+for(let i=0; i<n; i++) {
+	matrix[i] = [];
+	
+	for (let j =0; j<n; j++) {
+		matrix[i][j] = 0;		n2 times
+	}
+}
+
+
+	
+	
+
+		
+		
+
+====================================================================================================================
+	23/05/2026 
+====================================================================================================================
+
+Code Migration?
+
+	Code migration means moving an application from one technology stack/version/platform to another.
+
+	Ex:
+		Java8 -> Java21
+		Java -> Python
+		On-prem -> Cloud
+		SQL -> NoSQL DB
+		Monolithic -> Microservice
+
+	Steps:
+		1. Udnderstand old code
+		2. Identify dependencies
+		3. Refactoring APIs
+		4. Test
+		5. Deployment
+
+	GenAI speeds up this process.
+
+	- Explain this code
+	Identify design issues
+	Suggest modernization etc
+
+	AI 
+		- Tight coupling
+		- Pattern
+		- Missing abstraction
+		- Hardcoded values
+
+	2. Framework migration
+	
+	- Code in spring boot 2 security
+
+		Spring 3/4:
+
+	3. Language migration
+		List<String> names = Arrays.asList("A","B");
+
+		name=["A","B"]
+
+		- AI Can convert syntax
+		- Explain differnces
+		- generate equivalent tests
+
+	4. DB migration
+
+
+What is optimization?
+ means:
+  Making code
+  	- Faster
+  	- Cleaner
+  	- Smaller
+  	- Maintainable
+  	- Less memory consuming
+
+  	Less duplication
+  	Easier to maintain
+
+  	AI optimization areas:
+  		Performance
+  			- Loop optimization
+  			- Better algorithms
+  			- Parallel Execution
+  			- Caching suggestions
+
+  		Memory:
+  			- Reduce object creation
+  			- Remove unused variables
+  			- lazy loading
+
+
+  		Architecture
+  			- Monolith splitting
+  			- Service decomposition
+  			- Pattern recommendataions
+
+Time complexity = Amount of time algorith takes as input increases
+
+Represented using:
+	Big O notation
+
+	O(1) --> constant
+	O(log n) ==> Logarithmic
+	O(n)   ==> Linear
+	O(nlogn)=> 
+
+	O(n2) --> nested loops
+	O(2n) =? Exponential
+
+Space complexity => memory consumed by algorithm
+
+Input space + Auxilary space 
+int a = 10;
+int b = 20;
+
+
+
+
+
+
+
+
+
+
+====================================================================================================================
+	17/05/2026 
+====================================================================================================================
+				Github compilot 								AmazonQ developer 					ChatGPT
+
+Purpose			AI Pair programmer 							Cloud and AWS Development ass. 			Gen AI assistant + coading
+
+Best for 		Daily coding inside IDE 					AWS applications and cloud op. 			Design, coding, debugging, learning
+
+IDE Inte. 		Strong 									    AWS ecosystem + IDE Plugins 			Browser , app, coding workspace
+
+Code compl. 	Excellent Inline 							Good 									Good
+
+Architectural 	Limited 									AWS architecutre focused 				Storng
+
+Cloud support 	Generics									Excellent for AWS 						Multi cloud discussion
+
+Documentaiton	Moderate									AWS Docs integration					Detailed explainations
+
+
+
+====================================================================================================================
+	16/05/2026 
+====================================================================================================================
+
+SDLC
+
+Design Phase activities
+How GenAI can help in each activity?
+
+
+1. System and arechitecture design
+	
+	Define Monolithic Architecture
+	or Microservice architecture
+	Scalability design
+
+	Database design
+
+2. User interface and User experience
+
+	UI = How applicaiton looks
+	UX = How application feels and behave?
+
+	GenAI tools can create:
+		- Login page
+		- Dashboard
+		- Forms
+		- Mobile Layouts
+		- Admin panels etc
+
+	UX Suggestions:
+		Gen AI  can analyse:
+			 - User journey
+			 - Navigation complexity
+			 - Accessibility issues
+			 - Button placements
+			 - form usability
+
+3. Security and API design
+
+	Security Design Activities:
+		- Authentication
+		- Authorization
+		- Encryption
+		- Secure APIs
+		- Data Protection
+		- Threat modelling etc
+
+	GEN AI helps in suggest:
+		- JWT authentication
+		- OAUth2 flow
+
+	API design allows system to communicate
+
+		- Endpint naming
+		- Request/response design
+		- Validation
+		- Error handling
+		- Rate limiting
+		- Versioning etc
+
+
+	GenAI helps Generate
+		- OpenAI Specification
+		- JSON Structure
+		- API Contracts
+		etc
+
+
+4. Prototyping and Documentation
+	
+	Prototype = Early version of application
+
+		Purpose:
+			- Validate ideas
+			- Collect early feedbacks
+			- Reduce development risk
+
+
+	Types of prototypes:
+		- Low fidelity
+			Simple sketches/wireframes
+
+		- High Fidelity
+			Interactive realistic UI.
+
+	GenAI in prototyping
+		GenAI can generate:
+			- HTML Mockups
+			- React screens
+			- Interactive flows
+			- Design ideas
+			- UX improvements etc
+
+	Documentation:
+		Documentaiton is essential for:
+			- Developers
+			- QA Teams
+			- DeveOps
+			- Clients
+			- Future maintainance
+
+	Types of Documentation
+		1. Technical Documentation
+
+			- Architecture
+			- APIs
+			- Deployment etc
+
+		2. User Documentation
+			- User manuals
+			- help guides
+
+		3. Developer Documentation
+			- Setup instructions
+			- Coding standards etc
+
+Business Benefits of Generative AI in Design Phase:
+--------------------------------------------------
+	
+	1. Faster time to market
+
+	2. Scalability
+		Hleps architects design systems that can handle future growth efficiently.
+
+	3. Error detection and debugging
+		Improves software quality by identifying issues early during the design phase.
+
+	4. Cost efficiency
+
+
+Personalization in UI and UX Design
+	
+	Personalization in UI/UX design means dynamically adjusting the application's content, interface, or interactions based on: 
+		- user preferences
+		- user behavior
+		- location
+		- Device usage
+		- past interactions
+		- purchase history
+		- search history
+
+
+	Personalization helps:
+		- improve user satisfaction
+		- Increase engagement
+		- Improve conversion rates
+		- save user time
+		- provide relevent recommendataion
+	1. Content personalization
+	2. Interface personalization
+	3. Interaction personalization
+
+Customization:
+	Customization means allowing users to manually modify certain aspects of the application according to their preferences.	
+
+
+	Unlike personalization ( system driven) , customization is user-controlled.
+
+
+User flow?
+	User flow represents the path users follow while interacting with application.
+
+	Ex>
+	Login -> Search product -> Add to cart -> payment -> order confirmation
+
+What is Navigation?
+	Navigation helpts user move through application efficiently.
+
+	Ex:
+		- Menus
+		- sidebars
+		- Tabs
+		- Breadcrumbs
+		- Search bars etc
+
+
+
+Techniques for enhancing user flow and navigation
+1. Navigation patterns
+	a. Tooltip pattern
+			small informative popups explaining UI elements
+
+	b. Spotlight Pattern
+		Highlight important features during onboarding.
+
+	c. Hamburger menu
+		common mobile navigation menu
+			-
+			-
+			-
+
+		used to save screen space.
+
+	d. Vertical Navigation Menu
+		Sidebar menus commonly used in admin dashboard:	
+			Ex:
+				Dashboard
+				Reports
+				Settings
+				Users
+
+	e. Progressive Disclosure Menus
+		Show limited informaation initially and reveal more when needed.
+
+	f. Breadcrumbs
+		Show user's current location
+		Home -> Electoronics -> Mobile -> iphone
+
+2. Design Tips
+	
+	a. Enhance visibility
+		Important actions should be clearly visible
+
+		Ex.
+			- Bright CTA buttons
+			- Clear labels
+
+	b. Simplifying message
+	 	Use short and simple text
+
+	 c. Location indicators
+	 	SHow users where they are
+
+3. Simplification and consistency
+	
+	Simple Layout
+		Avoid cluttered screens.
+
+		GoodUI focuses on:
+			- white space
+			- clear sections
+			- minimal distractions
+
+	Consistent design
+		Maintain:
+		- Simple button styles
+		- Same color theme
+		- Same navigation patterns
+
+	Across all screens.
+
+4. Responsive Navigation
+	Navigation should work properly on:
+	- Mobile
+	- Tablet
+	- Desktop
+
+5. Testing and Improvement
+	UI/UX design should continously improve thorugh testing.
+
+
+Figma:
+	Cloud based UI/UX design and prototyping tool used to design
+		- Mobile applications
+		- Desktop application
+		- Dashboard
+		- wireframes
+		- prototypes
+
+Framer:
+	Framer is modern design and website building tool used for:
+		- UI/UX design
+		- Interactive prototyping
+		- Website creation
+		- Animation
+		- Responsive web design
+
+	
+
+
+====================================================================================================================
+	07/05/2026 
+====================================================================================================================
+
+	
+	Jest implementation
+
+	Phase end project discussion
+
+	QA
+
+
+What is JEST?
+	Java script testing framework that mainly used for:
+		- unit testing
+		- Integration testing
+		- UI testing (with react)
+
+
+Developed by Meta and comes pre-configured tools like create react app etc
+
+Why JEST is popular?
+	- Zero conig (works out of the box with react)
+	- Faster execution
+	- Built-in mocking
+	- Snapshot testing (UI comparision)
+	- Easy to read and write test cases
+
+1. Test Suite
+	A group of testcases
+
+	describe("Calculator Tests", () => {
+		// test cases inside
+	})
+
+
+2. Test case
+	
+
+3. Expects and Matcher
+	expect(value).toBe(expected);
+
+	Matchers:
+		- toBe()
+		- toEqual()
+		- toBeTruthy()
+		- toContain()
+
+
+
+	@testing-library/react	
+
+		render
+		screen
+		fireEvent
+
+
+
+screen --> counter screen
+
+	space or change color
+
+		store its snapshot in .snap folder
+
+
+
+Tracking employee data
+approving leave application
+managing onboarding 
+
+Employees can securly log in
+update personal details
+submit service request from any device
+
+
+login and signup forms
+user roles -> implement role based access control
+
+HR Screen --> To manage employee profiles
+
+implement data storege using JSON server
+
+Design components for leave request and management
+
+Registration component for employees
+
+HR and Employee
+
+
+
+***************
+
+Web Storage
+
+	Browsers provide two simple key-value storage:
+
+	- localStorage
+	- sessionStorage
+
+	Both stores data as string key- string value
+
+
+Local Storage:
+	data is peristent
+	scope shared across all tabs
+	5 - 10 MB
+
+
+Session storage:
+	- Till the tab is open
+	- scope is per tab
+	- 5 MB
+
+
+localStorage.setItem("user" "Dhruvik")
+
+localStorage.removeItem("user");
+
+
+
+sessionStorage.setItem
+
+
 
 ====================================================================================================================
 	25/04/2026 
