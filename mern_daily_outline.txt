@@ -24,17 +24,824 @@
 
 	This is not just a class - it is a transformation journey.
 
-
-
-
-	-- AWS, DOcker, K8s
-
 	https://github.com/dhruvikp/JFSD_MERN_WORK
 
+====================================================================================================================
+21/06/2026 
+====================================================================================================================
+MySQL Introduction
+	
+Installation steps
+
+Database - 
+
+DataTypes - MySQL
+
+MySQL Operators
+	Arithmatic
+	Comparision
+	Logical Operator
+	Bitwise Operators
+
+How to create tables
+	explore various constraints
+		- PRIMARY KEY, NOT NULL, UNIQUE, FOREIGN KEY, CHECK
+	DESCRIBE -
+
+	Alter table - Adding, Modify, Rename, Delete, adding constraints
+	Drop Table
 
 
-	Local Storage and session storage
-	useMemo
+MySQL
+------
+	MySQL is an open-source relational DBMS used to store, manage, retrieve and manipulate data using SQL (Structured Query Language)
+
+Why MySQL?
+-----------
+	- Open Source
+	- Easy to learn
+	- High Performance
+	- Reliability
+	- Security
+	- Cross Platform support
+
+How MySQL works?
+
+MySQL follows Client server architecture.
+
+Client --> server	
+
+	Core components:
+		1. Client
+		2. Server
+		3. Database
+
+	Client sends SQL query (SELECT * from employee;)
+	Server receives query 
+		server validates
+			User permission
+			SQL Syntax
+			Database Objects
+		Server executes query
+		Return results back to the client
+
+Workbench
+CLI based tool MySQL Client
+
+Features of MySQL
+-------------------
+	Open Source
+	RDBMS
+	SQL Compliant
+	ACID Compliant
+	High performance
+
+How to install MySQL?
+	
+	1. Run Installer
+	2. Choose Setup Type
+			Options:
+				- Developer default
+				- Server Only
+				- Client Only
+				- Full
+				- Custom
+
+	3. Install components
+			- MySQL Server
+			- MySQL Workbench
+			- MySQL Shell
+			- Connectors
+
+	4. Configure MySQL server
+		Set:
+			Port Number (Default: 3306)
+			Authentication Method
+
+	5. Create Root Password
+		root user is administrative account
+		admin@123
+
+	6. Start MySQL Service
+		MySQL80
+
+MySQL WOrkbench
+	
+
+	Database: Logical container used to store related tables, views, indexes, procedures, other database objects.
+
+	ecommerce_db
+		customers
+		products
+		orders
+		payments 
+
+	Recommended:
+		- Use lowercase names
+		- Use meaningful names
+		- Use _ (underscore) between words
+
+
+Data Type
+----------------
+	Data type defines the type of value that can be stored in a column
+
+	When creating table, every column must have a data type assigned to it.
+
+	Data types determins
+		- What kind of data can be stored
+		- Storage space required
+		- Valid operations on the data
+		- Perfmission of queries.
+
+		Age - Integer
+		Name - String
+		Salary - Decimal
+		DOB - Date
+
+	Benefits:
+		1. Ensures data accuracy
+		2. Facilitates consistent schema design
+		3. Enables correct data operations
+		4. Optimize storage space
+				Choosing appropriate data types reduces storage consumption
+
+				Age - BIGINT- wastage of storage
+							TINYINT - saves storage
+
+		5. Improves query performance
+			Smaller data types requires
+				- less memory
+				- less disk IO
+				- faster indexing
+
+		6. Maintains data integrity
+			Prevents invalid data from entering in to database
+
+		Data Types supported in MySQL
+
+		1. Numeric Data Types
+				- Integer data types
+						TINYINT - 1 Byte -128 to 127
+						SMALLINT - 2 byte - -32768 to 32767
+						MEDIUMINT - 3 bytes - 
+						INT - 4 BYTES 	
+						BIGINT - 8 bytes
+
+				- Decimal Data types - decimal precision is important
+					DECIMAL(M,D)
+						M - Total digits
+						D - Digits after decimal point
+
+						DECIMAL(10,2)
+							9999999999.99
+
+					FLOAT (Approximate decimal values) - 4 bytes
+						- used for scientific calculations, sensor data, measurements etc
+						- may introduce rounding errors
+						- not recommending for money
+
+					DOUBLE (Higher precision than FLOAT) - 8 bytes
+						- Scitific applications, Engineering claculations
+
+
+		2. String Data Type
+			Used to store characters and Text
+				CHAR(M) - Fixed length string
+						CHAR(10) - always reserves 10 characters
+											ABC --> ABC_______
+
+				VARCHAR(100) - STOERS actual characters
+					saves storage, and flexible
+
+				TEXT - Store large text data
+							Max: 65KB
+							comments, descripitions, reviews, notes
+
+				TINYTEXT - Max 255 characters
+								- Short comments, small descriptions etc
+
+				MEDIUMTEXT - Maximum 16 MB
+								- Articles, Blog content, documentations etc
+
+				LONGTEXT - Max: 4 GB
+								- Large documents, books, log storages etc
+
+
+				BLOB	- Binary Large Object
+							- Used to store binary data instead of text
+							-Ex: Images, Audoio Files, Video, PDFs etc
+
+				TINYBLOB - Max 255 bytes
+								- small binary files
+
+				BLOB - MAX: 65KB
+							- store small images
+
+				MEDIUMBLOB - MAX: 16 MB
+										- store documents and medium fiels
+
+				LONGBLOB - Max: 4 GB
+								- Videos, large files etc
+
+				ENUM - Allows only predefined values
+							status: ACTIVE, INACTIVE, PENDING
+
+
+		3. Date and Time Data Types
+
+				Used to store date and time information
+
+				DATE - YYYY-MM-DD
+							- store birth date, joining date, invoice date
+
+				TIME - HH:MM:SS 14:30:45
+
+				DATETIME -  YYYY-MM-DD HH:MM:SS (8 bytes)
+
+				TIMESTAMP - YYYY-MM-DD HH:MM:SS (4 bytes)
+						- stores date and time
+						- timezone aware
+						- Can auto-update
+
+						- createdAt, UpdatedAt, Audit columns
+
+
+						TIMESTAMP values from your connections timezone to UTC for internal storage.
+						Upon retrieval, it automaticallly converts it from UTC back into whaever your current connection's timezone is set to.
+
+
+
+
+		4. Boolean
+			Used to store only TRUE/FALSE values
+
+			MySQL internally stores BOOLEAN as:
+				TINYINT(1)
+
+
+
+
+
+
+SELECT DATE_FORMAT(YOUR_DATE_COLUMN, '%d-%m-%Y') as formatted_date
+from your_table
+
+STR_TO_DATE ('25-12-2026', '%d-%m-%Y')
+
+OPERATORS:	
+	1. Arithmatic operator
+			+, -, * , / % 
+
+	2. Comparision Operator
+			=, !=, <>, > , <, >=, <=
+
+			Special Comparision operators:
+				BETWEEN
+					checks whether value falls within a range
+
+					salary between 3000 and 50000
+
+				IN
+					checks whether a value exist in list
+						city IN('Ahmedabad','Mumbai','Delhi')
+
+				NOT IN
+					checks whether value is not present in a list
+
+
+				LIKE
+					Used for pattern matching
+
+					name like 'A%'
+						Starts with A
+
+				IS NULL
+					checks whether value is NULL
+
+				IS NOT NULL
+					checks whether value is not null
+
+
+
+	3. Logical Operator
+
+			AND All conditions must be true 
+			OR Any One condition must be true
+			NOT  Reverse condition
+
+
+	4. Bitwise Operator
+
+			Used to perform operations on the binary values (bits)
+			Mostly used in the low level programming, permissions systems, flags, and masking operations
+
+			Not commonly used as day-to-day SQL development
+
+			&
+			|
+			^
+			~
+			<<
+			>>
+
+
+Create and manage database tables in MySQL
+	constraints when you create table.
+		- Rules applied on columns to maintain data accuracy and integrity
+
+
+Alter table
+	- used to modify existing table
+
+	Common operations:
+		- Add column
+		- Modify Column
+		- Rename column
+		- Delete Column
+		- Adding constraints
+
+	
+
+
+====================================================================================================================
+20/06/2026 
+====================================================================================================================
+
+What is DBMS?
+	Software used to create, store, manage, retrieve and manipulate data efficiently.
+
+	Ex:
+		MySQL
+		Oracle
+		PostgreSQL
+		Microsoft SQL Server
+
+	Core components of DBMS
+		1. Data - raw information stored in the database
+		2. Table - collection of related data together into rows and columns
+			Employee table
+
+			EmpId 			Name 				Salary
+			101 			John Doe 			50000
+			102 			Mike Doe 			60000
+
+		3. Schema
+			Structure/blueprint of DB
+
+		4. Query
+			Command used to interact with Data.
+
+			Insert, Update, Delete, Retrive
+
+		5. Index
+			DB object used to speed up data retrieval
+
+		6. View
+			Virtual table created from one or more tables.
+
+			- simplifies complex queries
+
+
+DB Types:
+1. RDBMS - Relational Databaes Management System
+				Structure
+
+				Rows and columns
+
+2. NoSQL Database
+	Designed for unstructured or semi-structured data.
+
+	- Flexible schema
+
+3. In-Memory Database
+	Stores data primarily in RAM
+
+4. Distributed Database
+	Data is distributed across multiple servers.
+
+5. Cloud Database
+	HOsted and managed in the cloud
+
+6. Document Database
+	Stores the data in the JSON-like documents.
+
+RDBMS
+	- Stores data in form of tables and establishes relationships between tables using keys.
+
+Features:
+	1. Table-based storage
+	2. Relationships
+			Tables can be liked using primary key and forein key
+
+	3. Data integrity
+		Maintains data accuracy using constraints
+
+	4. SQL Support
+
+	5. ACID properties
+
+	6. Security
+		users, roles, permissions
+
+	7. Normalization
+		Reduce data redundancy
+
+	8. Index
+
+
+
+Keys:
+	Keys are columns (or group of columns) used to uniquely identify records and establish relationships between tables.
+
+
+Types of Keys:
+1. Primary Key
+	
+	Uniquely identifies each row.
+
+	Features:
+		- Unique
+		- Cannot be NULL
+		- One primary key per table
+
+2. Unique Key
+	Ensures uniqueness of value
+
+	Features:
+		- Unique values only
+		- NULL allowed
+
+3. Foreign Key
+	
+		Creates relationship between tables.
+
+		Features:
+			- References primary key or unique key
+			- Maintains referential integrity
+
+			Customer
+				cust_id  	cust_name 	cust_email 			cust_phone
+					1 				Dhruvik 		drk@simp.com 	099999
+
+
+			Orders
+				order_id		cust_id (FK)
+					1. 						1
+
+4. Candidate Key
+	A column that can uniquely identify a record
+
+	emp_id   		email
+	101 				drk@simp.com
+
+	candidate keys: emp_id and email
+
+5. Alternate Key
+	Candidate key not selected as primary key
+
+	alternate keys: email
+
+6. Super key
+	Any set of columns that uniquely identify a row
+
+	emp_id | email | name
+
+7. Composite Key
+	Primary key made from  multiple columns
+
+	PRIMARY_KEY(order_id, product_id)
+
+	useful when a single column cannot uniquely identify a row.
+
+
+
+
+ER Diagram (ERD)
+-----------------
+	Entity Relationship Diagram - visual representation of database structure showing:
+		- Entities
+		- Attributes
+		- Relationships
+		- Business Rules
+
+	It used during database design before creating actual tables.
+
+
+Key Components oF ERD
+	1. Entity
+		 An Entity is a real-world object about which data is stored.
+
+		Ex:
+			- Employee
+			- Customer
+			- Product
+			- Order ...
+
+			Features:
+				- Represent a busiess object
+				- Becomes a table in the database.
+				- Contains attribute
+
+		Types of Entity
+			a. Strong Entity
+					Can exist independently
+					Ex: 	Employee, Customer, Product
+
+					Notation: Single Rectangle
+
+			b. Weak Entity
+					Cannot exist without parent entity
+					Ex:
+						- Order item depends on Order
+						- Address depends on EMployee
+
+					Notation: double rectangle
+
+					Depends on Strong entity (FK)
+
+			c. Associative Entity
+
+					Used to resolve relationships
+
+						Students <-> Course. (M-M)
+
+	2. Attributes
+			An attribute describes an entity
+
+			Ex. Employee entity
+
+			Attributes:
+				- Employee ID
+				- Name
+				- Salary
+				- Email
+
+			TYpes of attributes
+			
+			1. Simple Attribute
+				Cannot be divided further
+
+				Ex: Salary, Gender, Age
+
+			2. Composite Attribute
+				Can be broken into smaller parts
+
+				Ex: Name 
+							- First Name
+							- Middle Name
+							- Last Name
+
+						Address
+							- CIty
+							- State
+							- Country
+
+			3. Derived attribute
+					Value calculated from another attribute
+
+						Ex:
+							Date of birth  --> Age
+
+							- Dashed oval shape
+
+			4. Multi-valued Attribute
+					Can have multiple values
+
+					Ex: Phone Numbers
+						Employee may have :
+							- personal number
+							- office number
+
+						Notation: Duble oval
+
+			5. Single-Valued Attribute
+				Contains only one value.
+
+					Ex: 	
+						- Employee ID
+						- Date of Birth
+						- PAN Nubmer
+
+	3. Relationship
+
+		1:1 (One-to-One)
+			One record relates to exactly one record.
+
+			Ex:
+				Person has passport
+
+		1:M (One to Many relationship)
+
+			One parent can have multiple children
+
+			Ex:
+				Dept -> Employees
+
+				customer -> orders
+
+				Author -> books
+
+				Team -> Players
+
+
+
+
+		M:M
+
+			teacher students
+			patient doctor
+			vendors buyers
+
+
+
+
+Tyeps of ER diagram
+	1. Conceptual ER Model
+
+			High level business view.
+
+			Purpose:
+				- Understand business requirements
+				- Identify entities
+				- Identify relationships
+				- communicate with busiess users
+
+			Constains
+				- Entities
+				- Relationships
+
+			Doesn't contains:
+				- Data types
+				- Primary Keys
+				- Foreign Keys 
+
+
+	2. Logical ER Model
+			Detailed design independent of database technology.
+
+			Purpose:
+				- Define complete data model
+				- identify attributes
+				- Defines primary keys
+				- defines relationships
+
+			Contains:
+				- Entities
+				- Attributes
+				- Primary Keys
+				- Foreign Keys
+				- Cardinalities
+
+			Doesn't contains:
+				- physical storage details
+				Which table? which DB?
+
+
+	3. Physical ER model
+
+		Databae specific implementation model.
+
+		Purpose:
+			- Actual database design
+			- Ready for implementation
+
+		Contains:
+			- Table
+			- Columns
+			- Data types
+			- Constraints
+			- Indexes
+
+
+	Styles:
+		1. Chen Style
+			Most traditional ER notation
+
+			Entity - Rectangle
+			Attribute - Oval
+			Relationship - Diamond
+
+		2. Crow's Foot notation
+			Most commonly used industry
+
+			Features:
+				- Shows cardinality clearly
+				- Easy to understand
+				- Used in most modelling tools
+
+			3. Bachman style
+			 used mainly in older database designs
+			 	Features
+			 		- Focus on relationships
+			 		- Uses arrows and links
+			 		- less common today
+
+			4. IDEF1X style
+				Enterprise and govn. projects only
+					- Highly structured
+					- Detailed modelling
+					- Strong support for keys and relationships
+
+			5. Barker Stlye
+				Develed by oracle
+
+				Feature:
+					- Similar to corw's foot
+					- Focus on business rules
+					- readable and organized
+
+					
+
+
+
+
+
+
+
+====================================================================================================================
+	30/05/2026 
+====================================================================================================================
+	Merge Sort
+	Quick Sort
+		1. Choose a Pivot element
+		2. Place the pivot in its correct sorted position
+		3. Put all smaller element left of pivot
+		4. Put all larger element to right of pivot
+		5. Repeat the process recursively on left and right subarrays
+
+
+		8, 3, 1, 7, 0, 10, 2
+
+			pivot = 2
+
+
+		1, 0, 2, 7, 8, 10, 3
+
+		1, 0
+			choose pivot = 0
+
+			[0, 1]
+
+7, 8, 10, 3
+	pivot = 3
+
+
+	3 8 10 7
+
+
+	8 10 7
+
+		pivot 7
+
+		7, 8 10
+
+
+
+	Searching
+		Linear Search
+
+		Array: [10, 20, 30, 40, 50]
+
+		Target: 40
+
+
+
+
+		Binary Search
+
+			1, 2, 3, 4, 5. 6
+
+
+
+
+
+		Jump Search	
+
+		Improvement over the linear/binary search.
+
+		Instead of checking every element,	
+			- jump fixed blocks
+			- Then perform linear search inside identified block.
+
+			[10 20 30 40 50 60 70 80 90 100]
+
+			Target: 70
+
+			sq root of no of elemnts: 10
+			jumpsize = 3
+
+			if 70>40
+
+			40 -> 70
+
+
+			7-?100
+
+			
+
+
+
 
 ====================================================================================================================
 	30/05/2026 
