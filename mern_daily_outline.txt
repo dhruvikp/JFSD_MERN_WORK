@@ -26,6 +26,133 @@
 
 	https://github.com/dhruvikp/JFSD_MERN_WORK
 
+
+====================================================================================================================
+27/06/2026 
+====================================================================================================================
+DML (INSERT, UPDATE, DELETE)
+DQL (SELECT)
+DCL - Data Control Language - Grant and revoke permission with example
+TCL - Transaction Control Language
+Joins 
+	Inner Join
+	Outer Join (left, right, full)
+	Carteisan join
+
+
+DML - Data Manipulation Language
+	INSERT
+	UPDATE
+	DELETE
+	SELECT
+
+	INSERT INTO table_name
+		(col1, col2, col3...)
+	VALUES
+	(val1, val2, val3...)
+
+	UPDATE table_name
+	SET column=value
+	WHERE condition;
+
+
+	DELETE FROM table_name
+	WHERE CONDITION
+
+
+DCL - Data Control Language
+	used to control access to the database and database obejcts
+
+	- Craete database users
+	- Grant the permission
+	- REmove the permission
+	- Controls who can access which database or table
+
+	CREATE USER 'username'@'host' IDENTIFIED BY 'password';
+
+GRANT - used to provide previleges to a user.
+
+	GRANT privilege
+		on database.table
+		to 'username'@'host';
+
+REVOKE - Removes previously granted permissions.
+
+
+---------------------------------
+TCL - Transaction Control Language
+----------------------------------
+	used to manage transactions in a database.
+
+	transaction is a group of SQL statements executed as a single unit.
+
+	Ex:
+		1. Debit account A
+		2. Credit Account b
+
+		BEGIN/ START TRANSACTION
+			-- sql1
+			-- sql2
+		COMMIT/Rollback
+
+		SAVEPOINT - creates checker point inside a transaction.
+		if required, we can rollback only to that checkpoint instead of cancelling entire transaction.
+
+--------------------------------------------
+	
+	JOIN
+	 combines related tables whenever required.
+
+	 Types:
+	 	1. INNER JOIN
+	 	2. LEFT OUTER JOIN
+	 	3. FULL OUTER JOIN
+	 	4. CROSS JOIN (Cartesian Join)
+
+
+	 	INNER JOIN
+
+	 	Returns only matching records from both tables.
+	 	If there is no match, then row is not returned.s
+
+
+	 	select columns
+	 	from table1
+	 	inner join table2
+	 	on table1.col = table2.col;
+
+	LEFT OUTER JOIN
+		Returns
+			- All the rows from the left table
+			- Matching rows from the right table
+			- if no match exist, NULL is returned
+
+
+	Right outer join
+		Returns
+			- All rows from the right table
+			- Matching rows from the left table.
+
+
+	Full outer join
+		Returns:
+			- ALl rows from left
+			- All rows from right
+			- Matching records are merged
+			- non-matching recrods contains null
+
+
+	CROSS JOIN (CARTESIAN JOIN)
+		Returns every possible combination of rows from both tables.
+
+		Rows in A * ROWS IN B
+		
+
+
+
+
+
+
 ====================================================================================================================
 21/06/2026 
 ====================================================================================================================
