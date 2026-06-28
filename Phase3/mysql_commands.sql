@@ -192,3 +192,151 @@ c.full_name,
 o.order_id
 from customers c
 cross join orders o;
+
+-- ---------------------------------------
+-- MySQL Stored Procedure
+-- ----------------------------------------
+
+DELIMITER //
+CREATE PROCEDURE GetCustomerById 
+(
+	IN p_customer_id INT
+)
+BEGIN
+	select * from customers where customer_id = p_customer_id;
+    
+END //
+
+CALL GetCustomerById(101);
+
+DELIMITER //
+CREATE PROCEDURE GetCustoemerCount
+(
+	OUT totalCustomers INT
+)
+BEGIN
+	select count(*) into totalCustomers from customers;
+END //
+
+SET @customerCount = 0;
+CALL GetCustoemerCount(@customerCount);
+
+select @customerCount;
+
+
+-- app sends customerId - procedure returns customer's age using same parameter
+
+DELIMITER //
+CREATE PROCEDURE GetCustomerAge 
+(
+	INOUT customerAge INT
+)
+BEGIN
+	SELECT age
+    INTO customerAge
+    from customers
+    where customer_id = customerAge;
+    
+END //
+
+SET @value = 101;
+CALL GetCustomerAge(@value);
+SELECT @value;
+
+
+
+DELIMITER //
+CREATE PROCEDURE GetCustomerOrderSummary 
+(
+	IN p_customer_id INT
+)
+BEGIN
+	DECLARE customer_count INT;
+    DECLARE total_orders INT;
+    
+    -- checks whether customer exist
+    SELECT COUNT(*)
+    into customer_count
+    from customers where customer_id = p_customer_id;
+    
+    IF customer_count = 0 THEN
+		SELECT 'customer doesnot exist.' as message;
+	ELSE
+		-- count total orders
+        select count(*) 
+        into total_orders
+        from orders
+        where customer_id = p_customer_id;
+        
+        -- customer summary
+        select c.customer_id, c.full_name, c.email, c.status, total_orders as total_orders from customers c
+        where c.customer_id = p_customer_id;
+        
+        -- customer orders
+        SELECT 
+			o.order_id,
+            o.order_date
+        from orders o
+        where o.customer_id = p_customer_id
+        order by o.order_date desc;
+	END IF;
+END //
+
+CALL GetCustomerOrderSummary(999);
+
+show procedure status where db='ecommerce_db';
+drop procedure GetCustomerAge;
+
+-- -------------
+-- view example
+
+CREATE VIEW active_customer_view as 
+	SELECT 
+		customer_id,
+        full_name,
+        email,
+        status
+	FROM
+		customers
+	where status = 'ACTIVE';
+    
+ select * from active_customer_view;   
+    
+create view cusotmer_orders_view as
+	select
+		c.customer_id,
+        c.full_name,
+        o.order_id,
+        o.order_date
+	from customers c
+    inner join orders o
+    on c.customer_id = o.customer_id
+    
+select * from cusotmer_orders_view;
+    
+    select * from active_customer_view where customer_id=102; 
+-- ---------------------------
+-- subquery
+
+-- scaler
+-- usecase - find out all customers whose age is greater than the avg customer age.
+select avg(age) from customers;
+
+select * from customers where age > (select avg(age) from customers);
+
+-- row subquery
+-- usecase: find custoemr having both the same age and status as John Smith
+select * from customers where (age, status) = (select age, status from customers where customer_id =101);
+
+-- table subquery
+-- usecase: display active custoemrs using table subquery
+
+select * from (select customer_id, full_name, status from customers where status='ACTIVE') as active_customers;
+
+-- correlated subquery
+-- usecase: display customers who have placed at least one order
+select * from customers c
+	where exists (select 1 from orders o where o.customer_id = c.customer_id);
+    
+-- non correlated subquery
+-- usecase: find out display orders placed by john smith

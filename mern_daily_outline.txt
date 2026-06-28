@@ -28,6 +28,153 @@
 
 
 ====================================================================================================================
+28/06/2026 
+====================================================================================================================
+
+	MySQL Stored Procedure:
+		SP is named collection of one or more SQL statements that is stored inside the database and executed as a single unit.
+
+CALL sp_name;
+
+	Help to centralize business logic
+
+
+Characteristics:
+	- Reusable
+		ex. retrives all active customers
+
+			customer portal
+			admin dashboard
+			mobile app
+			reporting system
+
+	- Encapsulate Business Logic
+		Ex: generate montly sales report
+			multiple jons, calculations, filtering conditions
+
+	 	- your app clearn
+	 	- easy to maintain
+
+	- Parameter support
+		can accept input values
+		can return output values
+		or both.
+
+	- Precompiled
+		When SP created, MySQL stores its definition in the database.
+
+		Whenever SP is executed, MySQL doesn't need to parse and validte sQL from the app aachtime
+
+	- Security
+		Restricting direct access to the db tables.
+
+
+Parameters:
+	- IN - used to pass a value from caller to the SP
+	- OUT - used to return a value from the SP back to the caller
+	- INOUT
+
+sql ;
+
+
+DELIMITER // 
+	CREATE PROCEDURE GetCustomerById
+		(
+			IN p_customer_id INT
+		)
+
+	BEGIN
+		
+		SQL
+		SQL
+
+	END //
+	DELIMITER;
+
+
+Procedure
+	1. Accept CustomerId
+	2. check whether customer exist
+	3. count total numeber of orders
+	4. total customer details along with total orders
+	5. display all orders placed by customer
+	6. if customer is not available - then return error message
+
+
+Database Views
+	A View is a virtual table created from one or more existing table using SQL query.
+
+	unline normal table, view doesn't store data physically, instead it stores only the sQL definition, whenever a view is
+	queried, MySQL Executes the underlying query and returns the latest data from the base tables.
+
+	VIEW - Saved Query
+
+
+	view - active_customer_view
+
+
+
+	characteristics:
+		- Read-Only Access using virtual table structure
+		- simplified query logic
+		- enhanced data abstraction
+		- security
+		- automatic data updates
+			views alwsays display latest data because, they retrieve information from the base tables
+
+MySQL view processing algorithm:
+------------------------------
+	When query is executed on a view, MySQL decides how to process it.
+
+	This process is controlled by view processing algorithm.
+
+	MySQL supports three algorithms:
+		- MERGE
+		- TEMPTABLE
+		- UNDEFINED
+
+	the algorithms determines how MySQL executes the underlying sql query.
+
+	MERGE - merge sql query written on the view with the outer query before execution.
+
+aggregations:
+	distinct
+	union
+	aggregate functions
+
+temptable - creates temporary table containing view data.
+				outer query then works on this temp table instead of original tables.
+
+
+-- Subquery
+		
+		Subquery is query written inside another SQL query.
+
+		 	inner query or nested query
+
+		 outer query uses the result returned by inner query to complete execution.
+
+
+		Why ?
+			- the result of one query depends on another query
+			- we need dynamic filtering instead of hardcoaded values
+			- we want to simplify complex sql statement
+			- you may have intermediate calculations before executing main query
+
+
+			Types:
+				- Scalaer subquery -  returns exactly one row and one column
+				- Row subquery - one row containing multiple columns
+				- Table subquery	- returns multile rows and multiple columns - behaves like a temp table
+				- correlated subquery 
+						executes once for every row processed by the outer query.
+
+				- non-correlated subquery  
+						executes only once
+						the result passed to the outer query
+
+
+====================================================================================================================
 27/06/2026 
 ====================================================================================================================
 DML (INSERT, UPDATE, DELETE)
