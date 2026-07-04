@@ -26,6 +26,180 @@
 
 	https://github.com/dhruvikp/JFSD_MERN_WORK
 
+====================================================================================================================
+04/07/2026 
+====================================================================================================================
+Triggers?
+	
+	Trigger is a special database object that automatically executes when a specific event occurs on a table.
+
+	Usecases:
+		- Validate incoming data
+		- Automatically log database changes
+		- Maintain audit history
+		- Enforce business rules
+		- Synchronize related tables..
+
+	Events?
+		- INSERT
+		- UPDATE
+		- DELETE
+
+
+	DELIMITER //
+
+	CREATE TRIGGER trigger_name
+	
+	BEFORE | AFTER
+
+	INSERT | UPDATE | DELETE
+
+	ON table_name
+
+	FOR EACH ROW
+
+	BEGIN
+		sql statements;
+	END 
+	//
+
+
+Row level vs Statement level trigger
+	RLT - Executes for every affected row.
+	MySQL supports only row-level triggers.
+
+	SLT - Executes only once for entire sql statement, regardless of how many rows are affected.
+
+	ALTER TRIGGER - MYSQL DOESN:T SUPPORT THAT.
+
+	DROP TRIGGER trg_customer_insert;
+
+
+Best practices:
+	- Keep trigger logic simple and focused.
+	- Avoid writing large business logic inside triggers.
+	- Use meaninful trigger names 
+	- Add cmments to explain the trigger's purpose
+
+
+INDEX
+---------------
+	
+	Index is a special database object that improves speed of data retrieval from a table.
+
+	from book - find where is the geometry
+		find out chapters -from table of contents
+			directly move to that page 
+				few pages --> search.
+
+	10 million records in db
+	INDEX - 
+		separate datastructure to hold data. (BBT - RBT)		
+
+		insert record in db -> in the index table
+							-> in the actual table store
+
+		Search name -> search from index table 	
+
+
+		Does that means? for every column you can create index? 
+			NO
+
+
+select * from customers where customer_id = 101;
+FULL Table scan
+
+INDEX table(RBT)		table
+	customer_id 
+
+	101 - 0X9999993;	0X9999993 --> 101 dhruvik dhruvik@gmail.com ...
+
+
+Improves the speed of data retrieval.
+
+Note:
+	AUtomatically created on PRIMARY KEY and UNIQUE constraints
+
+
+	CREATE INDEX idx_orders_customer on orders(customer_id);
+
+
+alter table customers
+	add index idx_customer_name(full_name)
+
+	- Index can slow down INSERT, UPDATE, and DELETE operations.
+	- Over-indexing increases storage and maintainance cost
+
+Types of index:
+ 1. PRIMARY KEY
+ 2. UNiQUE INDEX
+ 3. Non-Unique index
+ 	status- index
+ 4. Full-Text Index
+ 	searching large text columns
+
+ 	Columsn:
+ 		- Articles
+ 		- Product descriptions
+ 		- Blogs
+ 		- Documetnations
+
+ 	LIKE %Lapotp%
+
+ 5. Spatial Index
+ 	Used for geographic or spacial data
+
+
+ 		Ex:
+ 			- GPS coordinates
+ 			- Maps
+ 			- Locations
+ 			- Geographic shapes
+
+ 6. Composite index
+ 	create index on two or more columns
+
+ 	create index _idx_customer_status on customers(full_name, status);
+
+
+Backup and Restore
+*****************
+	Backup - copy of database data that can be used to recover information if the original database is lost, corrupted or accidently deleted.
+
+	Restore is - process of recovering a database from a previously created backup.
+
+	Types of backup:
+		1. Logical backup
+			stores data as sql statements
+			Backup file:
+				- SQL statements
+					create, create table, insertinto ..
+
+
+		2. Physical backup
+			copies actual database files stored on the disk.
+
+			- data files
+			- index files
+			- log files
+
+		Adv:
+			- faster backup
+			- faster restore
+			- suitable for very large databasess
+
+		DisAdv:
+			- Platform dependents
+			- cannot restore only specific individual tables
+			- restore - db server stopped and restore it
+
+
+	mysqldump - 
+		.sql 
+
+		
+
+
 
 ====================================================================================================================
 28/06/2026 

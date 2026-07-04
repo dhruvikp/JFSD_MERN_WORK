@@ -340,3 +340,76 @@ select * from customers c
     
 -- non correlated subquery
 -- usecase: find out display orders placed by john smith
+select * from orders where customer_id = (select customer_id from customers where full_name='JOHN SMITH')
+
+
+-- ------------------------------------------
+-- 04-07-2026 (Triggers)
+-- -------------------------------------------
+
+CREATE TABLE customer_audit
+(
+	audit_id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT,
+    action_type VARCHAR(20),
+    action_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    remarks VARCHAR(200)
+);
+
+DELIMITER //
+CREATE TRIGGER trg_customer_insert
+AFTER INSERT
+ON customers
+FOR EACH ROW
+BEGIN
+	INSERT INTO customer_audit
+    (
+		customer_id,
+        action_type,
+        remarks
+    )
+    VALUES 
+    (
+		NEW.customer_id,
+        'INSERT',
+        CONCAT('Customer ', NEW.full_name, ' added.')
+    );
+END //
+
+INSERT INTO customers
+VALUES
+(106, 'Chris martin ', 'chris@gmail.com', 32, 'ACTIVE');
+
+select * from customer_audit;
+
+
+DELIMITER //
+CREATE TRIGGER trg_validate_customer
+BEFORE INSERT
+ON customers
+FOR EACH ROW
+	BEGIN
+		if NEW.age <18 then
+			signal sqlstate '45000'
+			SET MESSAGE_TEXT = 'CUSTOMER MUST BE ATLEAST 18 YEARS OLD';
+		END IF;
+    END //
+
+
+INSERT INTO customers
+VALUES
+(107, 'Tom ', 'tom@gmail.com', 15, 'ACTIVE');
+
+
+	CREATE INDEX idx_orders_customer on orders(customer_id);
+
+alter table customers
+	add index idx_customer_name(full_name)
+    
+drop index idx_customer_name on customers;
+
+explain select * from orders where customer_id = 101;
+    
+    
+mysqldump 
+    
