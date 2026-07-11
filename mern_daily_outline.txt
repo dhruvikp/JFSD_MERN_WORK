@@ -26,6 +26,230 @@
 
 	https://github.com/dhruvikp/JFSD_MERN_WORK
 
+
+====================================================================================================================
+11/07/2026 
+====================================================================================================================
+
+Data modelling in MongoDB
+----------------------
+	Process of organizing and structuring data inside MongoDB collections
+
+	Two approaches:
+		1. Embedding
+
+			Related data stored inside same document.
+
+
+			Adv:
+				- One database read
+				- Faster performance
+				- No joins required
+				- Simpler application code
+
+
+			Used when:
+				- child data always accessed with parent
+				- child data is small
+				- child data rarely changes independently
+
+		2. Referencing
+
+			Data is stored in separate collections.
+
+
+			Adv:
+				- No document size issue
+				- Better scalability
+				- Independent updates
+				- Suitable for large datasets
+
+			Used when:
+				- Child data grows continiously
+				- Child data is shared
+				- Child data is accessed separately
+
+
+
+
+Good MongoDB data model design should:
+	- Reducing unnecessary queries
+	- Avoid excessive data duplication
+	- Improve read performance
+	- Support future application growth (scalable)
+	- keep documents within MongoDB's 16 MB document size limit
+
+
+
+Customer Address --> Embedded
+Employee -> Passport
+User -> Profile
+
+
+Customer -> Order (One to many)
+
+Order -> Product Many t0 many (Referencing - 100%)
+
+------------------------
+
+Schema Validation
+
+
+	One of the biggest adv of MongoDB is that it is a Schema less database.
+
+	Schema less meaning MongoDB doesn't force every document to have the same structure.
+
+	{
+		customerId:101
+		fullName: "John"
+		age:30
+	}
+
+	{
+	    customerId:102
+		name: "Emma",
+		age: "Twenty two"
+	}
+	{
+		city: "mumbai",
+		NAME: "DRK"
+	}
+
+	find query
+		fullName: "Emma"
+
+--> cretes inconsistent data
+--> inconsistend data types - sorting, calculations, aggregation will produce incorrect results
+--> Missing Required fields 
+
+Consistent schema -> needed
+	
+	Schema validations allows MongoDB to validate every document before it is inserted or updated.
+
+
+validationLevels (Which documents get validated?)
+	- strict 	--> All inserts and updates
+	- moderate	--> All inserts and updates to correct documents
+
+validationAction (What happens if validation fails?)
+	error - Throw error and deny insert/update
+	warn - Log warning but proceed
+
+
+
+
+db.createCollection("users", {
+
+validator: {
+	"$jsonSchema": {
+		"bsonType": "object",
+		"required": ["name", "email"],
+		"properties": {
+			"name": {
+				"bsonType":"string",
+				"description": "must be a string and is required",
+				"maxLength": 50
+			},
+			"age": {
+				"bsonType": "int",
+				"minimum": 18,
+				"maximum": 120,
+				"description": "must be an integer between 18 and 120 if paresent"
+			},
+			"email": {
+				"bsonType": "string",
+				"pattern":"^[\\w=\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$",
+				"description": "must be a valid email address and is required"
+			}
+		}
+	}
+}})
+
+====================================================================================================================
+05/07/2026 
+====================================================================================================================
+	MongoDB Datatypes
+	CRUD operations
+	
+	Curser
+	Embedded documents
+	Data type
+
+
+
+
+Basis Concepts - Databases, Collections, and Documents
+
+		DB 					Database									
+
+		Table 				Collections
+
+		data row 			Documents
+
+MongoDB CRUD operations:
+	Create
+		insertOne(data, options)
+		insertMany(data, options)
+
+	Read
+		find(filter, options)
+		findOne(filter, options)
+
+	Update
+		updateOne(filter, data, options)
+		updateMany(filter, data, options)
+		replaceOne(filter, data, options)
+
+	Delete
+		deleteOne(filter, options)
+		deleteMany(filter, options)
+
+
+
+collection.update_one(
+	{_id: 1},
+	{"$set": {"status": "active"}, "$inc":"login_count":1}}
+)
+
+
+MongoDB Datatypes:
+	ObjectId - default unique identifier for every mongodb document.
+				_id field - generates it.
+
+	String - Stores textual information
+
+	Integer(NumberInt)
+		- stores the whole numbers
+		age: NumberInt(30)
+
+	Long (NumberLong)
+		Stores the very large whole numbers
+
+		mobilenumber: NumberLong("9999999999")
+
+	Double - Stores decimal numbers
+		Suitable - percentage, height..
+
+	Boolean - true/false
+
+	Date: stores date and time
+
+	Timestamp - Stores the timestamp information
+
+	array - stores multiple values inside one field.
+
+	Embedded document:
+		stores another document inside the current document
+
+		Upto 100 Levels of nesting documents
+		Max. 16mb/document
+			
+
+
+
+
+
+
 ====================================================================================================================
 04/07/2026 
 ====================================================================================================================
@@ -197,8 +421,57 @@ Backup and Restore
 	mysqldump - 
 		.sql 
 
-		
+		mysql
 
+MongoDB
+
+	NoSQL
+		Type of database designed to store and manage large volumes of structured, semi-structured, and unstructured data.
+
+	NoSQL - do not require data to be stored in fixed table format (predefined schema)
+			they provide flexible data models that can easily adapt as application requirements change.
+
+
+			- designed to handle:
+				- large amounts of data
+				- High-speed read and write operations
+				- Horizontal scaling across multiple servers
+				- Modern app like social media, IoT, mobile applicaitons, gaming, AI, big data...
+
+
+Features of NoSQL
+	- Schema less design
+	- Horizontal Scaling
+	- High performance
+	- Flexible data model
+		document
+		key-value
+		column 
+		graph
+	- High Availability
+	- Distributed Architecture
+
+MongoDB?
+	Open-source, document oriented NoSQL database developed by MongoDB Inc.
+
+	JSON like documents using BSON (Binary JSON) format
+
+	Each document represents a complete object -
+
+Why MongoDB?
+	- Flexible schema design
+	- Faster development cycle
+	High read and write performacne
+
+
+MongoDB Installation:
+	1. MongoDB Community Server (local installation)
+	2. MongoDB Shell
+	3. MongoDB Compass (optional)
+
+
+
+	
 
 
 ====================================================================================================================
