@@ -1,0 +1,12 @@
+{
+  "name": "com.learn",
+  "version": "1.0.0",
+  "description": "This is my first node app",
+  "license": "ISC",
+  "author": "Dhruvik",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

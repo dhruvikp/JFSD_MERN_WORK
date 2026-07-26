@@ -27,6 +27,687 @@
 	https://github.com/dhruvikp/JFSD_MERN_WORK
 
 
+
+====================================================================================================================
+26/07/2026 
+====================================================================================================================
+	
+HTTP Request and Response in NodeJS
+	what happens when browser sends request
+	Request lifecycle
+	HTTP Request and response
+	Routing
+	Redirecting
+
+	Example
+
+
+https://www.google.com
+	HTTP Request -->
+		Request header
+			HOST:
+			User-Agent: chrome
+			Accept
+			Authorization:
+
+
+		URL
+		Req body (POST)
+		METHOD (GET, POST, PUT, DELETE)
+
+
+	HTTP Response
+		Response header (metadata about the reponse)
+			Content-Type: applicaiton/json
+			cache-control: no-cache
+			content-length : 200
+
+		Response Body (content html)
+		Response status code
+
+Example:
+	- create server
+ 	- Read request
+ 	- Route requests
+ 	- Parse Request body
+ 	- Set request/response headers
+ 	- Send HTML and JSON
+ 	- Redirect requests
+
+
+Asynchronous processing in Nodejs
+	
+	Asynchronous processing means: start a task and continue executing other code instead of waiting for the task to finish.
+
+	JS -> Call stack --> Node APIs -> Libuv -> Callback Queue
+
+			LIFO
+
+			req1								req1_callback (start processing req1)
+
+			req2 								req2_callback (start processnig req2)
+
+
+
+Node APIs:
+	fs
+	http
+	timers
+	crypto
+	streams
+	dns
+	process
+
+	fs.readFile("data.txt", callback)
+
+
+Callback queue:
+	When asynchronous operations finishes, its callback doesn't execute immediately.
+
+	Instead it is placed into a queue.
+	the event loop decides when it can run.
+
+Types of callback queue:
+	
+	1. Timers queue
+		callback from:
+
+			setTimeout()
+			setInterval()
+
+		setTimeout(() => {
+			console.log("Timer");
+		},1000)
+
+
+	2. I/O queue
+		Contains completed aysnchronous I/O callbacks.
+
+		Ex:
+			- File reading
+			- Database operations
+			- Network I/O
+
+
+	3. Check queue
+
+		Contains callback from:
+			setImmediate()
+
+
+
+
+	4. Close Queue
+		Executed when resources close.
+		Ex:
+			- Socket closed
+			- Stream closed
+
+
+	5. Microtask queue
+		contains
+			- promise callbacks(then, catch, finallly)
+			- queueMicroTask()
+
+		Microtask always executes before event loop proceeeds to the next phase.
+
+
+Check Microtask
+Check Timers
+Check I/O
+Check Check queue
+Check close queue
+
+Stream:
+	A stream is a mechanism for processing data piece by piece (chunks) instead of loading everything into memory at once.
+
+
+Types:
+	1. Readable - Read data
+	2. Writable - Write data
+	3. Duplex - Read + Write data
+	4. Transform - Modify data while streaming
+
+
+Pipe
+	Pipe connects one stream directly to another.
+
+	Instead of manually reading and writing chunks, nodejs does it automatically
+
+
+
+Libuv 
+	libuv is cross-platform c library that provides asynchronous I/O capability for nodejs
+
+It is engine behind:
+	- event loop
+	- File system operations
+	- networking
+	- timers
+	- Thread pool
+	- DNS
+	- Process management
+
+Operating system manager for Nodejs
+
+Features:
+1. Full featured asynchronous Event loop
+2. Asynchronous TCP and UDP sockets
+3. Asynchronous DNS
+	google.com
+	must converted -> ip address
+	DNS lookup
+
+4. File system events
+	
+5. Asynchronous file operations
+	
+
+Stream utility functions:
+	1. Pipeline()
+		safely connnects stream together and automatically handles cleanup and errors
+
+		
+
+
+====================================================================================================================
+25/07/2026 
+====================================================================================================================
+
+
+https://indilens-website.vercel.app/
+
+	What is NodeJS? Benefits, and applications of Nodejs
+	Building blocks of Nodejs and core concepts
+	Workings of Nodejs (Internal execution model)
+	Creating web 
+
+
+What is NodeJS?
+	Open-source, cross platform JS runtime environment that allows JS code to run outside browser.
+
+	JS code could only executes inside webbrowsers
+
+	Nodejs has changed that by allowing JS code run directly on the OS.
+
+JavaScript Engine
+	NodeJs uses Google's V8 Engine.
+
+	V8 converts JS into machine code --> executed by CPU
+	Because V8 -> Nodejs extremely faster
+
+	you do not need Browsers to run application
+
+Why Nodejs extremely fast?
+
+	1. V8 Engine
+	2. Event Driven
+		No waiting, other request continue processing
+	3. Non-Blocking I/O
+	4. Single Thread
+		Less memory consumption
+		Efficient handling of concurrent connections.
+
+
+Benefits
+------------
+	1. Same language everywhere
+	2. Very fast
+		powered by : V8 engine, Event loop, and Non-blocking IO
+	3. Highly Scalable
+		Can handle - thousand of concurrent users
+		Perfect for - Chat apps, streaming platforms, gaming servers etc.
+
+	4. Huge Ecosystem
+		More than millions of packages are available thorugh npm
+	5. Cross platform
+		Runs on Windows, Linux, MacOS
+	6. Lage Community
+		Extensive documentaiton and community support
+	7. Open Source
+		Free to use
+	8. Easy to learn
+
+
+Limitations of NodeJS
+-----------
+	1. CPU intensive Tasks
+		Nodejs may not be ideal for heavy CPU work.
+
+			Ex: Video rendering
+				Machine Learning Training
+				Image processing at scale
+
+	2. Relational Database heavy enterprise systems
+		Possible with Nodejs but JAVA or .NET may still be preferred in some organizations due to ecosystem maturity and organizational standards.
+
+Applications of Nodejs
+-----------
+	1. REST APIs
+	2. Streaming applicaitons
+	3. Online Gaming
+	4. E-Commerse
+	5. Microservices
+	6. CLI Tools
+		create-react-app --> command to create application
+		vite
+		eslint
+
+	7. Desktop applicaitons
+
+
+Package:
+	Package manager: - software that 
+		- Download packages
+		- Install packages
+		- Update packages
+		- Remove package
+		- Manage versions
+		- Resolve dependencies.
+
+
+	Ex. npm (node package manager)
+
+NPM 
+	Installed automatically with nodejs installation
+
+	- installing libraries
+	- Managing depdencies
+	- Running project scripts
+	- Publishing packages
+	- Updating package verions.
+
+
+
+Npm Public Registry
+	Npm registry that is a large online repository that hosts Node.js packages.
+
+
+	npm install
+		anyone can:
+			- publish packages
+			- Downlaod packages
+			- update packages (their own)
+	Ex:
+		- express
+		- Mongoose
+		- React
+		- typescript
+
+npm install express@5
+npm uninstall express.
+npm update
+npm list -g - shows global packages
+
+Global instllation:
+	Normally ,
+	npm install express
+
+	Install inside current packages
+
+npm install -g express
+	
+
+package.json
+	name - Project name
+	version - Current version following semantic versioning
+	description - Short description of the project
+	main - Entry point for the application
+	scripts - Common commands exected with num run 
+	keywords - Search keywords for npm registry
+	author - Project author
+	license - License for distributing the proejct
+	dependencies - Packages required in the production
+	devDependencies - packages used only during development
+
+
+Building blocks and core concepts:
+--------------------------
+	
+	it consist of multiple components together.
+
+			NodeJS
+
+	V8 engine, Node APIs, EventLoop
+
+				libuv
+
+				OS
+
+
+	Each component has specific responsibility
+
+	Major building blocks are :
+		1. V8 JS engine
+
+			Google's high performance JS engine.
+			Nodejs uses this engine to execute JS outside browser.
+
+			What V8 do?
+				let x = 10
+				let y = 20;
+				console.log(x+y);
+
+			CPU doesn't udnerstand JS
+			The CPU only understands machine code (binary instructions)
+
+			V8 converts JS into Machine code
+			V8 engine JIT compilation, converts frequently executed code into optimzed machine code.
+
+			Benefits:
+				- faster execution
+				- Better optimization
+				- Efficient memory usage
+
+		2. NodeJS APIs
+
+			JS alone can not
+				- read files
+				- create servers
+				- Access db
+				- work with operating system
+
+			Node provides various built-in APIs, 
+
+
+				Module					PUrpose
+				fs 					File system
+				http 				web server
+				path 				File path
+				os 					Operating system information
+				crypto 				Encryption
+				stream 				Data streaming
+				events 				Event handling
+
+
+		3. Event Loop
+
+			The event loop is the heart of NodeJS
+
+			It decies
+				- which task should execute next?
+
+
+			Whenenever request arrives:
+				EVent looop
+					assigns task
+				continue handling other request
+					task finished
+				Return result
+
+			Eventloop keeps nodejs responsive
+
+
+		4. Libuv
+			libuv is C library used internally by Nodej
+
+			It handles:
+				- Event loop implementaiton
+				- Async file operaitons
+				- Networking
+				- Thread pool
+				- Timers
+
+			Without libuv, nodejs would not support asynchronous I/O
+
+		5. Thread Pool
+
+			JS Execution runs on single main thread, but Node js can delegate certain operaitons to thread pool managed by libuv.
+
+			Ex:
+				- File system operations
+				- Data compression
+				- Cryptographic operaitons
+
+
+		6. OS
+			libuv library
+
+
+	Core concepts of Nodejs
+
+	1. Event Driven
+		Everything revolves areound in NodeJS events.
+
+		Ex:
+			- User login
+			- File uploaded
+			- DB query completed
+			- Timer expired
+
+		button.click()
+			click generates an event
+
+		NodeJS listen for these events and reacts.
+
+
+	2. Sigle threaded
+		Main JS thread which exectes applciation code.
+
+	3. Asynchronous
+		Node js doesn't wait for slow operations to finish before continuing
+
+	4. Non-Blocking
+		The applicaiton remains responsive while long-running I/O operaitons are in progress.
+
+	5. Scalable
+		 A single nodjes process can efficiently handle thousands of concurrent I/O- bound connections.
+
+
+
+Non-Blocking I/O?
+	I/O - input/output
+
+	Blocking I/O - Read very large file
+		Read file -> wait -> wait --> nothing else can happen while waiting.
+		this is blocking I/O
+
+	Non-Blocking I/O
+		while waiting - you can take another task and start progressing that.
+
+
+
+What is SErver?
+	programs that listens for requests from client and send back response.
+
+	Server receices request, process them, and return response.
+
+
+	NodeJS server is server application written using nodejs and listen incoming HTTP requests and resopnds to the clients.
+
+	http://localhost:3000
+
+	used to:
+		- REST APIs
+		- Websites
+		- Authentcation servers
+		- Chat applicaitons
+		- Microservices
+		- payment gateways
+		- mobile app backends.
+
+
+	built-in module: HTTP Module
+
+	allow:
+		- Create HTTP servers
+		- Receives requests
+		- send responses
+		- read headers
+		- Read URL
+		- Read HTTP method
+	without handling any packages
+
+
+	const http = require("http")
+	http.
+		createServer
+		listen
+		end
+		write
+		statusCode
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+====================================================================================================================
+12/07/2026 
+====================================================================================================================
+	
+	MongoDB Index:
+	---------------
+
+		An index is a special data structure that MongoDB creates to improve the speed of data retrieval.
+
+		Instead of scanning every document in a collection, MongoDB uses an index to quickly locate the required documents.
+
+		Without Index, MongoDB performs Collection Scan (COLLSCAN)
+
+		With an index, MongoDB performs an index scan (IXSCAN)
+
+		Improve ther performance of:
+			- SELECT (find) operations
+			- Sorting
+			- Filtering
+			- Joins using $lookup
+			- Aggregation pipelines
+
+
+Types of Index:
+	1. Single Field Index
+
+	2. Compound Index
+		Multiple fields.
+
+		customer_name and status
+
+		db.customers.createIndex(
+			{
+				fullName:1,
+				status:1
+			}
+		)
+
+	3. Unique INdex
+		Prevents duplicate values
+		db.customers.createIndex({email:1}, {unique:true})
+			when you insert
+			{
+				email:"john@gmail.com"
+			}
+		produce error : Duplicate Key Error
+
+	4. Text Index
+		Used for full-text searching
+
+		Suppose we want to search customer names:
+
+			db.customers.createIndex({fullName: "text"})
+
+		db.customers.find(
+			{
+			$text:
+			 {
+			 	search : "John"
+			 }
+			}
+		)
+
+		Useful for:
+			- Articles
+			- Blogs
+			- Product Description
+			- Search Engines
+
+		etc
+
+	5. Multikey index
+		Automatically created when indexing an array.
+
+		{
+		customerId: 101,
+
+		skills: [
+
+			"java", "mongodb", "Node"
+		]
+		}
+
+		db.customers.createIndex({skills:1})
+
+	6. TTL (Time-To-Live Index)
+
+		Automatically deletes expired documents.
+
+		Useful for:
+			- Session Data
+			- OTP
+			- Cache
+			- Temporary Data
+
+
+		db.sessions.createIndex(
+			{
+			createdDate:1
+			},
+			{
+				expireAfterSeconds: 3600
+			}
+		)
+
+		Documents are automatically removed after one hour.
+
+
+	db.customers.dropIndex
+
+Best Practices:
+	- Create indexes on fields that are frequently used in find() queries.
+	- create indexes on fields used in sorting(sort())
+	- crate index fields frequently used in $lookup operations
+	- Prefer compound index when multiple fields are frequently queried together.
+	- Use Unique index to prevent duplicate business data
+	- Avoid create indexes on every field, Every additional index consumes storage an increases maintainance overhead.
+
+	- Remember - index speed up read operations but slightly slow down insert, update, delete operations because mongodb must maintain indexes
+	wheere data changes.
+	- Remove unused indexes to reduce storage usage and improve write performance.
+
+
+Store client informaiton + Meeting information
+
+ER Diagram
+
+	1. What is MongoDB, how does it differ from the relational database?
+	2. Eplain mongodb architecture
+	3. what is diff between database, collection or document in mongoDB?
+	4. What is ObjectId?
+	5. What is cursor? how is it used?
+	6. $eq, $gt, gte, lt,in and or -- query operators
+	7. Data modelling
+		Doctor has patient
+
+		Referential relationship
+
+	8. Validation? enforce schema validation? how?
+
+	9. What is Aggregation framework?
+	
+
+
+
+
 ====================================================================================================================
 11/07/2026 
 ====================================================================================================================
