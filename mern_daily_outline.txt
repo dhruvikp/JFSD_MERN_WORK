@@ -27,7 +27,464 @@
 	https://github.com/dhruvikp/JFSD_MERN_WORK
 
 
+====================================================================================================================
+01/08/2026 
+====================================================================================================================
 
+V8 engine: = Google's open-source, high-performance JS and webassembly engine written in C++ language.
+
+Takes JS code -> compile it -> machine code (that computer's CPU can execute)
+
+
+Google Chrome brower - to run js on the client side
+Ryan Dahl -> Decoupled V8 engine from the browser in 2009, to create NodeJs, which enables JS to run efficiently on the server.
+
+
+
+
+Advance Javascript concepts
+Modules - 
+
+Why JavaScript for Node.js?
+	
+	1. Event driven
+		button.onClick = function() {
+			console.log('clicked');
+		}
+
+		nodejs uses same event-driven model.
+
+	2. Asynchronous Nature
+		JavaScript already supported
+			- Callbacks
+			- Timers
+			- Events
+		Perfect for the server programming
+
+	3. Huge Community
+		Millions of developers already knew JavaScript.
+
+	4. V8 Engine
+		Google's V8 engine is extremely fast
+
+
+What is Funciton?
+	A function is a reusable block of code --> performs specific task.
+
+	function greet() {
+		console.log("welcome to nodejs")
+	}
+
+	greet();
+
+	First-class functions:
+		One of JS's most powerful feature.
+
+		Functions are treated like variables.
+
+		They can be:
+			- stored as variables
+
+					const greet = function() {
+						console.log("hello");
+					}
+
+					greet();
+
+			- Passed as parameters
+
+				function execute(fn){
+					fn();
+				}
+
+				execute(function() {
+					console.log("executed");
+				})
+
+
+			- Returned from functions
+
+				function outer() {
+
+					return function() {
+						console.log("Returned function");
+					}
+				}
+
+				const fn = outer();
+				fn();
+
+
+			- Stored inside objects
+			- stored inside arrays.
+
+
+	Hoisting
+	---------
+
+	hello();
+
+	function hello() {
+		console.log("Hi");
+	}	
+
+
+	Function Expression:
+	--------------
+		const add = function(a, b) {
+			return a+b;
+		}
+
+		console.log(add(5, 7));
+
+
+	Arrow Functions (ES6)
+	----------------
+	const add = (a,b) => {
+		return a+b;
+	};
+
+	const add = (a,b) => a+b;
+
+Difference:
+	Function 					Arrow Function
+-------------------------------------------------------
+Has its own this  				Uses lexical this
+can be constructor 				Cannot be constructor
+Has arguments					No own arguments object
+
+
+Constructor Functions
+	Before ES6 classes, Constructor functions were commonly used to create objects.
+
+
+		function Employee(name, salary) {
+				this.name = name;
+				this.salary = salary;
+		}
+
+		const emp1 = new Employee("john", 50000);
+		console.log(emp1);
+
+Pass by value
+	Primitive values are copied
+
+		let x = 10;
+		let y = x;
+
+		y = 50;
+
+		console.log(x);
+		console.log(y);
+
+Pass by Reference (Object Reference)
+	Objects are assigned by reference.
+
+	const user = {
+		name: "John";
+	};
+
+	const another = user;
+	another.name = "David";
+	console.log(user.name); // David (not john)
+
+	Both variables refer to the same object.s
+
+	Note: JavaScript always passes arguments by value. For objects, the value being copied is the reference, which is why changes to object properties are visible thorugh both variables.
+
+IIFE - Immediately Invoked Function Expression
+-----------------------------------------
+	A function that executes immediately after it is created.
+
+	(function() {
+
+	})();
+
+	Why IIFE?
+		Before ES6, 
+
+		IIFE was commonly used to create prviate scope and avoid polluting the global namespace.
+
+
+	Two parts of IIFE
+		Part 1:
+			Annonymous Function
+
+				(function() {
+
+				})
+
+			Creates a new lexical scope
+
+		Part 2: 
+			Immediate Execution
+
+			();
+
+	Understanding Arrays:
+		What is an Array?
+			An array stores multiple values in a single variable.
+
+			const nums = [10,20,30]
+
+			0-> 10
+			1-> 20
+			2 -> 30
+
+			common methods:
+				nums.push(40);
+				nums.pop();
+				nums.shift()
+				nums.unshift(5)
+
+			Iteration:
+				nums.forEach(num => {
+					console.log(num);
+				})
+
+
+Understanding Prototypes:
+----------------------
+	
+	Every JS object has an internal link to another object -- called its prototype
+
+	If a property isn't found on the object,
+	JS searches the prototype chain.
+
+	Ex.
+		const person = {
+			greet() {
+				console.log("Hello");
+			}
+		}
+
+		const student = Object.create(person);
+		student.greet();
+
+		Search flow:
+			student ? 
+			prototype -> yes
+			execute
+
+
+
+	function Employee() {
+
+	}
+
+	Employee.prototype.company = "Google";
+	const emp = new Employee();
+	console.log(emp.company);
+
+	// print Google
+
+Prototypal inheritance
+-------------------------
+	function Animal(name) {
+		this.name = name;
+	}
+
+
+	Animal.prototype.sound = function() {
+		console.log("Some sound");
+	}
+
+	function Dog(name) {
+		Animal.call(this, name)
+	}
+
+	Dog.prototype = Object.create(Animal.prototype);
+	Dog.prototype.constructor = Dog;
+	Dog.prototype.bark = function() {
+	 	console.log("Bark");
+	};
+
+	const dog = new Dog("Tommy");
+	dog.sound(); // Some sound
+	dog.bark() ; // Bark
+
+
+Reusing Methods across Objects
+--------------------------
+	const person = {
+		fullName() {
+			console.log(this.firstName+this.lastName);
+		}
+	};
+
+	call() 
+		passes arguments individually
+
+		const emp = {
+			firstName: "John",
+			lastName: "David"
+		}
+
+		person.fullName.call(emp)
+
+-----------
+	
+	function greet(city, country) {
+		console.log(this.name, city, country);
+	}
+
+	const user = {
+		name: "john"
+	}
+
+	greet.call(user, "Bangalore", "India");
+
+---------
+apply() -> arguemnts passes as an array
+
+	greet.apply(user, ["Bangalore", "India"]);
+
+
+ES6 Features
+	intoduced some modern JS features that are widely used in NodeJS
+
+	1. let
+		let age = 20;
+		age = 30;
+
+	Block scoped.
+
+	2. const
+		can not be reassigned
+
+	3. Arrow Functions
+
+	4. Template Literals
+
+	const name = "John"
+	console.log(~welcome ${name}~);
+
+	5. Destructuring
+
+		const user= {
+			name: "John",
+			age: 20
+		};
+
+		const {name, age} = user;
+		console.log(name);
+
+	6. Default parameters
+		function greet(name="Gusest") {
+
+		}
+
+	7. Rest Operator
+		function sum(...nums) {
+			return nums.reduce((a,b)=> a+b);
+		}
+
+		console.log(sum(1,2,3,4)); //10
+
+
+	8. Spread Operator
+		const a = [1,2];
+
+		const b = [...a, 3,4];
+
+		console.log(b); //[1,2,3,4]
+
+	9. class
+		class Employee {
+			constructor(name) {
+				this.name = name;
+			}
+		}
+
+		const emp = new Employee("John");
+
+	10. Modules
+		CommonsJS
+
+		const fs= require('fs');
+
+
+
+
+NodeJS Modules, File System
+
+	A Module is a reusable JS file containing code that can be imported into another file.
+
+	One file = one module
+
+	math.js -> exports functions
+	app.js -> import functions of math.js
+
+Types of Modules
+	Core modules
+		Built into Nodejs
+
+		Ex:
+			fs, http, path, os, events, stream..
+
+			const fs = require("fs");
+
+	Local Modules
+		Modules created by the developer.
+
+		project
+			app.js
+			math.js
+
+
+		function add(a, b)
+
+
+	Third-party modules
+		Download them using npm
+
+		Example:
+			mongoose
+			express
+			axios
+			lodash
+
+		npm install express;
+		const express = require("express")
+
+CommonJS Module System
+	CommonJS is the traditional module system used by Node js.
+	Two keywords:
+		require()
+		module.exports
+
+
+
+		module.exports = {
+			name:"dhruvik",
+			age: 28
+		}
+
+Export Class
+
+Export literals
+	module.exports = "NodeJS Training";
+
+
+fs.mkdir("students", (err)=> {
+	if(err) throw err;
+	console.log("Directory created")
+})
+
+fs.readdir(".", (err, files)=> {
+	console.log("files")l
+})
+
+fs.readFile("demo.txt", "utf8", (data, err)=> {
+	// op
+})
+
+fs.writeFile("output.txt", "hello", (err)=> {
+	if(err)=> 
+	//op
+})
+
+fs.appendFile()
 ====================================================================================================================
 26/07/2026 
 ====================================================================================================================
@@ -207,8 +664,14 @@ Stream utility functions:
 	1. Pipeline()
 		safely connnects stream together and automatically handles cleanup and errors
 
-		
 
+
+
+synchronous
+	Cofee shop
+
+
+	
 
 ====================================================================================================================
 25/07/2026 
