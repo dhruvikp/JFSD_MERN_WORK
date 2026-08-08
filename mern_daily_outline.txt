@@ -26,6 +26,765 @@
 
 	https://github.com/dhruvikp/JFSD_MERN_WORK
 
+====================================================================================================================
+08/08/2026 
+====================================================================================================================
+	Dynamic Application?
+		SSR
+		TE
+			EJS, PUG, Vash, doT.js, ATPL...
+
+	Deployment (heroku, vercel), 
+
+	Multiprocessing
+
+
+What is Dynamic Application?
+	A dynamic application generates HTML pages at runtime based on user requests and data.
+
+	Unlike static websites, every user may receive different HTML pages.
+
+
+Static vs Dynamic:
+	Browser -> HTML file -> displayed
+
+
+SSR - Server side rendering 
+	HTML is generated on the server before being sent to the browser.
+
+	browser -> HTTP Req -> NodeJs-> Template Engine -> generate HTML -> Browser
+
+Template Engine:
+	A Template engine is a library that combines
+		- HTML
+		- Data
+
+	to generate final HTML pages dynamically.
+
+	Dear ________
+	You are invited
+
+
+Without using TE
+ 	you have to write code manually to build HTML page.
+
+ 	res.end('
+ 		<h1> Welcome to '+ variable'+
+ 	')
+
+ With TE
+ 	views/
+ 		home.ejs
+
+just need to send data while calling home.ejs, ==> automatically generate HTML page dynamically.
+
+
+Advantages of TE:
+	1. Dynamic HTML
+		Generates HTML at runtime.
+
+	2. Code Reusability
+		Header, Footer, Navbar can be reused.
+
+	3. Clean code
+		Business logic 
+
+	4. Faster development
+		No need to manually concatenate strings.
+
+	5. Easy maintainance
+		Designer edits html, developers edit javascript.
+
+
+Template engines in Nodejs
+	pug
+	ejs
+	mustache
+	Handlers
+	Nunjucks
+	vash
+	doT.js
+	ATPL
+	haml
+
+
+app.js
+	routes
+
+	controllers
+
+	views
+		-home.ejs
+		- about.ejs
+		- users.ejs
+
+EJS (Embedded javaScript)
+	Most beginner friendly template engine.
+
+	npm install ejs
+
+	const express = require("express")
+
+	const app = express()
+
+	app.set("View Engine", "ejs")
+
+<%
+	const x = 10;
+%>
+
+
+
+
+Pug (formerly Jade)
+
+	npm install pug
+
+	Features:
+		- very compact syntax
+		- No closing HTML tags required
+		- Indentation based
+		- fast rendering
+		- Excellent for experienced developers
+
+
+	html
+		head
+			title pug demo
+		body
+			h1 welcome #{name}
+
+		Adv:
+			- Less typing
+			- cleaner template
+			- faster writing
+
+		DisAdv:
+			- Learning curve
+			- html developers may find syntax unfamiliar
+
+EJS
+	Features:
+		- HTML like syntax
+		- Easy for beginners
+		- Supports JS directly
+		- Most popular
+
+	Syntax:
+		<h1> <%= name %> </h1>
+
+	Adv:
+		- Easy to learn
+		- Plain html
+		- Excellent for developers
+
+	DisAdv:
+		- Large Templates can mix HTML and JS extensively if not structured well.
+
+
+Handlebars
+	npm install express-handlebars
+
+	Features:
+		- Logic-less philosophy (Limited logic in template)
+		- Reusable layouts
+		- Helper
+
+	<h1> {{name}} </h1>
+
+
+	Adv:
+		- Clean templates
+		- Strong seperation between presentation and business logic
+
+
+Mustache
+	npm install mustache
+
+	Features:
+		- Logic less
+		- Extremely Simple
+		- Cross platform
+		- small leaaring curve
+
+	<h1> {{name}}</h1>
+
+	Adv:
+		- Very simple
+		- Secure
+		- Minimal syntax
+
+
+Nunjucks	
+	Developed by Mozilla
+
+	npm install nunjucks
+
+	Features:
+		- Simplar to Jinja2 (python)
+		- Template inheritance
+		- Macros
+		- Filters
+		- Powerful control structure
+
+	{{name}}
+
+	Adv:
+		- Rich features
+		- Excellent for large projects
+		- Template inheritance
+
+
+Vash
+	npm install vash
+
+	Features:
+		- Razor-lile syntax inspired by ASP.NET
+		- Supports layouts and partials
+
+	<h1>@model.name</h1>
+
+
+doT.js
+	npm install dot
+
+	Features:
+		- Extremely fast
+		- Lightweight
+		- Focused on performance
+		- small runtime
+
+	{{=it.name}}
+
+APTL
+	npm install atpl
+
+	features:
+		- CoffeeScript -inspired syntax
+		- Lightweight
+		- Simple template rendering
+
+	Hello #{name}
+
+	Adv:
+		- Compact syntax
+		- Simple templates
+
+
+HAML
+	npm install hamljs
+
+	Features:
+		- Indentation - based
+		- minimal syntax'
+		- clean templates
+		- Ruby
+
+	%h1 = name
+
+	Adv:
+		- Minimal code
+		- Readable tempaltes
+
+
+---------
+Deploying Node.js applications - Heroku & Vercel
+
+	Deployment is the process of making an application available in an environment where users can access and use it.
+
+	What does Deployent Do?
+		Buy server
+		 Install linux
+		  install nodejs
+		   configure firewall
+		    configure networking
+		     deploy code
+		     	configure https
+		     	 configure monitoring
+		     	  configure scaling etc
+
+
+
+	instead of manual, you can use platform such as:
+		- Heroku
+		- Vercel
+		- AWS
+		- Azure
+		- Google Cloud
+		- Render
+		- Railway
+
+	and let the platform automate much of this work.
+
+	Heroku
+		PaaS - lets developers deploy, manage, and scale applications without managing the underlying servers directly.
+
+		Heroku runs applications in managed dynos, which are isolated runtime containers.
+
+		my-node-app
+			- package.json
+			- servers.js
+			- routes/
+			- controllers/
+			- models
+			- views/
+
+		code -> push to github
+		Heroku build -> node js runtime -> Dyno -> public URL
+
+		Heroku automatically detects Node.js applications from the presence of package.json and provides Nodejs runtime support.
+
+		Features:
+			1. PaaS
+			2. NodeJS support
+			3. Dynos
+			4. Git based deployment
+			5. Automatic dependency installation
+			6. Environment variables/config vars - process.env
+			7. Managed Databases and Add-Ons
+				managed services and add-ons
+
+				PostgreSQL
+				Key-value / redis service
+				kafka
+				monitoring
+				logging
+			8. Logging
+
+			9. Metrics and monitoring
+				CPU
+				Memory
+				throughput
+
+			10. Scaling
+
+			11. Rollbacks
+				Heroku internally maintains release/build artifacts that can be rolled back, allowing you to restore an earlier release.
+
+				R1
+				R2
+				R3 X
+				Rollback 
+				R2
+
+	Vercel
+		Cloud platform particulary focused on modern web applications, frontend frameworks, serverless/backend functions, global delivery, deployment workflows
+
+	Featurs:
+		1. Git-based deployment
+		2. Preview Deployments
+		3. Global CDN
+			Provides global delivery network designed to serve application ocntent from infrastructure close to the user.
+
+		4. Serverless funcitons
+		5. Automatic scaling
+
+		6. Deployment environments
+		7. SSL/HTTPS
+		8. WEb App Firewall/Security
+		9. Docker/container workloads
+
+
+Multiprocessing, child process and cluster
+	
+	Nodejs executes JS on single main thread.
+
+	8 core CPU
+
+		core1
+	while other ocres may underutilized
+
+
+	What is multiprocessing?
+		Multiprocessing means running multiple independent processes so that work can be distributed across multiple CPU cores.
+
+		Each process has its own
+			- Memory
+			- V8 instance
+			- Event loop
+			- JS execution context
+
+
+	Does this multiprocessing makes NodeJS multi-threaded?
+		Normal NodeJS process
+			Process -> JS -> Main thread -> Event loop
+
+		Multiprocessing
+			APp-> 
+				process1
+					- Event loop
+
+				process2
+					- event loop
+
+				process3
+					- event loop
+
+		Multiprocessing doesn't turn one Node.js process into multi-threaded JS processes, it creates multiple nodejs process
+
+		Improves CPU Utilization and isolation
+
+
+Nodejs provides built-in
+	node: child_process
+	module for creating and managing child processes.
+
+const childProcess = require("child_process");
+
+	provides:
+		- spawn()		- 	Run a command command and stream its input/output
+		- fork()		- 	Start another nodejs module with IPC
+		- exec()		- 	Execute a command thorugh a shell
+		- execFile()	- 	Execute a specific executable directly
+
+	synchronous variants
+
+spawn()
+	spawn() starts a new process and gives you streams for:
+		- stdin
+		- stdout
+		- stderr
+
+	it is especially useful when the child produces a lot of output and you want to process that output incrementally
+
+
+exec()
+	executes a command through a shell and provides the complete stdout and stderr to a cllabck when process finishes.
+
+
+Use exec() when output is reasonably small and convenient as the complete result
+
+Use spawn() when you want streaming control over a potentially large amount of output.
+
+execFile() - executes a specified executable directly and doesn't spawn a shell by default.
+
+fork()
+	- creates another Nodejs process and establishes an IPC (Inter Process communication) channel between parent and child.
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+====================================================================================================================
+02/08/2026 
+====================================================================================================================
+Topics:
+	- Server side Development, HTTP protocol and Error handling
+	- Network Fundamentals for server side development
+	- Dynamic applications using Template Engines in NodeJS
+
+
+
+
+
+Server side Development, HTTP protocol and Error handling
+
+
+Server side development
+	process of writing code that runs on a server instead of inside user's browser.
+
+	server receives req, performs business logic and interect with DB, and sends response back to clients.
+
+
+Responsibility of server
+	- authentication
+	- authorization
+	- Database operations
+	- Business logic
+	- API development
+	- Security
+	- Payment processing
+	- File uplad
+	- Logging...
+
+
+
+
+
+HTTP?
+	Hypertext Tansfer Protocol
+
+	It is the communication protocol between client and server.
+
+
+Characteristics:
+	- Stateless
+	- Requent-Response model
+	- Media independent
+	- Connectionless protocol 
+
+
+HTTP Request 		
+
+	Request url ----------  		https://www.test.com/signup?name=Dhruvik
+	Request Method 					GET/POST/DELETE/PUT
+									GET - Retrive data
+									POST - Craete a new data
+									PUT - Update at location
+									DELETE - 
+
+	Request header 					Metadata about the request
+	Request Body (Optional)
+
+
+HTTP Response
+	Response Header --> Metadata about the response. (content-type = json)
+	Response Body.  ==> HTML/JSON/PDF/XLSX
+
+
+HTTP Parser
+	Library that understands raw HTTP messages and converts them into usable request and response objects.
+
+	What Does parser extract?
+		- Method
+		- URL
+		- Headers
+		- Body
+		- HTTP Version
+
+	Features:
+		- Parses HTTP Requests
+		- Parses HTTP response
+		- Extract headers
+		- Extract URL
+		- Parse HTTP methods
+		- Handles chunked transfer encoding
+
+
+	req, res
+
+
+
+Often need to call other APIs
+Tools for creating HTTP Requests
+----------------
+
+	1. Axios
+		Most popular
+
+		axios.post(url, {body})
+
+	Advantage:
+		- Automatic JSON parsing
+		- Request timeout support
+
+
+	2. HTTP Module
+		advantage
+			 Built in
+			 lightweight
+			 no external dependencies
+
+	3. node-fetch
+
+		npm install node-fetch
+
+		const response = fetch('')
+
+
+	4. superagent
+		request.get("Url").then(res => {
+
+		});
+
+
+Error Handling
+	What is an Error?
+
+		An Error is an unexpected situation that prevents the program from executing normally.
+
+		Ex:
+			- File not found
+			- Database down
+			- Invalid JSON
+			- Division by Zero
+			- Network Failure
+
+		Types of Errors:
+			Syntax error
+			Runtime Error
+			Logical Error
+			System Error
+
+		Why Error Handling?
+			Without Error handling
+				Your application crash
+
+		How? Error Handling techniques
+			NodeJS mainly uses try..catch block (callbacks, promises, eventemitter)
+
+			try {
+				const result = JSON.parse("{");
+
+			}
+
+
+	Callback based error handling
+		NodeJS follows the
+			ERROR-FIRST Callback Pattern
+
+
+		function(err; result) {
+
+		}
+
+	Promise based error handling
+
+
+Async library
+------------
+
+Provides helpers for coordinating multiple asynchronous operations.
+
+
+
+Event-Emitter based error handling
+----------------------------
+
+	Nodejs classes emit an error event instead of throwing exceptions.
+
+	if no error listener exist, process may terminate.
+
+
+Network fundamentals
+****************************
+
+Network - collection of devices connected together so they can exchange information.
+
+browser
+	https://www.google.com
+
+		DNS
+
+		Google IP address--> 142.250.183.46
+
+		TCP connection
+
+		HTTP Request
+
+		Google Server
+
+		HTTP Response
+
+		Browser
+
+IP - Internet Protocol
+responsible for delivering data from one device to another device.
+
+IP address
+
+TCP - determines how data is delivered reliably?
+
+	- Packet ordering
+	- Error detection
+	- Retransmission
+	- Reliable delivery
+
+Application Layer
+	Responsible for user applications
+
+	HTTP
+	HTTPS
+	FTP
+	SMTP - Mail Transfer Protocol
+	DNS 
+
+
+
+Transport layer protocol
+	TCP
+			
+
+	Responsible for
+		- reliable communication
+		- ports
+		- segmentation
+		- Error recovery etc
+
+Internet Layer
+	Responsible for
+		- IP addressing
+		- Routing
+		- Packet forwarding etc
+
+	Protocols:
+		- IpV4 -old standard 32 bit address
+			192.168.1.10
+
+			Limitations:
+				- Maximum approximately handle 4.3 billion address only
+
+
+		- Ipv6 
+			128 bit address
+			2405:201:4001:abcd:00000.00000.00000.0001
+
+				supports almost 340 unidecilion (3.4 * 10^38)
+
+		Public IP vs Private IP 
+			Private IP - used inside local network
+				198.168.x.x
+
+			Public IP - Assigned by internet service privider ISP
+
+			Accessiblef rom anywhere on the internet
+
+
+
+
+Network Access Layer
+	Responsible for
+		physical communication
+
+		Ex:
+			- Ethernet
+			- Wifi
+			- Fiber
+			- Cable
+
+
+Port
+	logical communication endpoint used to identify a specific service or applciation on a device.
+
+
+	well-known ports
+		0-1023
+
+		20 - FTP data
+		21 - FTP Control
+		22 - SSH
+		80 - HTTP
+
+	Registred ports
+		1024-49151
+
+		Typically assigned to applications and software
+
+	1433 - Microsoft SQL server
+	3306 - MySQL
+	1521 - Oracle database
+
+
+	Dynamic/Private Ports
+		49152 - 65535
+			Used temporarily by client applications.
+
+			
+
+
 
 ====================================================================================================================
 01/08/2026 
