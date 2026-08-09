@@ -26,6 +26,436 @@
 
 	https://github.com/dhruvikp/JFSD_MERN_WORK
 
+
+====================================================================================================================
+09/08/2026 
+====================================================================================================================
+Understanding API
+
+	API - Application programming interface
+
+	Defined interface, which one software system can communicate with another software system.
+
+		contract that tells client how to request something from another application and what response it can expect?
+
+	GET /api/users
+	POST /api/user
+	PUT
+	DELETE
+
+	Client -> API Request 
+				http method (GET,POST, PUT, DELETE)
+				url -- API Endpoint (specific network location where API provides a particular operation)
+				headers
+				query parameters
+				path parameters
+				body
+
+
+Authentication - who are you?
+	
+Authorization - What are you allowed to do?
+	
+Adv of API
+	- Reusable
+	- Seperation of concerns
+	- Technology independence
+	- Scalability
+	- Integration
+
+Disadv of API
+	- Network dependency
+	- Latency
+	- Security risk
+	- Availablility dependency
+
+Applications of APIs
+	- Finance and Payment
+	- Ecommerce
+	- Social media
+	- Weather and mapping
+	- AI and ML
+	- Healthcare
+
+API classification
+-------------------
+	By Accessibility
+		1. Open APIs
+			These are APIs made available to external developers, usually subject to registration, documentation, quotas, and terms of use
+
+			Ex:
+				- NASA
+				- Weather provider
+				- Developer platforms
+
+			Features:
+				- Publicly available
+				- Authentication
+				- Rate Limits
+
+		2. Internal APIs
+			Used inside an organization
+
+			Features:
+				- Private
+				- Organization controlled
+				- Internal authentication
+				- Business specific
+				- Can enable microservice communication
+
+		3. Partner APIs
+			Partner APIs are shared with selected external organizations
+
+			E-Commerce company -> Partner APIs -> Shipipping API
+
+			Features:
+				- Restricted access
+				- Partner authentication
+				- Business agreements
+				- Higher trust
+				- Controlled data sharing
+
+	By Architecture
+		1. SOAP API
+			Simple Object Access Protocol
+
+			It is a protocol for structured web service commnication
+
+			Traditionally uses XML messages and commonly operates over HTTP,
+
+			Features:
+				- XML based
+				- Formal contract -- WSDL (Available operations, message structure, service contracts)
+				- Strongly structred
+				- Built-in standards
+
+		2. RESTful APIs
+			Representational State Transfer
+
+			HTTP + JSON
+
+			Features:
+				- Resource oriented GET /api/users
+				- Use HTTP methods
+				- Stateless
+				- JSON Friendly
+				- Chacheable
+
+		3. GraphQLs
+			API query language and runtime approach that allows clients to request the fields they need
+
+			GraphQL expose single endpiont such as:
+				POST /graphql
+
+			the client sends a query describing the required data:
+				query {
+					user(id:101) {
+						name
+						email
+					}
+				}
+
+			Response
+				{
+				data: {
+					user: {
+						name: "John",
+						email: "jonn@example.com"
+					}
+					
+
+					}
+				}
+
+			Features:
+				- Client specifies data
+				- Strong type system
+				- Single Endpoint
+				- Nested data
+					client can request related information in one query
+
+
+	By Functionality
+		1. Web APIs
+			Web APIs expose funcitonality over web, HTTP/HTTPS
+			REST, GraphQL, SOAP
+
+			Featurs:
+				- HTTP based communication
+				- Internet accesible
+				- Client-server architecture
+				- Authentication
+				- Data serialization
+
+
+		2. Database APIs
+			Database APIs provide programmatic access to database.
+
+			Node.js -> mongodb driver
+					-> postgresql driver
+
+
+
+		3. Composite APIs
+			Combines multiple operations or service calls into single API interaction
+
+			GET /api/dashboard
+				Backend internally calls
+					User service
+					Order service
+					Payment service
+					Notification service
+
+				Returns :
+					{
+						users: [],
+						orders: [],
+						payments: [],
+						notifications: []
+					}
+
+Selecting right API
+	
+	1. WHo will consumer it?
+
+	2. WHat type of data?
+
+	3. WHat performance requirements?
+
+	4. How important is strict contract
+		If highly important
+			SOAP mayh be appropriate
+		For typical web/mobile APIs:
+			REST preferred
+
+		For flexible data requirements
+			GraphQL 
+			may be appropriate.
+
+	
+
+
+
+Express JS fundamentals
+
+	What is Express JS?
+		Express JS is a lightweight web framework built on top of NodeJS for building:
+			- WEb server
+			- REST API
+			- Backend Applications
+			- WEb applications
+			- Middleware Pipelines
+			- Routing Systems
+
+
+		Node JS - gives runtime and low level HTTP capabilities
+
+		Express gives us a convenient programming model for:
+			- Routing
+			- Middleware
+			- Request handling
+			- Response handling
+			- Error handling
+			- Application structure
+
+		NodeJS vs Express JS
+			Node - gives runtime
+				provides, JS runtime, HTTP, File system, Streams, Events, Networking, Processes
+
+		Express sits on top of NodeJs HTTP module functionality
+
+			low code , much simpler way of defining apis
+
+		Why Express?
+			Routing, Middleware, Req/Res helpers, Error handlign, easy
+
+
+		Features of Express:
+			1. Routing
+
+				app.get("api/user", ...)
+				app.post("api/users",...)
+				app.put("api/users/:id",...)
+				app.delete("api/users/:id",...)
+
+
+			2. Middleware
+				app.use(...)
+
+
+			3. HTTP request/response handling
+				req
+				res
+
+			4. Router
+				express.Router()
+
+			5. Error handling
+				app.use((err, req, res, next)=> {})
+
+
+			6. Static files
+				app.use(express.static("public"));
+
+
+			7. JSON Parsing
+				app.use(express.json());
+
+			8. Third-party middleware
+				cors
+				helmet
+				morgan
+				cookie-parse
+				...
+				...
+
+
+		How Express js works?
+					http request
+			client ---------------> Express server -> Middleware --> Router -> Route handler -> Business logic -> response -> client
+
+
+				app.METHOD(PATH, HANLER)
+
+				app.get("/", (req, res) => {
+						res.send("hello world")
+				})
+
+					req. method
+					req.url
+					req.params
+					req.query
+					req.headers
+					req.body
+
+
+
+					res
+						res.send()
+						res.json()
+						res.status()
+						res.redirect()
+
+
+
+		Express Middleware
+			Middleware is one of the most important express concept
+
+			A function access to:
+				(req, res, next)
+
+			Express middleware can :
+				- Execute code
+				- Modify req
+				- Modify res
+				- End the request
+				- call next() to continue processing
+
+
+			Ex:
+				app.use( (req, res, next) => {
+					console.log("Request received");
+					next();
+				})
+
+			next()?
+				Tells express:
+					I'm finished with my middleware, continue to the next matching middleware/handler
+
+
+			app.use( (req, res, next) => {
+					console.log("Request received");
+					res.status(401).send("unauthorized")
+				})
+
+
+			app.use(path, middleware)
+
+
+		Ex:
+			app.use("/admin", (req,res,next) => {
+				..
+				..
+				next();
+			})
+
+
+MVC
+	Model - view - controller
+
+	Model
+		Responsible for:
+			- data structure
+			- Database interaction
+			- Data validation at model level
+			- persistence
+
+
+	View:
+		Responsible for:
+			Presentation /UI
+
+
+	Controller:
+		Receices request and coordinates the operations
+
+		My-app/
+			app.js 
+			server.js
+
+			routes/
+				user.routes.js
+				product.routes.js
+
+			controllers/
+				user.controller.js
+				product.controller.js
+
+			models/
+				user.model.js
+				product.model.js
+
+			middleware/
+				auth.middleware.js
+				loging.middleware.js
+
+			config/
+				database.js
+
+			views/
+				user.ejb
+
+			package.json
+
+/users?id=101
+/users/101
+
+Routing request
+
+	Static route:
+
+		app.get("/users", (req, res)=> {})
+
+	Dynamic route:
+		app.get("/users/:id", (req, res)=> {
+
+			req.params.id
+
+			req.query.id 
+		})
+
+
+	Multiple Route handlers
+
+		app.get("/users", (req, res, next)=> {
+			next()
+		},
+
+		(req, res) => {
+
+		}
+
+		)	
 ====================================================================================================================
 08/08/2026 
 ====================================================================================================================
@@ -461,7 +891,72 @@ execFile() - executes a specified executable directly and doesn't spawn a shell 
 fork()
 	- creates another Nodejs process and establishes an IPC (Inter Process communication) channel between parent and child.
 
-	
+----------------
+
+Understading Application Programming Interface (API)
+
+Working of API
+	- Request, API endpoint, HTTP Methods , Request Processing, Authentication, Authorization, Data Transfer, Data format, Client integration
+
+Advantages of API
+Disadvantages of API
+Restriction of using API
+	- Depending of external service, Handling data security and privacy, Lacking control over third party APIs, Facing integration complexity, Managing versioning issues
+Applications of API
+	- Finace and Payment API, E-commerce, Social media, weather and mapping, AI and machine learning, Healthcare
+
+Classification of API
+	- Based on Accesibility
+		Open APIs - ex Developer platform, weather api, nasa api
+				- features of open apis
+
+		Internal APIs
+			- Features of internal APIs
+
+		Partner APIs
+			- Features of Partner APIs
+
+	- Based on Architecture
+		- SOAP APIs
+			ex. PayPal
+			Features of SOAP API
+
+		- RESTful APIs
+			Features of REST API
+
+		REST vs SOAP API
+
+		- GraphQL APIs
+			Features of GraphQL API
+
+	- Based on Functionality
+		- Web APIs
+			- Features of Web API
+
+		- Database APIs
+			- Features of Database API
+
+		- Composite APIs
+			- Features of Composite API
+
+	Selecting right API
+
+
+OpenAPI overview
+	Why OpenAI API?
+	OpenAI API Prerequisite
+	Generating OpenAPI API key
+	API key security
+	API key security consideration
+		- ensure data confidentiality
+		- Enable secure transmission of keys
+		- enforce strict access control
+		- Apply defined API key policies
+		- Implement security key storage
+
+
+
+
 
 
 
