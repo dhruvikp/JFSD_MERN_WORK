@@ -28,6 +28,54 @@
 
 
 ====================================================================================================================
+16/08/2026 
+====================================================================================================================
+req -
+req.params
+req.query
+req.body
+req.headers
+req.method
+req.url
+
+res - Response that we send back
+
+res.send()
+res.json()
+res.render()
+res.status()
+res.redirect()
+
+Middleware
+	Express describe application as series of middleware function calls, Middleware gets access to
+		req
+		res
+		next
+
+
+Route specific middleware?
+	apply middlware only on users
+
+
+
+Assisted Practice:
+-------------------
+http://localhost:3000/login		
+
+	login.pug
+		username
+		password
+			login -button
+
+
+	another request to handle above action
+		show dashboard page - hello #username
+
+
+
+
+
+====================================================================================================================
 09/08/2026 
 ====================================================================================================================
 Understanding API
