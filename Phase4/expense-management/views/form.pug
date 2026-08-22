@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    .card
+    h1 Add Expense
+    form(action="/expenses" method="POST" enctype="multipart/form-data")
+        input(type="text" name="title" placeholder="Expense Title")
+        input(type="number" name="amount" placeholder="Amount")
+        input(type="file" name="receipt")
+        button(type="submit") Add Expense
+        a(href="/expenses") View Expenses
+
+
