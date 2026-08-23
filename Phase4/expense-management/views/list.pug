@@ -1,0 +1,13 @@
+extends layout
+block content
+    .card
+    h1 Expense List
+
+    each exp in expenses
+        div
+            p #{exp.title} - $#{exp.amount}
+            a(href= `/edit/${exp.id}`) Edit |
+            a(href= `/delete/${exp.id}`) Delete
+    br
+    a(href="/") Add New |
+    a(href="/logout") Logout

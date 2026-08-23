@@ -14,3 +14,7 @@ exports.login = (req, res) => {
     res.status(401).send('Invalid credentials');
 }
 
+exports.logout = (req, res) => {
+    res.clearCookie('user');
+    res.redirect('/login');
+}
