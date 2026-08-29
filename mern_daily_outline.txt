@@ -26,6 +26,45 @@
 
 	https://github.com/dhruvikp/JFSD_MERN_WORK
 
+
+
+====================================================================================================================
+29/08/2026 
+====================================================================================================================
+
+	Cypress?
+		JS based testing framework/platform primarily used for testing web applications.
+
+
+		cypress-hello-world
+			cypress
+				e2e
+					hello.cy.js
+					login.cy.js
+					registration.cy.js
+
+				fixtures/
+					example.json
+
+				support/				Reusable cypress setup and custom commands.
+					commands.js
+					e2e.js
+
+			cypress.config.js 			Cypress configuration
+
+			package.json
+	
+
+	<div class="message">
+		Hello
+	</div>
+
+	cy.get(".message")
+
+
+
+
+
 ====================================================================================================================
 22/08/2026 
 ====================================================================================================================
